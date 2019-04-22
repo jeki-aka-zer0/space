@@ -1,0 +1,108 @@
+@import "variables";
+
+.display-flex {
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+  align-content: start;
+}
+
+@for $i from 0 through $num-of-cols {
+  .flex-#{$i} {
+    flex: 0 0 100% / $num-of-cols * $i;
+  }
+  .order-#{$i} {
+    order: $i;
+  }
+  .offset-#{$i} {
+    margin-right: 100% / $num-of-cols * $i;
+  }
+}
+
+@for $i from 0 through $num-of-cols {
+  .flex-xs-#{$i} {
+    flex: 0 0 100%;
+  }
+  .flex-sm-#{$i} {
+    flex: 0 0 100%;
+  }
+  .flex-md-#{$i} {
+    flex: 0 0 100%;
+  }
+  .flex-lg-#{$i} {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: $screen-sm - 1) {
+  @for $i from 0 through $num-of-cols {
+    .flex-xs-#{$i} {
+      flex: 0 0 100% / $num-of-cols * $i;
+    }
+    .order-xs-#{$i} {
+      order: $i;
+    }
+    .offset-xs-#{$i} {
+      margin-right: 100% / $num-of-cols * $i;
+    }
+  }
+  .d-xs-block {
+    display: block;
+  }
+  .d-xs-none {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  @for $i from 0 through $num-of-cols {
+    .flex-sm-#{$i} {
+      flex: 0 0 100% / $num-of-cols * $i;
+    }
+    .order-sm-#{$i} {
+      order: $i;
+    }
+    .offset-sm-#{$i} {
+      margin-right: 100% / $num-of-cols * $i;
+    }
+  }
+  .d-sm-none {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-md) {
+  @for $i from 0 through $num-of-cols {
+    .flex-md-#{$i} {
+      flex: 0 0 100% / $num-of-cols * $i;
+    }
+    .order-md-#{$i} {
+      order: $i;
+    }
+    .offset-md-#{$i} {
+      margin-right: 100% / $num-of-cols * $i;
+    }
+  }
+  .d-md-block {
+    display: block;
+  }
+  .d-md-none {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  @for $i from 0 through $num-of-cols {
+    .flex-lg-#{$i} {
+      flex: 0 0 100% / $num-of-cols * $i;
+    }
+    .order-lg-#{$i} {
+      order: $i;
+    }
+    .offset-lg-#{$i} {
+      margin-right: 100% / $num-of-cols * $i;
+    }
+  }
+}
