@@ -8,3 +8,6 @@ docker-clear:
 
 docker-up:
 	docker-compose up --build -d
+
+bash-node:
+	docker exec -it `docker ps | grep space-bc-frontend-nodejs | awk {'print $1'}` /bin/bash
