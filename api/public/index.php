@@ -2,4 +2,8 @@
 
 declare(strict_types=1);
 
-die('Backend coming soon.');
+header('Content-type: application/json');
+
+echo json_encode([
+    'message' => 'Backend coming soon.',
+]);
