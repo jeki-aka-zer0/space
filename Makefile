@@ -9,6 +9,9 @@ docker-clear:
 docker-up:
 	docker-compose up --build -d
 
+api-permissions:
+	sudo chown 777 api/var
+
 frontend-env:
 	docker-compose exec space-bc-frontend-nodejs rm -f .env.local
 	docker-compose exec space-bc-frontend-nodejs ln -sr .env.local.example .env.local

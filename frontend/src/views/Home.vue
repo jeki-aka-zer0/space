@@ -5,13 +5,20 @@
             <p>
                 Congratulations! You have successfully created new application.
             </p>
+            <ApiStatus/>
         </div>
     </div>
 </template>
 
 <script>
+    // @ is an alias to /src
+    import ApiStatus from '@/components/ApiStatus.vue'
+
     export default {
-        name: 'home'
+        name: 'home',
+        components: {
+            ApiStatus
+        }
     }
 </script>
 
