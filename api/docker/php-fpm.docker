@@ -1,8 +1,8 @@
-FROM php:7.1-fpm
+FROM php:7.3-fpm
 
-RUN apt-get update && apt-get install -y libmcrypt-dev libpq-dev ffmpeg \
+RUN apt-get update && apt-get install -y libmcrypt-dev libpq-dev libzip-dev \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-    && docker-php-ext-install mcrypt pdo_pgsql pgsql bcmath
+    && docker-php-ext-install pdo_pgsql pgsql bcmath
 
 ADD ./php/default.ini /usr/local/etc/php/conf.d/default.ini
 
