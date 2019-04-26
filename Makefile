@@ -28,6 +28,12 @@ api-migration:
 api-fixtures:
 	docker-compose exec space-bc-api-php-cli composer app fixtures:load
 
+api-test:
+	docker-compose exec space-bc-api-php-cli vendor/bin/phpunit tests/ --colors=always
+
+api-test-unit:
+	docker-compose exec space-bc-api-php-cli vendor/bin/phpunit tests/Unit --colors=always
+
 frontend-env:
 	docker-compose exec space-bc-frontend-nodejs rm -f .env.local
 	docker-compose exec space-bc-frontend-nodejs ln -sr .env.local.example .env.local

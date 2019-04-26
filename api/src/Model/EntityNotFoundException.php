@@ -6,7 +6,6 @@ namespace Api\Model;
 
 use DomainException;
 
-class EntityNotFoundException extends DomainException
+final class EntityNotFoundException extends DomainException
 {
-
 }
