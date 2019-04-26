@@ -29,10 +29,10 @@ api-fixtures:
 	docker-compose exec space-bc-api-php-cli composer app fixtures:load
 
 api-test:
-	docker-compose exec space-bc-api-php-cli vendor/bin/phpunit tests/ --colors=always
+	docker-compose exec space-bc-api-php-cli composer test
 
 api-test-unit:
-	docker-compose exec space-bc-api-php-cli vendor/bin/phpunit tests/Unit --colors=always
+	docker-compose exec space-bc-api-php-cli composer test -- --testsuite=unit
 
 frontend-env:
 	docker-compose exec space-bc-frontend-nodejs rm -f .env.local
