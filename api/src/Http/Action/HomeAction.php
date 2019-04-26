@@ -9,12 +9,12 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\JsonResponse;
 
-class HomeAction implements RequestHandlerInterface
+final class HomeAction implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         return new JsonResponse([
-            'name' => 'App API',
+            'name' => 'Cosmos business card API',
             'version' => '1.0',
         ]);
     }

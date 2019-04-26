@@ -5,16 +5,20 @@ declare(strict_types=1);
 use Slim\App;
 use Symfony\Component\Dotenv\Dotenv;
 
-chdir(dirname(__DIR__));
-require 'vendor/autoload.php';
+$directory = dirname(__DIR__);
 
-if (file_exists('.env')) {
-    (new Dotenv)->load('.env');
+require $directory . '/vendor/autoload.php';
+
+// include environment
+$env = $directory . '/.env';
+if (file_exists($env)) {
+    (new Dotenv)->load($env);
 }
 
-(function () {
-    $container = require 'config/container.php';
+// run application
+(function () use ($directory): void {
+    $container = require $directory . '/config/container.php';
     $app = new App($container);
-    (require 'config/routes.php')($app, $container);
+    (require $directory . '/config/routes.php')($app, $container);
     $app->run();
 })();
