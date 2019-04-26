@@ -6,10 +6,10 @@ namespace Api\Model\Text\Entity\Text;
 
 use Api\Model\AggregateRoot;
 use Api\Model\EventTrait;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="text_texts")
  */
 final class Text implements AggregateRoot
@@ -18,7 +18,7 @@ final class Text implements AggregateRoot
 
     /**
      * @var TextId
-     * @ORM\Column(type="video_video_id")
+     * @ORM\Column(type="text_text_id")
      * @ORM\Id
      */
     private $id;
