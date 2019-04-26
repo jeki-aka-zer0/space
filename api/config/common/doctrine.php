@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Api\Infrastructure\Doctrine\Type\Text\TextIdType;
 use Doctrine\Common\Cache\FilesystemCache;
 use Doctrine\DBAL;
 use Doctrine\ORM\EntityManager;
@@ -37,12 +38,13 @@ return [
             'dev_mode' => false,
             'cache_dir' => 'var/cache/doctrine',
             'metadata_dirs' => [
-                'src/Model/User/Entity',
-                'src/Model/OAuth/Entity',
-                'src/Model/Video/Entity',
+                'src/Model/Text/Entity',
             ],
             'connection' => [
                 'url' => getenv('API_DB_URL'),
+            ],
+            'types' => [
+                TextIdType::NAME => TextIdType::class,
             ],
         ],
     ],

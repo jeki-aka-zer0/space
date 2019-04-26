@@ -4,3 +4,6 @@ Connect to db:
 
     create table users (id integer, name varchar(255));
     INSERT INTO users (id, name) VALUES (1, 'Vasya'),(2, 'Petya');
+
+
+4:19

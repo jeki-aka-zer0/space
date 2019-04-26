@@ -9,7 +9,7 @@ use Api\Model\EventDispatcher;
 use Api\Model\Flusher;
 use Doctrine\ORM\EntityManagerInterface;
 
-class DoctrineFlusher implements Flusher
+final class DoctrineFlusher implements Flusher
 {
     private $em;
     private $dispatcher;
@@ -24,7 +24,7 @@ class DoctrineFlusher implements Flusher
     {
         $this->em->flush();
 
-        $events = array_reduce($roots, function (array $events, AggregateRoot $root) {
+        $events = array_reduce($roots, function (array $events, AggregateRoot $root): array {
             return array_merge($events, $root->releaseEvents());
         }, []);
 
