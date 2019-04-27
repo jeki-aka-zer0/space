@@ -10,7 +10,7 @@ use Psr\Log\LoggerInterface;
 use Slim\Handlers\PhpError;
 use Throwable;
 
-class LogPhpHandler extends PhpError
+final class LogPhpHandler extends PhpError
 {
     protected $logger;
 
@@ -20,7 +20,7 @@ class LogPhpHandler extends PhpError
         parent::__construct($displayErrorDetails);
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Throwable $error)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Throwable $error): ResponseInterface
     {
         $this->logger->error($error->getMessage(), ['exception' => $error]);
 

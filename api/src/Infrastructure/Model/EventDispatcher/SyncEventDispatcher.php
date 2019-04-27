@@ -8,7 +8,7 @@ use Api\Model\EventDispatcher;
 use function get_class;
 use Psr\Container\ContainerInterface;
 
-class SyncEventDispatcher implements EventDispatcher
+final class SyncEventDispatcher implements EventDispatcher
 {
     private $container;
     private $listeners;

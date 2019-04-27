@@ -10,7 +10,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Handlers\Error;
 
-class LogHandler extends Error
+final class LogHandler extends Error
 {
     protected $logger;
 
@@ -20,7 +20,7 @@ class LogHandler extends Error
         parent::__construct($displayErrorDetails);
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Exception $exception)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, Exception $exception): ResponseInterface
     {
         $this->logger->error($exception->getMessage(), ['exception' => $exception]);
 

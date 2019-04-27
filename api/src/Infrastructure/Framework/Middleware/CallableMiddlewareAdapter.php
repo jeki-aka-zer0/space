@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
-class CallableMiddlewareAdapter
+final class CallableMiddlewareAdapter
 {
     private $container;
     private $middleware;
@@ -22,7 +22,9 @@ class CallableMiddlewareAdapter
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
-        /** @var MiddlewareInterface $middleware */
+        /**
+         * @var MiddlewareInterface $middleware
+         */
         $middleware = $this->container->get($this->middleware);
 
         return $middleware->process(
