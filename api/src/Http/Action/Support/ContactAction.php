@@ -42,6 +42,8 @@ final class ContactAction implements RequestHandlerInterface
         $command = new Command;
         $body = $request->getParsedBody();
 
+        $command->name = $body['name'] ?? '';
+        $command->email = $body['email'] ?? '';
         $command->message = $body['message'] ?? '';
 
         return $command;

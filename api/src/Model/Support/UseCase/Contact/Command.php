@@ -12,5 +12,23 @@ final class Command
      * @Assert\NotBlank()
      * @Assert\Length(min=5)
      */
+    public $name;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     */
+    public $email;
+
+    /**
+     * @Assert\Length(min=10)
+     * @Assert\Length(max=30)
+     */
+    public $phone;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min=20)
+     */
     public $message;
 }
