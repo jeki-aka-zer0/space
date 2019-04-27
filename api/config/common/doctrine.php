@@ -36,7 +36,7 @@ return [
     'config' => [
         'doctrine' => [
             'dev_mode' => false,
-            'cache_dir' => 'var/cache/doctrine',
+            'cache_dir' => 'api/var/cache/doctrine',
             'metadata_dirs' => [
                 'src/Model/Text/Entity',
             ],

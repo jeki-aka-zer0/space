@@ -1,0 +1,11 @@
+OPTIONS {{host}}/text/{{text-id-value}}
+Content-Type: application/json
+
+###
+
+POST {{host}}/text/{{text-id-value}}
+Content-Type: application/json
+
+< data/text.json
+
+###
