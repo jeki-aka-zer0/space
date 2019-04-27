@@ -15,4 +15,8 @@ return function (App $app, ContainerInterface $container): void {
     $app->add(new CM($container, Middleware\ValidationExceptionMiddleware::class));
 
     $app->get('/', Action\HomeAction::class . ':handle');
+
+    $app->group('/text', function (): void {
+        $this->post('/{id}', Action\Text\UpdateAction::class . ':handle');
+    });
 };

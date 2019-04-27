@@ -10,22 +10,29 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-class TextFixture extends AbstractFixture
+final class TextFixture extends AbstractFixture
 {
+    private $text;
+
     /**
      * @param ObjectManager $manager
      * @throws Exception
      */
     public function load(ObjectManager $manager): void
     {
-        $user = new Text(
+        $this->text = new Text(
             TextId::next(),
             'some-name',
             'some-content'
         );
 
-        $manager->persist($user);
+        $manager->persist($this->text);
 
         $manager->flush();
+    }
+
+    public function getText(): Text
+    {
+        return $this->text;
     }
 }

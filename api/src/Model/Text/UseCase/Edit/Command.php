@@ -19,7 +19,7 @@ final class Command
     public $name;
     /**
      * @Assert\NotBlank()
-     * @Assert\Length(min=20)
+     * @Assert\Length(min=5)
      */
     public $content;
 }

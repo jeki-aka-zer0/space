@@ -19,7 +19,7 @@ final class Handler
         $this->flusher = $flusher;
     }
 
-    public function handle(Command $command): void
+    public function handle(Command $command): TextId
     {
         $id = new TextId($command->id);
         $text = $this->texts->get($id);
@@ -27,5 +27,7 @@ final class Handler
         $text->edit($command->name, $command->content);
 
         $this->flusher->flush($text);
+
+        return $id;
     }
 }
