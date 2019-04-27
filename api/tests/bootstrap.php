@@ -2,14 +2,11 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\Dotenv\Dotenv;
+use \Api\Infrastructure\Environment\Loader as EnvLoader;
 
-$directory = dirname(__DIR__);
+!defined('ROOT_DIR') && define('ROOT_DIR', dirname(__DIR__));
 
-require $directory . '/vendor/autoload.php';
+require ROOT_DIR . '/vendor/autoload.php';
 
 // include environment
-$env = $directory . '/.env';
-if (file_exists($env)) {
-    (new Dotenv)->load($env);
-}
+(new EnvLoader)->load();

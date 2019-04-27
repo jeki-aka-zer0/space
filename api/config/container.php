@@ -7,8 +7,8 @@ use Zend\ConfigAggregator\ConfigAggregator;
 use Zend\ConfigAggregator\PhpFileProvider;
 
 $aggregator = new ConfigAggregator([
-    new PhpFileProvider(__DIR__ . '/common/*.php'),
-    new PhpFileProvider(__DIR__ . '/' . (getenv('API_ENV') ?: 'prod') . '/*.php'),
+    new PhpFileProvider(ROOT_DIR . '/config/common/*.php'),
+    new PhpFileProvider(ROOT_DIR . '/config/' . (getenv('API_ENV') ?: 'prod') . '/*.php'),
 ]);
 
 $config = $aggregator->getMergedConfig();

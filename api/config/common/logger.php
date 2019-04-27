@@ -33,7 +33,7 @@ return [
 
     'config' => [
         'logger' => [
-            'file' => 'var/log/app.log',
+            'file' => ROOT_DIR . '/var/log/app.log',
         ],
     ],
 ];

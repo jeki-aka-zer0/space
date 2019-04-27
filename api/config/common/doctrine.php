@@ -11,7 +11,7 @@ use Doctrine\ORM\Tools\Setup;
 use Psr\Container\ContainerInterface;
 
 return [
-    EntityManagerInterface::class => function (ContainerInterface $container) {
+    EntityManagerInterface::class => function (ContainerInterface $container): EntityManager {
         $params = $container['config']['doctrine'];
         $config = Setup::createAnnotationMetadataConfiguration(
             $params['metadata_dirs'],
@@ -36,9 +36,9 @@ return [
     'config' => [
         'doctrine' => [
             'dev_mode' => false,
-            'cache_dir' => 'api/var/cache/doctrine',
+            'cache_dir' => ROOT_DIR . '/var/cache/doctrine',
             'metadata_dirs' => [
-                'src/Model/Text/Entity',
+                ROOT_DIR . '/src/Model/Text/Entity',
             ],
             'connection' => [
                 'url' => getenv('API_DB_URL'),

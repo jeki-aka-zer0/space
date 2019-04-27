@@ -3,22 +3,19 @@
 declare(strict_types=1);
 
 use Slim\App;
-use Symfony\Component\Dotenv\Dotenv;
+use \Api\Infrastructure\Environment\Loader as EnvLoader;
 
-$directory = dirname(__DIR__);
+!defined('ROOT_DIR') && define('ROOT_DIR', dirname(__DIR__));
 
-require $directory . '/vendor/autoload.php';
+require ROOT_DIR . '/vendor/autoload.php';
 
 // include environment
-$env = $directory . '/.env';
-if (file_exists($env)) {
-    (new Dotenv)->load($env);
-}
+(new EnvLoader)->load();
 
 // run application
-(function () use ($directory): void {
-    $container = require $directory . '/config/container.php';
+(function (): void {
+    $container = require ROOT_DIR . '/config/container.php';
     $app = new App($container);
-    (require $directory . '/config/routes.php')($app, $container);
+    (require ROOT_DIR . '/config/routes.php')($app, $container);
     $app->run();
 })();

@@ -17,7 +17,7 @@ return [
 
     'config' => [
         'mailer' => [
-            'local_path' => 'var/mail',
+            'local_path' => ROOT_DIR . '/var/mail',
         ],
     ],
 ];
