@@ -6,7 +6,7 @@ namespace Api\Http\Validator;
 
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
-class Errors
+final class Errors
 {
     private $violations;
 

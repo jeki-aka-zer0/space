@@ -6,7 +6,7 @@ namespace Api\Http\Validator;
 
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class Validator
+final class Validator
 {
     private $validator;
 

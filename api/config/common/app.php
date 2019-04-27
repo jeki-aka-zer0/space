@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-use Api\Http\Action;
-use Api\Http\Middleware;
+use Api\Http\Action\HomeAction;
+use Api\Http\Middleware\BodyParamsMiddleware;
+use Api\Http\Middleware\DomainExceptionMiddleware;
+use Api\Http\Middleware\ValidationExceptionMiddleware;
 use Api\Http\Validator\Validator;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Psr\Container\ContainerInterface;
@@ -18,25 +20,25 @@ return [
             ->getValidator();
     },
 
-    Validator::class => function (ContainerInterface $container) {
+    Validator::class => function (ContainerInterface $container): Validator {
         return new Validator(
             $container->get(ValidatorInterface::class)
         );
     },
 
-    Middleware\BodyParamsMiddleware::class => function () {
-        return new Middleware\BodyParamsMiddleware;
+    BodyParamsMiddleware::class => function (): BodyParamsMiddleware {
+        return new BodyParamsMiddleware;
     },
 
-    Middleware\DomainExceptionMiddleware::class => function () {
-        return new Middleware\DomainExceptionMiddleware;
+    DomainExceptionMiddleware::class => function (): DomainExceptionMiddleware {
+        return new DomainExceptionMiddleware;
     },
 
-    Middleware\ValidationExceptionMiddleware::class => function () {
-        return new Middleware\ValidationExceptionMiddleware;
+    ValidationExceptionMiddleware::class => function (): ValidationExceptionMiddleware {
+        return new ValidationExceptionMiddleware;
     },
 
-    Action\HomeAction::class => function () {
-        return new Action\HomeAction;
+    HomeAction::class => function (): HomeAction {
+        return new HomeAction;
     },
 ];
