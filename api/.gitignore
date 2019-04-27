@@ -3,3 +3,4 @@
 
 /src/Http/client/rest-client.env.json
 /src/Http/Action/Text/client/data/text.json
+/src/Http/Action/Support/client/data/message.json

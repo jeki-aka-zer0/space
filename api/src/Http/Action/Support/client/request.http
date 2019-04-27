@@ -1,0 +1,11 @@
+OPTIONS {{host}}/support/contact
+Content-Type: application/json
+
+###
+
+POST {{host}}/support/contact
+Content-Type: application/json
+
+< data/message.json
+
+###

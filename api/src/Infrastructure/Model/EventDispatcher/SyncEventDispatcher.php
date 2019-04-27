@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Api\Infrastructure\Model\EventDispatcher;
 
 use Api\Model\EventDispatcher;
-use function get_class;
 use Psr\Container\ContainerInterface;
 
 final class SyncEventDispatcher implements EventDispatcher
