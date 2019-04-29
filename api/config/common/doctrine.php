@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Api\Infrastructure\Doctrine\Type\Text\TextIdType;
+use Api\Infrastructure\Doctrine\Type\Id\IdType;
 use Doctrine\Common\Cache\FilesystemCache;
 use Doctrine\DBAL;
 use Doctrine\ORM\EntityManager;
@@ -38,13 +38,17 @@ return [
             'dev_mode' => false,
             'cache_dir' => ROOT_DIR . '/var/cache/doctrine',
             'metadata_dirs' => [
+                /*ROOT_DIR . '/src/Infrastructure/Model/Sort',
+                ROOT_DIR . '/src/Infrastructure/Model/Status',*/
+
                 ROOT_DIR . '/src/Model/Text/Entity',
+                /*ROOT_DIR . '/src/Model/Language/Entity',*/
             ],
             'connection' => [
                 'url' => getenv('API_DB_URL'),
             ],
             'types' => [
-                TextIdType::NAME => TextIdType::class,
+                IdType::NAME => IdType::class,
             ],
         ],
     ],

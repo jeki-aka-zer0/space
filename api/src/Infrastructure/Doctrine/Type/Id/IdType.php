@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Api\Infrastructure\Doctrine\Type\Text;
+namespace Api\Infrastructure\Doctrine\Type\Id;
 
-use Api\Model\Text\Entity\Text\TextId;
+use Api\Infrastructure\Model\Id\Id;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\GuidType;
 
-final class TextIdType extends GuidType
+final class IdType extends GuidType
 {
-    public const NAME = 'text_text_id';
+    public const NAME = 'id';
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value instanceof TextId ? $value->getId() : $value;
+        return $value instanceof Id ? $value->getId() : $value;
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return empty($value) ? null : new TextId($value);
+        return empty($value) ? null : new Id($value);
     }
 
     public function getName(): string

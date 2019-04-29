@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Api\Infrastructure\Model\Text\Entity;
 
+use Api\Infrastructure\Model\Id\Id;
 use Api\Model\EntityNotFoundException;
 use Api\Model\Text\Entity\Text\Text;
-use Api\Model\Text\Entity\Text\TextId;
 use Api\Model\Text\Entity\Text\TextRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
@@ -25,7 +25,7 @@ final class DoctrineTextRepository implements TextRepository
         $this->em = $em;
     }
 
-    public function get(TextId $id): Text
+    public function get(Id $id): Text
     {
         /**
          * @var Text $text

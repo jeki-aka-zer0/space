@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Api\Model\Text\Entity\Text;
+namespace Api\Infrastructure\Model\Id;
 
 use Exception;
 use Ramsey\Uuid\Uuid;
 use Webmozart\Assert\Assert;
 
-final class TextId
+final class Id
 {
     private $id;
 
@@ -19,12 +19,12 @@ final class TextId
     }
 
     /**
-     * @return TextId
+     * @return Id
      * @throws Exception
      */
     public static function next(): self
     {
-        return new self(Uuid::uuid4()->toString());
+        return new static(Uuid::uuid4()->toString());
     }
 
     public function getId(): string

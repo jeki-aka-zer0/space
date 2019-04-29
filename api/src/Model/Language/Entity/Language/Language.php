@@ -22,7 +22,7 @@ final class Language implements AggregateRoot
 
     /**
      * @var Code
-     * @ORM\Embedded(class="Code")
+     * @ORM\Embedded(class="Api\Model\Language\Entity\Language\Code")
      */
     private $code;
 
@@ -46,7 +46,7 @@ final class Language implements AggregateRoot
 
     /**
      * @var Sort
-     * @ORM\Embedded(class="Sort")
+     * @ORM\Embedded(class="Api\Infrastructure\Model\Sort\Sort")
      */
     private $sort;
 

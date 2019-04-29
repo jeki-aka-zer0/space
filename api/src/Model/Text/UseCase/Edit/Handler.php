@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Api\Model\Text\UseCase\Edit;
 
+use Api\Infrastructure\Model\Id\Id;
 use Api\Model\Flusher;
-use Api\Model\Text\Entity\Text\TextId;
 use Api\Model\Text\Entity\Text\TextRepository;
 
 final class Handler
@@ -19,9 +19,9 @@ final class Handler
         $this->flusher = $flusher;
     }
 
-    public function handle(Command $command): TextId
+    public function handle(Command $command): Id
     {
-        $id = new TextId($command->id);
+        $id = new Id($command->id);
         $text = $this->texts->get($id);
 
         $text->edit($command->name, $command->content);
