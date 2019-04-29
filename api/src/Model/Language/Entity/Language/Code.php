@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Api\Model\Language\Entity\Language;
+
+use Webmozart\Assert\Assert;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Embeddable
+ */
+final class Code
+{
+    private const LENGTH = 2;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=2, unique=true)
+     */
+    private $code;
+
+    public function __construct(string $code)
+    {
+        Assert::notEmpty($code);
+        Assert::length($code, self::LENGTH);
+        $this->code = $code;
+    }
+
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    public function __toString(): string
+    {
+        return $this->code;
+    }
+}
