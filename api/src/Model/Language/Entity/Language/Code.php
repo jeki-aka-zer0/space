@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace Api\Model\Language\Entity\Language;
 
 use Webmozart\Assert\Assert;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Embeddable
- */
 final class Code
 {
     private const LENGTH = 2;

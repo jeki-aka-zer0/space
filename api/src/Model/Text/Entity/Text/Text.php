@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="text_texts")
+ * @ORM\Table(name="txt_texts")
  */
 final class Text implements AggregateRoot
 {

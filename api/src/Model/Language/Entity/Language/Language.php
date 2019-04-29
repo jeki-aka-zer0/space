@@ -14,7 +14,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="lng_language",indexes={@ORM\Index(name="search_idx", columns={"code"})})
+ * @ORM\Table(name="lng_languages",indexes={
+ *     @ORM\Index(name="search_idx", columns={"code"}),
+ *     @ORM\Index(name="sort_idx", columns={"sort"}),
+ * })
  */
 final class Language implements AggregateRoot
 {
@@ -22,7 +25,8 @@ final class Language implements AggregateRoot
 
     /**
      * @var Code
-     * @ORM\Embedded(class="Api\Model\Language\Entity\Language\Code")
+     * @ORM\Column(type="code", unique=true)
+     * @ORM\Id
      */
     private $code;
 
@@ -45,16 +49,16 @@ final class Language implements AggregateRoot
     private $updateDate;
 
     /**
-     * @var Sort
-     * @ORM\Embedded(class="Api\Infrastructure\Model\Sort\Sort")
-     */
-    private $sort;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=16)
+     * @var Status
+     * @ORM\Column(type="status")
      */
     private $status;
+
+    /**
+     * @var Sort
+     * @ORM\Column(type="sort", unique=true)
+     */
+    private $sort;
 
     public function __construct(Code $code, string $name, Sort $sort)
     {

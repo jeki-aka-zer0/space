@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+use Api\Infrastructure\Doctrine\Type\Code\CodeType;
 use Api\Infrastructure\Doctrine\Type\Id\IdType;
+use Api\Infrastructure\Doctrine\Type\Sort\SortType;
+use Api\Infrastructure\Doctrine\Type\Status\StatusType;
 use Doctrine\Common\Cache\FilesystemCache;
 use Doctrine\DBAL;
 use Doctrine\ORM\EntityManager;
@@ -38,17 +41,17 @@ return [
             'dev_mode' => false,
             'cache_dir' => ROOT_DIR . '/var/cache/doctrine',
             'metadata_dirs' => [
-                /*ROOT_DIR . '/src/Infrastructure/Model/Sort',
-                ROOT_DIR . '/src/Infrastructure/Model/Status',*/
-
                 ROOT_DIR . '/src/Model/Text/Entity',
-                /*ROOT_DIR . '/src/Model/Language/Entity',*/
+                ROOT_DIR . '/src/Model/Language/Entity',
             ],
             'connection' => [
                 'url' => getenv('API_DB_URL'),
             ],
             'types' => [
                 IdType::NAME => IdType::class,
+                StatusType::NAME => StatusType::class,
+                CodeType::NAME => CodeType::class,
+                SortType::NAME => SortType::class,
             ],
         ],
     ],

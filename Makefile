@@ -22,6 +22,10 @@ api-env:
 api-composer:
 	docker-compose exec space-bc-api-php-cli composer install
 
+api-migration-diff:
+	rm -rf api/var/cache/doctrine
+	docker-compose exec space-bc-api-php-cli composer app migrations:diff
+
 api-migration:
 	docker-compose exec space-bc-api-php-cli composer app migrations:migrate
 
