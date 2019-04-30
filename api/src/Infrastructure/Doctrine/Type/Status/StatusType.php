@@ -27,14 +27,6 @@ final class StatusType extends StringType
         return self::NAME;
     }
 
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
-    {
-        return $platform->getVarcharTypeDeclarationSQL([
-            'length' => '16',
-            'fixed' => true,
-        ]);
-    }
-
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;

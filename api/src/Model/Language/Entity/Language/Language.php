@@ -25,7 +25,7 @@ final class Language implements AggregateRoot
 
     /**
      * @var Code
-     * @ORM\Column(type="code", unique=true)
+     * @ORM\Column(type="code", length=2, unique=true)
      * @ORM\Id
      */
     private $code;
@@ -50,7 +50,7 @@ final class Language implements AggregateRoot
 
     /**
      * @var Status
-     * @ORM\Column(type="status")
+     * @ORM\Column(type="status", length=16)
      */
     private $status;
 
