@@ -10,10 +10,6 @@ final class Code
 {
     private const LENGTH = 2;
 
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=2, unique=true)
-     */
     private $code;
 
     public function __construct(string $code)

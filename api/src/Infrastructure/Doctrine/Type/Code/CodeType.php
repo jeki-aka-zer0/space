@@ -32,11 +32,10 @@ final class CodeType extends StringType
         return $platform->getVarcharTypeDeclarationSQL([
             'length' => '2',
             'fixed' => true,
-            'unique' => true,
         ]);
     }
 
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
     }
