@@ -1,5 +1,4 @@
 OPTIONS {{host}}/text/{{text-id-value}}
-Content-Type: application/json
 
 ###
 

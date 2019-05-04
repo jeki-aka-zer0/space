@@ -1,0 +1,7 @@
+OPTIONS {{host}}/languages
+
+###
+
+GET {{host}}/languages
+
+###

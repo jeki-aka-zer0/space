@@ -20,6 +20,8 @@ return function (App $app, ContainerInterface $container): void {
         $this->post('/{id}', Action\Text\UpdateAction::class . ':handle');
     });
 
+    $app->get('/languages', Action\Language\ReadAction::class . ':handle');
+
     $app->group('/support', function (): void {
         $this->post('/contact', Action\Support\ContactAction::class . ':handle');
     });

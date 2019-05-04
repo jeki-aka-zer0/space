@@ -85,4 +85,9 @@ final class Language implements AggregateRoot
     {
         return $this->name;
     }
+
+    public function getSort(): Sort
+    {
+        return $this->sort;
+    }
 }
