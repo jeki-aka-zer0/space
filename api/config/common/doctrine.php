@@ -2,15 +2,18 @@
 
 declare(strict_types=1);
 
+use Api\Infrastructure\Doctrine\Event\MigrationEventSubscriber;
 use Api\Infrastructure\Doctrine\Type\Code\CodeType;
 use Api\Infrastructure\Doctrine\Type\Id\IdType;
 use Api\Infrastructure\Doctrine\Type\Sort\SortType;
 use Api\Infrastructure\Doctrine\Type\Status\StatusType;
 use Doctrine\Common\Cache\FilesystemCache;
+use Doctrine\Common\EventManager;
 use Doctrine\DBAL;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\Tools\ToolEvents;
 use Psr\Container\ContainerInterface;
 
 return [
@@ -30,9 +33,12 @@ return [
                 DBAL\Types\Type::addType($type, $class);
             }
         }
+        $eventManager = new EventManager;
+        $eventManager->addEventListener([ToolEvents::postGenerateSchema], new MigrationEventSubscriber);
         return EntityManager::create(
             $params['connection'],
-            $config
+            $config,
+            $eventManager
         );
     },
 
