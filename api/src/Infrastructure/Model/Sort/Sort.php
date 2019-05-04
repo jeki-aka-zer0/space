@@ -12,19 +12,19 @@ final class Sort
 
     private $position;
 
-    public function __construct(string $position)
+    public function __construct(int $position)
     {
-        Assert::greaterThan($position, self::MIN);
+        Assert::greaterThanEq($position, self::MIN);
         $this->position = $position;
     }
 
-    public function getPosition(): string
+    public function getPosition(): int
     {
         return $this->position;
     }
 
     public function __toString(): string
     {
-        return $this->position;
+        return (string)$this->position;
     }
 }
