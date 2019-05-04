@@ -22,9 +22,9 @@ final class LanguageFixture extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
-        $russian = $this->createRussian();
+        $russian = $this->getRussian();
         $russian->publish();
-        $english = $this->createEnglish();
+        $english = $this->getEnglish();
         $english->publish();
 
         $manager->persist($russian);
@@ -36,21 +36,11 @@ final class LanguageFixture extends AbstractFixture
         $this->addReference('language-en', $english);
     }
 
-    public function getRussian(): Language
-    {
-        return $this->russian;
-    }
-
-    public function getEnglish(): Language
-    {
-        return $this->english;
-    }
-
     /**
      * @return Language
      * @throws Exception
      */
-    private function createRussian(): Language
+    public function getRussian(): Language
     {
         if (null === $this->russian) {
             $this->russian = new Language(
@@ -67,7 +57,7 @@ final class LanguageFixture extends AbstractFixture
      * @return Language
      * @throws Exception
      */
-    private function createEnglish(): Language
+    public function getEnglish(): Language
     {
         if (null === $this->english) {
             $this->english = new Language(

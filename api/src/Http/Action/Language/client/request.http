@@ -1,7 +1,7 @@
-OPTIONS {{host}}/languages
+OPTIONS {{host}}/language
 
 ###
 
-GET {{host}}/languages
+GET {{host}}/language
 
 ###

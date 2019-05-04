@@ -17,10 +17,13 @@ return function (App $app, ContainerInterface $container): void {
     $app->get('/', Action\HomeAction::class . ':handle');
 
     $app->group('/text', function (): void {
+        $this->get('', Action\Text\ReadAction::class . ':handle');
         $this->post('/{id}', Action\Text\UpdateAction::class . ':handle');
     });
 
-    $app->get('/languages', Action\Language\ReadAction::class . ':handle');
+    $app->group('/language', function (): void {
+        $this->get('', Action\Language\ReadAction::class . ':handle');
+    });
 
     $app->group('/support', function (): void {
         $this->post('/contact', Action\Support\ContactAction::class . ':handle');

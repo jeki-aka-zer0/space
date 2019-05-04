@@ -6,6 +6,7 @@ namespace Api\Model\Text\Entity\Text;
 
 use Api\Infrastructure\Model\Id\Id;
 use Api\Infrastructure\Model\Status\Status;
+use Api\Infrastructure\Model\Status\StatusTrait;
 use Api\Model\AggregateRoot;
 use Api\Model\EventTrait;
 use Api\Model\Language\Entity\Language\Language;
@@ -22,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 final class Text implements AggregateRoot
 {
-    use EventTrait;
+    use EventTrait, StatusTrait;
 
     /**
      * @var Id
@@ -87,11 +88,27 @@ final class Text implements AggregateRoot
     }
 
     /**
+     * @return Language
+     */
+    public function getLanguage(): Language
+    {
+        return $this->language;
+    }
+
+    /**
      * @return string
      */
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 
     /**

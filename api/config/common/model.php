@@ -5,12 +5,15 @@ declare(strict_types=1);
 use Api\Infrastructure\Model\Service\DoctrineFlusher;
 use Api\Infrastructure\Model\Text\Entity\DoctrineTextRepository;
 use Api\Infrastructure\ReadModel\Language\DoctrineLanguageReadRepository;
+use Api\Infrastructure\ReadModel\Text\DoctrineTextReadRepository;
 use Api\Model\Text\Entity\Text\TextRepository;
 use Api\Model\Text\UseCase\Edit\Handler as TextEditHandler;
+use Api\Model\Text\UseCase\Read\Handler as TextsReadHandler;
 use Api\Model\Language\UseCase\Read\Handler as LanguagesReadHandler;
 use Api\Model\Support\UseCase\Contact\Handler as SupportContactHandler;
 use Api\Model\Support\Service\Contact\HandlerFactory as SupportHandlerFactory;
 use Api\ReadModel\Language\LanguageReadRepository;
+use Api\ReadModel\Text\TextReadRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Api\Model\Flusher;
@@ -33,6 +36,18 @@ return [
         return new TextEditHandler(
             $container->get(TextRepository::class),
             $container->get(Flusher::class)
+        );
+    },
+
+    TextsReadHandler::class => function (ContainerInterface $container): TextsReadHandler {
+        return new TextsReadHandler(
+            $container->get(TextReadRepository::class)
+        );
+    },
+
+    TextReadRepository::class => function (ContainerInterface $container): TextReadRepository {
+        return new DoctrineTextReadRepository(
+            $container->get(EntityManagerInterface::class)
         );
     },
 

@@ -8,3 +8,12 @@ Content-Type: application/json
 < data/text.json
 
 ###
+
+OPTIONS {{host}}/text
+
+###
+
+GET {{host}}/text
+Accept-Language: en
+
+###

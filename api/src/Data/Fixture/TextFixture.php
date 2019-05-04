@@ -13,6 +13,7 @@ use Exception;
 
 final class TextFixture extends AbstractFixture
 {
+    private const SLUG_GREETING = 'greeting';
     private $textRu;
     private $textEn;
 
@@ -22,43 +23,61 @@ final class TextFixture extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
-        /**
-         * @var Language $languageRu
-         * @var Language $languageEn
-         */
-        $languageRu = $this->getReference('language-ru');
-        $languageEn = $this->getReference('language-en');
-        $slug = 'greeting';
+        $textRu = $this->getTextRu();
+        $textRu->publish();
 
-        $this->textRu = new Text(
-            Id::next(),
-            $languageRu,
-            'Здравствуйте',
-            $slug,
-            'Добро пожаловать в Космос'
-        );
+        $textEn = $this->getTextEn();
+        $textEn->publish();
 
-        $this->textEn = new Text(
-            Id::next(),
-            $languageEn,
-            'Hello',
-            $slug,
-            'Welcome to Cosmos'
-        );
-
-        $manager->persist($this->textRu);
-        $manager->persist($this->textEn);
+        $manager->persist($textRu);
+        $manager->persist($textEn);
 
         $manager->flush();
     }
 
+    /**
+     * @return Text
+     * @throws Exception
+     */
     public function getTextRu(): Text
     {
+        if (null === $this->textRu) {
+            /**
+             * @var Language $languageRu
+             */
+            $languageRu = $this->getReference('language-ru');
+            $this->textRu = new Text(
+                Id::next(),
+                $languageRu,
+                'Здравствуйте',
+                self::SLUG_GREETING,
+                'Добро пожаловать в Космос'
+            );
+        }
+
         return $this->textRu;
     }
 
+    /**
+     * @return Text
+     * @throws Exception
+     */
     public function getTextEn(): Text
     {
+        if (null === $this->textEn) {
+            /**
+             * @var Language $languageEn
+             */
+            $languageEn = $this->getReference('language-en');
+            $this->textEn = new Text(
+                Id::next(),
+                $languageEn,
+                'Hello',
+                self::SLUG_GREETING,
+                'Welcome to Cosmos'
+            );
+        }
+
         return $this->textEn;
     }
 }
