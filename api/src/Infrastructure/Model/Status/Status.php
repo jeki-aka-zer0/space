@@ -15,6 +15,7 @@ final class Status
 
     public function __construct(string $status)
     {
+        $status = trim($status);
         Assert::oneOf($status, [static::DRAFT, static::ACTIVE]);
         $this->status = $status;
     }

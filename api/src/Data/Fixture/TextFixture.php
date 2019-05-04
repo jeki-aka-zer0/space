@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Api\Data\Fixture;
 
 use Api\Infrastructure\Model\Id\Id;
+use Api\Model\Language\Entity\Language\Language;
 use Api\Model\Text\Entity\Text\Text;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -12,7 +13,8 @@ use Exception;
 
 final class TextFixture extends AbstractFixture
 {
-    private $text;
+    private $textRu;
+    private $textEn;
 
     /**
      * @param ObjectManager $manager
@@ -20,19 +22,43 @@ final class TextFixture extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
-        $this->text = new Text(
+        /**
+         * @var Language $languageRu
+         * @var Language $languageEn
+         */
+        $languageRu = $this->getReference('language-ru');
+        $languageEn = $this->getReference('language-en');
+        $slug = 'greeting';
+
+        $this->textRu = new Text(
             Id::next(),
-            'some-name',
-            'some-content'
+            $languageRu,
+            'Здравствуйте',
+            $slug,
+            'Добро пожаловать в Космос'
         );
 
-        $manager->persist($this->text);
+        $this->textEn = new Text(
+            Id::next(),
+            $languageEn,
+            'Hello',
+            $slug,
+            'Welcome to Cosmos'
+        );
+
+        $manager->persist($this->textRu);
+        $manager->persist($this->textEn);
 
         $manager->flush();
     }
 
-    public function getText(): Text
+    public function getTextRu(): Text
     {
-        return $this->text;
+        return $this->textRu;
+    }
+
+    public function getTextEn(): Text
+    {
+        return $this->textEn;
     }
 }

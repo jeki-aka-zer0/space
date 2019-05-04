@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Api\Test\Feature\Text\Update;
 
+use Api\Data\Fixture\LanguageFixture;
 use Api\Data\Fixture\TextFixture;
 use Api\Test\Feature\WebTestCase;
 use Slim\Exception\MethodNotAllowedException;
@@ -14,6 +15,7 @@ final class SuccessTest extends WebTestCase
     protected function setUp(): void
     {
         $this->loadFixtures([
+            'language' => LanguageFixture::class,
             'text' => TextFixture::class,
         ]);
 
@@ -30,9 +32,8 @@ final class SuccessTest extends WebTestCase
          * @var TextFixture $textFixture
          */
         $textFixture = $this->getFixture('text');
-        $text = $textFixture->getText();
+        $text = $textFixture->getTextRu();
         $id = $text->getId()->getId();
-
 
         $response = $this->post("/text/{$id}", [
             'name' => 'Some new name',

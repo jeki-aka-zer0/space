@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     @ORM\Index(name="sort_idx", columns={"sort"}),
  * })
  */
-final class Language implements AggregateRoot
+class Language implements AggregateRoot
 {
     use EventTrait, StatusTrait;
 
@@ -73,7 +73,7 @@ final class Language implements AggregateRoot
         $this->name = $name;
         $this->createDate = new DateTimeImmutable;
         $this->sort = $sort;
-        $this->status = Status::ACTIVE;
+        $this->status = Status::DRAFT;
     }
 
     public function getCode(): Code

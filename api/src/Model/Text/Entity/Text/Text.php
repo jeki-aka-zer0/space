@@ -13,7 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="txt_texts")
+ * @ORM\Table(
+ *     name="txt_texts",
+ *     uniqueConstraints={
+ *        @ORM\UniqueConstraint(name="text_unique", columns={"language_code", "slug"})
+ *    }
+ * )
  */
 final class Text implements AggregateRoot
 {
@@ -41,6 +46,12 @@ final class Text implements AggregateRoot
 
     /**
      * @var string
+     * @ORM\Column(type="string")
+     */
+    private $slug;
+
+    /**
+     * @var string
      * @ORM\Column(type="text")
      */
     private $content;
@@ -51,11 +62,14 @@ final class Text implements AggregateRoot
      */
     private $status;
 
-    public function __construct(Id $id, string $name, string $content)
+    public function __construct(Id $id, Language $language, string $name, string $slug, string $content)
     {
         $this->id = $id;
+        $this->language = $language;
         $this->name = $name;
+        $this->slug = $slug;
         $this->content = $content;
+        $this->status = Status::DRAFT;
     }
 
     public function edit(string $name, string $content): void

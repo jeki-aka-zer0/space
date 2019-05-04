@@ -23,12 +23,17 @@ final class LanguageFixture extends AbstractFixture
     public function load(ObjectManager $manager): void
     {
         $russian = $this->createRussian();
+        $russian->publish();
         $english = $this->createEnglish();
+        $english->publish();
 
         $manager->persist($russian);
         $manager->persist($english);
 
         $manager->flush();
+
+        $this->addReference('language-ru', $russian);
+        $this->addReference('language-en', $english);
     }
 
     public function getRussian(): Language
