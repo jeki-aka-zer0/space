@@ -6,9 +6,9 @@ namespace Api\Infrastructure\Doctrine\Type\Code;
 
 use Api\Model\Language\Entity\Language\Code;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\StringType;
+use Doctrine\DBAL\Types\Type;
 
-final class CodeType extends StringType
+final class CodeType extends Type
 {
     public const NAME = 'code';
 
@@ -30,5 +30,13 @@ final class CodeType extends StringType
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
+    }
+
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    {
+        $fieldDeclaration['length'] = Code::LENGTH;
+        $fieldDeclaration['fixed'] = true;
+
+        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
 }

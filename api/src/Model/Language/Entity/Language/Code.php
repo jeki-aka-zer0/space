@@ -8,7 +8,7 @@ use Webmozart\Assert\Assert;
 
 final class Code
 {
-    private const LENGTH = 2;
+    const LENGTH = 2;
 
     private $code;
 
