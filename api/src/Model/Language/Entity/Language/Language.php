@@ -60,6 +60,13 @@ final class Language implements AggregateRoot
      */
     private $sort;
 
+    /**
+     * Language constructor.
+     * @param Code $code
+     * @param string $name
+     * @param Sort $sort
+     * @throws \Exception
+     */
     public function __construct(Code $code, string $name, Sort $sort)
     {
         $this->code = $code;

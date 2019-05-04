@@ -1,9 +1,2 @@
 Connect to db:
-    docker-compose exec space-bc-api-postgres bash
-    psql postgresql://api:secret@space-bc-api-postgres:5432/api
-
-    create table users (id integer, name varchar(255));
-    INSERT INTO users (id, name) VALUES (1, 'Vasya'),(2, 'Petya');
-
-
-4:19
+    docker-compose exec space-bc-api-postgres psql postgresql://api:secret@space-bc-api-postgres:5432/api
