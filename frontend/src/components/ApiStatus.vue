@@ -1,28 +1,31 @@
 <template>
-  <div>
-    <div v-if="users">
-      <p v-for="user in users">{{ user.name }}</p>
+    <div>
+        <div v-if="name">
+            <p>{{name}}</p>
+            <p>{{version}}</p>
+        </div>
+        <div v-else>
+            Loading...
+        </div>
     </div>
-    <div v-else>
-      Loading...
-    </div>
-  </div>
 </template>
 
 <script>
-  import axios from "axios";
+    import http from '../http';
 
-  export default {
-    name: 'ApiStatus',
-    data() {
-      return {
-        users: null
-      }
-    },
-    mounted() {
-      axios.get('/').then(response => {
-        this.users = response.data.users;
-      });
-    },
-  }
+    export default {
+        name: 'ApiStatus',
+        data() {
+            return {
+                name: null,
+                version: null
+            }
+        },
+        mounted() {
+            http.get('/').then(response => {
+                this.name = response.data.name;
+                this.version = response.data.version;
+            });
+        },
+    }
 </script>

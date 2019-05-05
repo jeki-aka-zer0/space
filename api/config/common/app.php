@@ -56,8 +56,10 @@ return [
         return new ValidationExceptionMiddleware;
     },
 
-    HomeAction::class => function (): HomeAction {
-        return new HomeAction;
+    HomeAction::class => function (ContainerInterface $container): HomeAction {
+        return new HomeAction(
+            $container->get(Settings::class)
+        );
     },
 
     TextUpdateAction::class => function (ContainerInterface $container): TextUpdateAction {

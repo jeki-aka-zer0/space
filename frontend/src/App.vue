@@ -1,8 +1,7 @@
 <template>
     <div id="app">
-        <header class="app-header">
-            Navigation coming soon
-        </header>
+
+        <Header/>
 
         <div class="app-content">
             <main class="container">
@@ -17,10 +16,12 @@
 </template>
 
 <script>
+    import Header from '@/components/header/Header.vue'
     import Footer from '@/components/Footer.vue'
 
     export default {
         components: {
+            Header,
             Footer
         }
     }
