@@ -11,6 +11,7 @@ use Slim\App;
 return function (App $app, ContainerInterface $container): void {
 
     $app->add(new CM($container, Middleware\BodyParamsMiddleware::class));
+    $app->add(new CM($container, Middleware\LanguageMiddleware::class));
     $app->add(new CM($container, Middleware\DomainExceptionMiddleware::class));
     $app->add(new CM($container, Middleware\ValidationExceptionMiddleware::class));
 

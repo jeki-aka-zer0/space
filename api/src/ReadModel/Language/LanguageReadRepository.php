@@ -6,5 +6,5 @@ namespace Api\ReadModel\Language;
 
 interface LanguageReadRepository
 {
-    public function all(): array;
+    public function allActive(): array;
 }

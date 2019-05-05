@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Api\Infrastructure\Framework\Settings\Settings;
 use Api\Infrastructure\Model\Service\DoctrineFlusher;
 use Api\Infrastructure\Model\Text\Entity\DoctrineTextRepository;
 use Api\Infrastructure\ReadModel\Language\DoctrineLanguageReadRepository;
@@ -41,7 +42,8 @@ return [
 
     TextsReadHandler::class => function (ContainerInterface $container): TextsReadHandler {
         return new TextsReadHandler(
-            $container->get(TextReadRepository::class)
+            $container->get(TextReadRepository::class),
+            $container->get(Settings::class)
         );
     },
 

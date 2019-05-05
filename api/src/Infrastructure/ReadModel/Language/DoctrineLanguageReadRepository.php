@@ -24,7 +24,7 @@ final class DoctrineLanguageReadRepository implements LanguageReadRepository
         $this->em = $em;
     }
 
-    public function all(): array
+    public function allActive(): array
     {
         return $this->repo->createQueryBuilder('lng')
             ->andWhere('lng.status = :status')

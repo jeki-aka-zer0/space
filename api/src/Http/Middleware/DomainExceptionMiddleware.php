@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Api\Http\Middleware;
 
+use DomainException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -16,7 +17,7 @@ final class DomainExceptionMiddleware implements MiddlewareInterface
     {
         try {
             return $handler->handle($request);
-        } catch (\DomainException $e) {
+        } catch (DomainException $e) {
             return new JsonResponse([
                 'error' => $e->getMessage(),
             ], 400);

@@ -6,12 +6,15 @@ use Api\Http\Action\HomeAction;
 use Api\Http\Action\Support\ContactAction;
 use Api\Http\Middleware\BodyParamsMiddleware;
 use Api\Http\Middleware\DomainExceptionMiddleware;
+use Api\Http\Middleware\LanguageMiddleware;
 use Api\Http\Middleware\ValidationExceptionMiddleware;
 use Api\Http\Validator\Validator;
+use Api\ReadModel\Language\LanguageReadRepository;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Api\Infrastructure\Framework\Settings\Settings;
 use Api\Http\Action\Text\UpdateAction as TextUpdateAction;
 use Api\Model\Text\UseCase\Edit\Handler as TextEditHandler;
 use Api\Http\Action\Text\ReadAction as TextsReadAction;
@@ -36,6 +39,13 @@ return [
 
     BodyParamsMiddleware::class => function (): BodyParamsMiddleware {
         return new BodyParamsMiddleware;
+    },
+
+    LanguageMiddleware::class => function (ContainerInterface $container): LanguageMiddleware {
+        return new LanguageMiddleware(
+            $container->get(LanguageReadRepository::class),
+            $container->get(Settings::class)
+        );
     },
 
     DomainExceptionMiddleware::class => function (): DomainExceptionMiddleware {

@@ -18,7 +18,7 @@ final class Handler
 
     public function handle(): LanguagesCollection
     {
-        $languages = $this->languages->all();
+        $languages = $this->languages->allActive();
         return new LanguagesCollection($languages);
     }
 }
