@@ -22,7 +22,7 @@
             ...mapGetters({
                 'getLanguages': 'getLanguages',
                 'current': 'currentLang',
-            }),
+            })
         },
         methods: {
             ...mapActions([
@@ -37,7 +37,12 @@
     .nav__languages {
     }
 
+    .nav__languages__item {
+        cursor: pointer;
+    }
+
     .nav__languages__item-active {
+        cursor: default;
         font-weight: bold;
     }
 </style>

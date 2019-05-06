@@ -13,8 +13,10 @@ export default {
                     commit('SET_LANGUAGES', data);
                 });
         },
-        chooseLang({commit}, language) {
-            commit('CHOOSE_LANG', language);
+        chooseLang({commit, getters}, language) {
+            if (getters.currentLang.code !== language.code) {
+                commit('CHOOSE_LANG', language);
+            }
         }
     },
     getters: {
