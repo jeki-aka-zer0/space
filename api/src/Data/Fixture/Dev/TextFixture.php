@@ -13,6 +13,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
 {
     const SLUG_NAVIGATION = 'navigation';
     const SLUG_ABOUT = 'about';
+    const SLUG_VALUES = 'values';
+    const SLUG_PROJECTS = 'projects';
+    const SLUG_JOBS = 'jobs';
 
     /**
      * @param ObjectManager $manager
@@ -26,6 +29,12 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
         $navigationEn = $this->getNavigationEn();
         $aboutRu = $this->getAboutRu();
         $aboutEn = $this->getAboutEn();
+        $valuesRu = $this->getValuesRu();
+        $valuesEn = $this->getValuesEn();
+        $projectsRu = $this->getProjectsRu();
+        $projectsEn = $this->getProjectsEn();
+        $jobsRu = $this->getJobsRu();
+        $jobsEn = $this->getJobsEn();
 
         $manager->persist($greetingRu);
         $manager->persist($greetingEn);
@@ -33,6 +42,12 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
         $manager->persist($navigationEn);
         $manager->persist($aboutRu);
         $manager->persist($aboutEn);
+        $manager->persist($valuesRu);
+        $manager->persist($valuesEn);
+        $manager->persist($projectsRu);
+        $manager->persist($projectsEn);
+        $manager->persist($jobsRu);
+        $manager->persist($jobsEn);
 
         $manager->flush();
     }
@@ -48,7 +63,7 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Навигация',
             self::SLUG_NAVIGATION,
-            'Используйте клавиши на клавиатуре, чтобы начать перемещение по сайту'
+            'Используйте клавиши на клавиатуре, чтобы начать перемещение по сайту.'
         );
         $navigationRu->publish();
 
@@ -64,9 +79,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
         $navigationEn = new Text(
             Id::next(),
             $this->getLanguageEn(),
-            'Hello',
+            'Navigation',
             self::SLUG_NAVIGATION,
-            'Welcome to Cosmos'
+            'Use the keys on the keyboard to start navigating the site.'
         );
         $navigationEn->publish();
 
@@ -82,9 +97,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
         $aboutRu = new Text(
             Id::next(),
             $this->getLanguageRu(),
-            'Навигация',
+            'О нас',
             self::SLUG_ABOUT,
-            'Используйте клавиши на клавиатуре, чтобы начать перемещение по сайту'
+            'Мы - самые классные.'
         );
         $aboutRu->publish();
 
@@ -100,12 +115,120 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
         $aboutEn = new Text(
             Id::next(),
             $this->getLanguageEn(),
-            'Hello',
+            'About',
             self::SLUG_ABOUT,
-            'Welcome to Cosmos'
+            'We are the best.'
         );
         $aboutEn->publish();
 
         return $aboutEn;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getValuesRu(): Text
+    {
+        $valuesRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Наши ценности',
+            self::SLUG_VALUES,
+            'Это конечно же деньги!'
+        );
+        $valuesRu->publish();
+
+        return $valuesRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getValuesEn(): Text
+    {
+        $valuesEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Our values',
+            self::SLUG_VALUES,
+            'This is of course money!'
+        );
+        $valuesEn->publish();
+
+        return $valuesEn;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getProjectsRu(): Text
+    {
+        $projectsRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Наши проекты',
+            self::SLUG_PROJECTS,
+            ''
+        );
+        $projectsRu->publish();
+
+        return $projectsRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getProjectsEn(): Text
+    {
+        $projectsEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Our projects',
+            self::SLUG_PROJECTS,
+            ''
+        );
+        $projectsEn->publish();
+
+        return $projectsEn;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getJobsRu(): Text
+    {
+        $jobsRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Хочешь в команду?',
+            self::SLUG_JOBS,
+            'Присылай резюме!'
+        );
+        $jobsRu->publish();
+
+        return $jobsRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getJobsEn(): Text
+    {
+        $jobsEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Our jobs',
+            self::SLUG_JOBS,
+            'Send CV!'
+        );
+        $jobsEn->publish();
+
+        return $jobsEn;
     }
 }
