@@ -39,13 +39,9 @@ abstract class TextFixture extends AbstractFixture
     public function getGreetingRu(): Text
     {
         if (null === $this->greetingRu) {
-            /**
-             * @var Language $languageRu
-             */
-            $languageRu = $this->getReference('language-ru');
             $this->greetingRu = new Text(
                 Id::next(),
-                $languageRu,
+                $this->getLanguageRu(),
                 'Здравствуйте',
                 self::SLUG_GREETING,
                 'Добро пожаловать в Космос'
@@ -63,13 +59,9 @@ abstract class TextFixture extends AbstractFixture
     public function getGreetingEn(): Text
     {
         if (null === $this->greetingEn) {
-            /**
-             * @var Language $languageEn
-             */
-            $languageEn = $this->getReference('language-en');
             $this->greetingEn = new Text(
                 Id::next(),
-                $languageEn,
+                $this->getLanguageEn(),
                 'Hello',
                 self::SLUG_GREETING,
                 'Welcome to Cosmos'
@@ -78,5 +70,23 @@ abstract class TextFixture extends AbstractFixture
         }
 
         return $this->greetingEn;
+    }
+
+    protected function getLanguageRu(): Language
+    {
+        /**
+         * @var Language $languageRu
+         */
+        $languageRu = $this->getReference('language-ru');
+        return $languageRu;
+    }
+
+    protected function getLanguageEn(): Language
+    {
+        /**
+         * @var Language $languageEn
+         */
+        $languageEn = $this->getReference('language-en');
+        return $languageEn;
     }
 }
