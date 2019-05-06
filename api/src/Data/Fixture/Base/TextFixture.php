@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Api\Data\Fixture;
+namespace Api\Data\Fixture\Base;
 
 use Api\Infrastructure\Model\Id\Id;
 use Api\Model\Language\Entity\Language\Language;
@@ -11,11 +11,11 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-final class TextFixture extends AbstractFixture
+abstract class TextFixture extends AbstractFixture
 {
+    private $greetingRu;
+    private $greetingEn;
     private const SLUG_GREETING = 'greeting';
-    private $textRu;
-    private $textEn;
 
     /**
      * @param ObjectManager $manager
@@ -23,14 +23,11 @@ final class TextFixture extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
-        $textRu = $this->getTextRu();
-        $textRu->publish();
+        $greetingRu = $this->getGreetingRu();
+        $greetingEn = $this->getGreetingEn();
 
-        $textEn = $this->getTextEn();
-        $textEn->publish();
-
-        $manager->persist($textRu);
-        $manager->persist($textEn);
+        $manager->persist($greetingRu);
+        $manager->persist($greetingEn);
 
         $manager->flush();
     }
@@ -39,45 +36,47 @@ final class TextFixture extends AbstractFixture
      * @return Text
      * @throws Exception
      */
-    public function getTextRu(): Text
+    public function getGreetingRu(): Text
     {
-        if (null === $this->textRu) {
+        if (null === $this->greetingRu) {
             /**
              * @var Language $languageRu
              */
             $languageRu = $this->getReference('language-ru');
-            $this->textRu = new Text(
+            $this->greetingRu = new Text(
                 Id::next(),
                 $languageRu,
                 'Здравствуйте',
                 self::SLUG_GREETING,
                 'Добро пожаловать в Космос'
             );
+            $this->greetingRu->publish();
         }
 
-        return $this->textRu;
+        return $this->greetingRu;
     }
 
     /**
      * @return Text
      * @throws Exception
      */
-    public function getTextEn(): Text
+    public function getGreetingEn(): Text
     {
-        if (null === $this->textEn) {
+        if (null === $this->greetingEn) {
             /**
              * @var Language $languageEn
              */
             $languageEn = $this->getReference('language-en');
-            $this->textEn = new Text(
+            $this->greetingEn = new Text(
                 Id::next(),
                 $languageEn,
                 'Hello',
                 self::SLUG_GREETING,
                 'Welcome to Cosmos'
             );
+            $this->greetingEn->publish();
         }
 
-        return $this->textEn;
+        return $this->greetingEn;
     }
 }

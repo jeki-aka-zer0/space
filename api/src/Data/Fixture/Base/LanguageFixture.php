@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Api\Data\Fixture;
+namespace Api\Data\Fixture\Base;
 
 use Api\Infrastructure\Model\Sort\Sort;
 use Api\Model\Language\Entity\Language\Code;
@@ -11,7 +11,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-final class LanguageFixture extends AbstractFixture
+abstract class LanguageFixture extends AbstractFixture
 {
     private $english;
     private $russian;
@@ -23,9 +23,7 @@ final class LanguageFixture extends AbstractFixture
     public function load(ObjectManager $manager): void
     {
         $russian = $this->getRussian();
-        $russian->publish();
         $english = $this->getEnglish();
-        $english->publish();
 
         $manager->persist($russian);
         $manager->persist($english);
@@ -48,6 +46,7 @@ final class LanguageFixture extends AbstractFixture
                 'Рус',
                 new Sort(1)
             );
+            $this->russian->publish();
         }
 
         return $this->russian;
@@ -65,6 +64,7 @@ final class LanguageFixture extends AbstractFixture
                 'Eng',
                 new Sort(2)
             );
+            $this->english->publish();
         }
 
         return $this->english;

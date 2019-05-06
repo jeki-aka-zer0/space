@@ -10,7 +10,7 @@ return [
     FixtureCommand::class => function (ContainerInterface $container): FixtureCommand {
         return new FixtureCommand(
             $container->get(EntityManagerInterface::class),
-            ROOT_DIR . '/src/Data/Fixture'
+            ROOT_DIR . '/src/Data/Fixture/Dev'
         );
     },
 

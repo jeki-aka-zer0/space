@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Api\Test\Feature\Text\Update;
 
-use Api\Data\Fixture\LanguageFixture;
-use Api\Data\Fixture\TextFixture;
+use Api\Data\Fixture\Test\LanguageFixture;
+use Api\Data\Fixture\Test\TextFixture;
 use Api\Test\Feature\WebTestCase;
 use Slim\Exception\MethodNotAllowedException;
 use Slim\Exception\NotFoundException;
+use Exception;
 
 final class SuccessTest extends WebTestCase
 {
@@ -25,6 +26,7 @@ final class SuccessTest extends WebTestCase
     /**
      * @throws MethodNotAllowedException
      * @throws NotFoundException
+     * @throws Exception
      */
     public function testSuccess(): void
     {
@@ -32,7 +34,7 @@ final class SuccessTest extends WebTestCase
          * @var TextFixture $textFixture
          */
         $textFixture = $this->getFixture('text');
-        $text = $textFixture->getTextRu();
+        $text = $textFixture->getGreetingEn();
         $id = $text->getId()->getId();
 
         $response = $this->post("/text/{$id}", [

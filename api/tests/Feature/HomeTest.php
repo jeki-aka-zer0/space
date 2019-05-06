@@ -23,7 +23,7 @@ final class HomeTest extends WebTestCase
         $data = json_decode($content, true);
 
         self::assertEquals([
-            'name' => 'Cosmos business card API',
+            'name' => 'Сайт-визитка компании Cosmos',
             'version' => '1.0',
         ], $data);
     }
