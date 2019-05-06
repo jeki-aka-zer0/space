@@ -1,8 +1,5 @@
 <template>
-    <!--    <div class="page-home display-flex max-width-center">-->
-    <!--        <div class="flex-xs-12">-->
-
-    <VueCustomScrollbar class="pages-wrapper" :settings="scrollBarSettings">
+    <VueCustomScrollbar class="pages-wrapper" :settings="scrollBarSettings" tabindex="0">
         <Greeting/>
         <About/>
         <Values/>
@@ -10,9 +7,6 @@
         <Jobs/>
         <Contacts/>
     </VueCustomScrollbar>
-
-    <!--        </div>-->
-    <!--    </div>-->
 </template>
 
 <script>
@@ -29,8 +23,8 @@
             return {
                 scrollBarSettings: {
                     useBothWheelAxes: true,
-                    minScrollbarLength: 50,
-                    maxScrollbarLength: 50
+                    minScrollbarLength: 100,
+                    maxScrollbarLength: 100
                 }
             };
         },
@@ -66,19 +60,15 @@
                 background: red;
                 display: block;
                 height: 3px;
-                margin-top: 30px;
+                margin-top: 25px;
+            }
+
+            &:hover .ps__thumb-x, .ps__thumb-x {
+                background: transparent url(../assets/img/rocket.gif) no-repeat center center;
+                width: 100px;
+                height: 60px;
             }
         }
-    }
-
-
-    /*.ps__rail-x:hover .ps__thumb-x,*/
-
-    .ps__thumb-x {
-        /*background: url("https://banner2.kisspng.com/20180202/zjq/kisspng-rocket-icon-rocket-5a7428c2d551a6.1639587815175620508738.jpg");*/
-        background: red !important;
-        width: 100px !important;
-        height: 60px !important;
     }
 
     .page {
