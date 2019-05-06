@@ -28,6 +28,12 @@
 </script>
 
 <style lang="scss">
+    header {
+        outline: 1px solid #e19037;
+        position: fixed;
+        width: 100%;
+    }
+
     .nav {
         align-items: center;
         display: flex;
