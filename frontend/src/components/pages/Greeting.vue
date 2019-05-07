@@ -2,8 +2,8 @@
     <div class="page">
         <div v-if="getTexts.isLoaded" class="content">
             <h1>{{ getGreeting.name }}</h1>
-            <p>{{ getGreeting.content }}</p>
-            <p>{{ getNavigation.content }}</p>
+            <div v-html="getGreeting.content"></div>
+            <div v-html="getNavigation.content"></div>
         </div>
         <div class="loader-wrapper">
             <Loader v-if="false === getTexts.isLoaded"/>

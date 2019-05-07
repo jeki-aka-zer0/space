@@ -15,7 +15,7 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
     const SLUG_NAVIGATION = 'navigation';
     const SLUG_ABOUT = 'about';
     const SLUG_VALUES = 'values';
-    const SLUG_VALUE_ITEMS = 'values-items';
+    const SLUG_VALUE_ITEMS = 'value-items';
     const SLUG_PROJECTS = 'projects';
     const SLUG_JOBS = 'jobs';
     const SLUG_APPLY_FOR_JOB = 'slug-apply-for-job';
@@ -83,7 +83,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Слоган',
             self::SLUG_SLOGAN,
-            'К будущему — в настоящем'
+            <<<HTML
+<p>К будущему — в настоящем</p>
+HTML
         );
         $sloganRu->publish();
 
@@ -101,7 +103,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Slogan',
             self::SLUG_SLOGAN,
-            'To the future - in the present'
+            <<<HTML
+<p>To the future - in the present</p>
+HTML
         );
         $sloganEn->publish();
 
@@ -119,7 +123,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Навигация',
             self::SLUG_NAVIGATION,
-            'Используйте клавиши на клавиатуре, чтобы начать перемещение по сайту.'
+            <<<HTML
+<p>Используйте клавиши на клавиатуре, чтобы начать перемещение по сайту.</p>
+HTML
         );
         $navigationRu->publish();
 
@@ -137,7 +143,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Navigation',
             self::SLUG_NAVIGATION,
-            'Use the keys on the keyboard to start navigating the site.'
+            <<<HTML
+<p>Use the keys on the keyboard to start navigating the site.</p>
+HTML
         );
         $navigationEn->publish();
 
@@ -155,7 +163,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'О нас',
             self::SLUG_ABOUT,
-            'Мы - самые классные.'
+            <<<HTML
+<p>Мы - самые классные.</p>
+HTML
         );
         $aboutRu->publish();
 
@@ -173,7 +183,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'About',
             self::SLUG_ABOUT,
-            'We are the best.'
+            <<<HTML
+<p>We are the best.</p>
+HTML
         );
         $aboutEn->publish();
 
@@ -191,7 +203,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Наши ценности',
             self::SLUG_VALUES,
-            'Это конечно же деньги!'
+            <<<HTML
+<p>Это конечно же деньги!</p>
+HTML
         );
         $valuesRu->publish();
 
@@ -209,7 +223,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Our values',
             self::SLUG_VALUES,
-            'This is of course money!'
+            <<<HTML
+<p>This is of course money!</p>
+HTML
         );
         $valuesEn->publish();
 
@@ -227,7 +243,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Значения ценностей',
             self::SLUG_VALUE_ITEMS,
-            'Качество, Ответственность, Созидание, Мастерство, Опыт, Сила'
+            <<<HTML
+<p>Качество, Ответственность, Созидание, Мастерство, Опыт, Сила</p>
+HTML
         );
         $valueItemsRu->publish();
 
@@ -245,7 +263,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Value items',
             self::SLUG_VALUE_ITEMS,
-            'Quality, Responsibility, Creation, Mastery, Experience, Strength'
+            <<<HTML
+<p>Quality, Responsibility, Creation, Mastery, Experience, Strength</p>
+HTML
         );
         $valueItemsEn->publish();
 
@@ -299,7 +319,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Хочешь в команду?',
             self::SLUG_JOBS,
-            'Присылай резюме!'
+            <<<HTML
+<p>Присылай резюме!</p>
+HTML
         );
         $jobsRu->publish();
 
@@ -317,7 +339,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Do you want a team?',
             self::SLUG_JOBS,
-            'Send CV!'
+            <<<HTML
+<p>Send CV!</p>
+HTML
         );
         $jobsEn->publish();
 
@@ -335,7 +359,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Устроиться на работу',
             self::SLUG_APPLY_FOR_JOB,
-            'Не нашел подходящей вакансии?<br>Напиши нам и отправь своё резюме!'
+            <<<HTML
+<p>Не нашел подходящей вакансии?<br>Напиши нам и отправь своё резюме!</p>
+HTML
         );
         $applyForJobRu->publish();
 
@@ -353,7 +379,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Apply for a job',
             self::SLUG_APPLY_FOR_JOB,
-            'Didn\'t find a suitable job?<br>Write us and send your resume!'
+            <<<HTML
+<p>Didn't find a suitable job?<br>Write us and send your resume!</p>
+HTML
         );
         $applyForJobEn->publish();
 
@@ -371,7 +399,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageRu(),
             'Что-то ещё?',
             self::SLUG_CONTACTS,
-            'Пиши, звони.'
+            <<<HTML
+<p>Пиши, звони.</p>
+HTML
         );
         $contactsRu->publish();
 
@@ -389,7 +419,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
             $this->getLanguageEn(),
             'Something else?',
             self::SLUG_CONTACTS,
-            'Write, call.'
+            <<<HTML
+<p>Write, call.<p>
+HTML
         );
         $contactsEn->publish();
 

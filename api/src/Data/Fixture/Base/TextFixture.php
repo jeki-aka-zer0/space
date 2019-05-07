@@ -44,7 +44,9 @@ abstract class TextFixture extends AbstractFixture
                 $this->getLanguageRu(),
                 'Здравствуйте',
                 self::SLUG_GREETING,
-                'Добро пожаловать в Космос'
+                <<<HTML
+<p>Добро пожаловать в Космос</p>
+HTML
             );
             $this->greetingRu->publish();
         }
@@ -64,7 +66,9 @@ abstract class TextFixture extends AbstractFixture
                 $this->getLanguageEn(),
                 'Hello',
                 self::SLUG_GREETING,
-                'Welcome to Cosmos'
+                <<<HTML
+<p>Welcome to Cosmos</p>
+HTML
             );
             $this->greetingEn->publish();
         }

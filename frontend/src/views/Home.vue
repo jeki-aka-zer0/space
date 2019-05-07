@@ -56,6 +56,10 @@
         overflow-x: scroll;
         overflow-y: hidden;
         margin: 40px 0 0;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     .ps {
