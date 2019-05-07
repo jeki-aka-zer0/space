@@ -47,8 +47,9 @@ return [
             'dev_mode' => false,
             'cache_dir' => ROOT_DIR . '/var/cache/doctrine',
             'metadata_dirs' => [
-                ROOT_DIR . '/src/Model/Text/Entity',
                 ROOT_DIR . '/src/Model/Language/Entity',
+                ROOT_DIR . '/src/Model/Menu/Entity',
+                ROOT_DIR . '/src/Model/Text/Entity',
             ],
             'connection' => [
                 'url' => getenv('API_DB_URL'),

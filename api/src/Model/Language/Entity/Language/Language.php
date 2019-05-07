@@ -11,10 +11,11 @@ use Api\Model\AggregateRoot;
 use Api\Model\EventTrait;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="lng_languages",indexes={
+ * @ORM\Table(name="lng_languages", indexes={
  *     @ORM\Index(name="search_idx", columns={"code"}),
  *     @ORM\Index(name="sort_idx", columns={"sort"}),
  * })
@@ -65,7 +66,7 @@ class Language implements AggregateRoot
      * @param Code $code
      * @param string $name
      * @param Sort $sort
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(Code $code, string $name, Sort $sort)
     {
