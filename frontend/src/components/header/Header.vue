@@ -32,6 +32,7 @@
         outline: 1px solid #e19037;
         position: fixed;
         width: 100%;
+        z-index: 20;
     }
 
     .nav {

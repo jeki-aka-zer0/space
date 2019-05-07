@@ -56,6 +56,7 @@
         overflow-x: scroll;
         overflow-y: hidden;
         margin: 40px 0 0;
+        z-index: 10;
 
         &:focus {
             outline: none;
