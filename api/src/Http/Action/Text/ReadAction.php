@@ -26,9 +26,7 @@ final class ReadAction implements RequestHandlerInterface
         return new JsonResponse(
             $texts->serialize(),
             200,
-            [
-                'X-total-count' => $texts->count(),
-            ]
+            ['X-total-count' => $texts->count()]
         );
     }
 }

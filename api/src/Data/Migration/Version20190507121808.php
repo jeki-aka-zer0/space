@@ -18,7 +18,7 @@ final class Version20190507121808 extends AbstractMigration
         $this->addSql('CREATE TABLE nav_menu (id UUID NOT NULL, language_code CHAR(2) NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, status CHAR(16) NOT NULL, sort INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_B6FB79F85124F222 ON nav_menu (sort)');
         $this->addSql('CREATE INDEX IDX_B6FB79F8451CDAD4 ON nav_menu (language_code)');
-        $this->addSql('CREATE INDEX sort_idx ON nav_menu (sort)');
+        $this->addSql('CREATE INDEX nav_menu_sort_idx ON nav_menu (sort)');
         $this->addSql('CREATE UNIQUE INDEX menu_unique ON nav_menu (language_code, slug)');
         $this->addSql('COMMENT ON COLUMN nav_menu.id IS \'(DC2Type:id)\'');
         $this->addSql('COMMENT ON COLUMN nav_menu.language_code IS \'(DC2Type:code)\'');

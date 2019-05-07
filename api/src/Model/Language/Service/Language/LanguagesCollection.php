@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Api\Model\Language\Service\Language;
 
 use Api\Model\Language\Entity\Language\Language;
+use ArrayObject;
 
-final class LanguagesCollection extends \ArrayObject
+final class LanguagesCollection extends ArrayObject
 {
     public function serialize(): array
     {

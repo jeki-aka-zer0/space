@@ -22,6 +22,10 @@ return function (App $app, ContainerInterface $container): void {
         $this->post('/{id}', Action\Text\UpdateAction::class . ':handle');
     });
 
+    $app->group('/menu', function (): void {
+        $this->get('', Action\Menu\ReadAction::class . ':handle');
+    });
+
     $app->group('/language', function (): void {
         $this->get('', Action\Language\ReadAction::class . ':handle');
     });

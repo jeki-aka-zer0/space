@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Api\Http\Action\Language;
+namespace Api\Http\Action\Menu;
 
-use Api\Model\Language\UseCase\Read\Handler;
+use Api\Model\Menu\UseCase\Read\Handler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -21,12 +21,12 @@ final class ReadAction implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $languages = $this->handler->handle();
+        $menu = $this->handler->handle();
 
         return new JsonResponse(
-            $languages->serialize(),
+            $menu->serialize(),
             200,
-            ['X-total-count' => $languages->count()]
+            ['X-total-count' => $menu->count()]
         );
     }
 }

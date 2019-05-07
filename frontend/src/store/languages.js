@@ -40,7 +40,7 @@ export default {
             location.reload();
         },
         SET_LANGUAGES(state, data) {
-            state.languages = data.data;
+            state.languages = data;
         },
     },
 }

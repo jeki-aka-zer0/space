@@ -18,7 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(
  *     name="nav_menu",
  *     indexes={
- *        @ORM\Index(name="sort_idx", columns={"sort"}),
+ *        @ORM\Index(name="nav_menu_sort_idx", columns={"sort"}),
  *     },
  *     uniqueConstraints={
  *        @ORM\UniqueConstraint(name="menu_unique", columns={"language_code", "slug"})

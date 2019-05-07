@@ -16,8 +16,8 @@ use Exception;
 /**
  * @ORM\Entity
  * @ORM\Table(name="lng_languages", indexes={
- *     @ORM\Index(name="search_idx", columns={"code"}),
- *     @ORM\Index(name="sort_idx", columns={"sort"}),
+ *     @ORM\Index(name="lng_languages_search_idx", columns={"code"}),
+ *     @ORM\Index(name="lng_languages_sort_idx", columns={"sort"}),
  * })
  */
 class Language implements AggregateRoot

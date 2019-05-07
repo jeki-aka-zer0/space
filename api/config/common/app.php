@@ -19,6 +19,8 @@ use Api\Http\Action\Text\UpdateAction as TextUpdateAction;
 use Api\Model\Text\UseCase\Edit\Handler as TextEditHandler;
 use Api\Http\Action\Text\ReadAction as TextsReadAction;
 use Api\Model\Text\UseCase\Read\Handler as TextsReadHandler;
+use Api\Http\Action\Menu\ReadAction as MenuReadAction;
+use Api\Model\Menu\UseCase\Read\Handler as MenuReadHandler;
 use Api\Http\Action\Language\ReadAction as LanguagesReadAction;
 use Api\Model\Language\UseCase\Read\Handler as LanguagesReadHandler;
 use Api\Model\Support\UseCase\Contact\Handler as SupportContactHandler;
@@ -72,6 +74,12 @@ return [
     TextsReadAction::class => function (ContainerInterface $container): TextsReadAction {
         return new TextsReadAction(
             $container->get(TextsReadHandler::class)
+        );
+    },
+
+    MenuReadAction::class => function (ContainerInterface $container): MenuReadAction {
+        return new MenuReadAction(
+            $container->get(MenuReadHandler::class)
         );
     },
 

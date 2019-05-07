@@ -18,8 +18,8 @@ final class Version20190429152138 extends AbstractMigration
         $this->addSql('CREATE TABLE lng_languages (code CHAR(2) NOT NULL, name VARCHAR(255) NOT NULL, create_date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, update_date TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, status CHAR(16) NOT NULL, sort INT NOT NULL, PRIMARY KEY(code))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_2D7683985E237E06 ON lng_languages (name)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_2D7683985124F222 ON lng_languages (sort)');
-        $this->addSql('CREATE INDEX search_idx ON lng_languages (code)');
-        $this->addSql('CREATE INDEX sort_idx ON lng_languages (sort)');
+        $this->addSql('CREATE INDEX lng_languages_search_idx ON lng_languages (code)');
+        $this->addSql('CREATE INDEX lng_languages_sort_idx ON lng_languages (sort)');
         $this->addSql('COMMENT ON COLUMN lng_languages.code IS \'(DC2Type:code)\'');
         $this->addSql('COMMENT ON COLUMN lng_languages.create_date IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('COMMENT ON COLUMN lng_languages.update_date IS \'(DC2Type:datetime_immutable)\'');

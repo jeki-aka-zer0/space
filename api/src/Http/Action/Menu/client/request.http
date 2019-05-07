@@ -1,0 +1,7 @@
+OPTIONS {{host}}/menu
+
+###
+
+GET {{host}}/menu
+
+###
