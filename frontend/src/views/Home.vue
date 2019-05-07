@@ -10,6 +10,7 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     import VueCustomScrollbar from 'vue-custom-scrollbar'
     import Greeting from '@/components/pages/Greeting.vue'
     import About from '@/components/pages/About.vue'
@@ -27,6 +28,14 @@
                     maxScrollbarLength: 100
                 }
             };
+        },
+        created() {
+            this.loadTexts();
+        },
+        methods: {
+            ...mapActions([
+                'loadTexts',
+            ]),
         },
         components: {
             VueCustomScrollbar,
