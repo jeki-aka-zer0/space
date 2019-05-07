@@ -11,11 +11,15 @@ use Exception;
 
 final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
 {
+    const SLUG_SLOGAN = 'slogan';
     const SLUG_NAVIGATION = 'navigation';
     const SLUG_ABOUT = 'about';
     const SLUG_VALUES = 'values';
+    const SLUG_VALUE_ITEMS = 'values-items';
     const SLUG_PROJECTS = 'projects';
     const SLUG_JOBS = 'jobs';
+    const SLUG_APPLY_FOR_JOB = 'slug-apply-for-job';
+    const SLUG_CONTACTS = 'contacts';
 
     /**
      * @param ObjectManager $manager
@@ -25,31 +29,83 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
     {
         $greetingRu = $this->getGreetingRu();
         $greetingEn = $this->getGreetingEn();
+        $sloganRu = $this->getSloganRu();
+        $sloganEn = $this->getSloganEn();
         $navigationRu = $this->getNavigationRu();
         $navigationEn = $this->getNavigationEn();
         $aboutRu = $this->getAboutRu();
         $aboutEn = $this->getAboutEn();
         $valuesRu = $this->getValuesRu();
         $valuesEn = $this->getValuesEn();
+        $valueItemsRu = $this->getValueItemsRu();
+        $valueItemsEn = $this->getValueItemsEn();
         $projectsRu = $this->getProjectsRu();
         $projectsEn = $this->getProjectsEn();
         $jobsRu = $this->getJobsRu();
         $jobsEn = $this->getJobsEn();
+        $applyForJobRu = $this->getApplyForJobRu();
+        $applyForJobEn = $this->getApplyForJobEn();
+        $contactsRu = $this->getContactsRu();
+        $contactsEn = $this->getContactsEn();
 
         $manager->persist($greetingRu);
         $manager->persist($greetingEn);
+        $manager->persist($sloganRu);
+        $manager->persist($sloganEn);
         $manager->persist($navigationRu);
         $manager->persist($navigationEn);
         $manager->persist($aboutRu);
         $manager->persist($aboutEn);
         $manager->persist($valuesRu);
         $manager->persist($valuesEn);
+        $manager->persist($valueItemsRu);
+        $manager->persist($valueItemsEn);
         $manager->persist($projectsRu);
         $manager->persist($projectsEn);
         $manager->persist($jobsRu);
         $manager->persist($jobsEn);
+        $manager->persist($applyForJobRu);
+        $manager->persist($applyForJobEn);
+        $manager->persist($contactsRu);
+        $manager->persist($contactsEn);
 
         $manager->flush();
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getSloganRu(): Text
+    {
+        $sloganRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Слоган',
+            self::SLUG_SLOGAN,
+            'К будущему — в настоящем'
+        );
+        $sloganRu->publish();
+
+        return $sloganRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getSloganEn(): Text
+    {
+        $sloganEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Slogan',
+            self::SLUG_SLOGAN,
+            'To the future - in the present'
+        );
+        $sloganEn->publish();
+
+        return $sloganEn;
     }
 
     /**
@@ -164,6 +220,42 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
      * @return Text
      * @throws Exception
      */
+    private function getValueItemsRu(): Text
+    {
+        $valueItemsRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Значения ценностей',
+            self::SLUG_VALUE_ITEMS,
+            'Качество, Ответственность, Созидание, Мастерство, Опыт, Сила'
+        );
+        $valueItemsRu->publish();
+
+        return $valueItemsRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getValueItemsEn(): Text
+    {
+        $valueItemsEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Value items',
+            self::SLUG_VALUE_ITEMS,
+            'Quality, Responsibility, Creation, Mastery, Experience, Strength'
+        );
+        $valueItemsEn->publish();
+
+        return $valueItemsEn;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
     private function getProjectsRu(): Text
     {
         $projectsRu = new Text(
@@ -223,12 +315,84 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
         $jobsEn = new Text(
             Id::next(),
             $this->getLanguageEn(),
-            'Our jobs',
+            'Do you want a team?',
             self::SLUG_JOBS,
             'Send CV!'
         );
         $jobsEn->publish();
 
         return $jobsEn;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getApplyForJobRu(): Text
+    {
+        $applyForJobRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Устроиться на работу',
+            self::SLUG_APPLY_FOR_JOB,
+            'Не нашел подходящей вакансии?<br>Напиши нам и отправь своё резюме!'
+        );
+        $applyForJobRu->publish();
+
+        return $applyForJobRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getApplyForJobEn(): Text
+    {
+        $applyForJobEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Apply for a job',
+            self::SLUG_APPLY_FOR_JOB,
+            'Didn\'t find a suitable job?<br>Write us and send your resume!'
+        );
+        $applyForJobEn->publish();
+
+        return $applyForJobEn;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getContactsRu(): Text
+    {
+        $contactsRu = new Text(
+            Id::next(),
+            $this->getLanguageRu(),
+            'Что-то ещё?',
+            self::SLUG_CONTACTS,
+            'Пиши, звони.'
+        );
+        $contactsRu->publish();
+
+        return $contactsRu;
+    }
+
+    /**
+     * @return Text
+     * @throws Exception
+     */
+    private function getContactsEn(): Text
+    {
+        $contactsEn = new Text(
+            Id::next(),
+            $this->getLanguageEn(),
+            'Something else?',
+            self::SLUG_CONTACTS,
+            'Write, call.'
+        );
+        $contactsEn->publish();
+
+        return $contactsEn;
     }
 }
