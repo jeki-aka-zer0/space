@@ -53,26 +53,8 @@
                 this.openModal({id: 'menu'});
             },
             goToAndCloseModal(slug) {
-                this._getContainer().scrollLeft = this._getPage(slug).offsetLeft;
                 this.closeModal();
-            },
-            _getContainer() {
-                let elements = document.getElementsByClassName('pages-wrapper');
-
-                if (elements.length !== 1) {
-                    throw new Error('Can not detect container.');
-                }
-
-                return elements[0];
-            },
-            _getPage(slug) {
-                let elements = document.getElementsByClassName('page-' + slug);
-
-                if (elements.length !== 1) {
-                    throw new Error('Can not detect page.');
-                }
-
-                return elements[0];
+                this.$emit('menuChosen', slug);
             },
         },
     };
