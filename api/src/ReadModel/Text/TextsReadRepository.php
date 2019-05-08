@@ -6,7 +6,7 @@ namespace Api\ReadModel\Text;
 
 use Api\Model\Language\Entity\Language\Code;
 
-interface TextReadRepository
+interface TextsReadRepository
 {
     public function all(Code $language): array;
 }

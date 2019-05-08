@@ -21,6 +21,8 @@ use Api\Http\Action\Text\ReadAction as TextsReadAction;
 use Api\Model\Text\UseCase\Read\Handler as TextsReadHandler;
 use Api\Http\Action\Menu\ReadAction as MenuReadAction;
 use Api\Model\Menu\UseCase\Read\Handler as MenuReadHandler;
+use Api\Http\Action\Project\ReadAction as ProjectsReadAction;
+use Api\Model\Project\UseCase\Read\Handler as ProjectsReadHandler;
 use Api\Http\Action\Language\ReadAction as LanguagesReadAction;
 use Api\Model\Language\UseCase\Read\Handler as LanguagesReadHandler;
 use Api\Model\Support\UseCase\Contact\Handler as SupportContactHandler;
@@ -80,6 +82,12 @@ return [
     MenuReadAction::class => function (ContainerInterface $container): MenuReadAction {
         return new MenuReadAction(
             $container->get(MenuReadHandler::class)
+        );
+    },
+
+    ProjectsReadAction::class => function (ContainerInterface $container): ProjectsReadAction {
+        return new ProjectsReadAction(
+            $container->get(ProjectsReadHandler::class)
         );
     },
 

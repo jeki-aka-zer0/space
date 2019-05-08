@@ -1,0 +1,7 @@
+OPTIONS {{host}}/project
+
+###
+
+GET {{host}}/project
+
+###

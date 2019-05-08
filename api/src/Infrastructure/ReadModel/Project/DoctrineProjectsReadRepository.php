@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Api\Infrastructure\ReadModel\Text;
+namespace Api\Infrastructure\ReadModel\Project;
 
 use Api\Infrastructure\Model\Status\Status;
 use Api\Model\Language\Entity\Language\Code;
-use Api\Model\Text\Entity\Text\Text;
-use Api\ReadModel\Text\TextReadRepository;
+use Api\Model\Project\Entity\Entity\Project;
+use Api\ReadModel\Project\ProjectsReadRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
-final class DoctrineTextReadRepository implements TextReadRepository
+final class DoctrineProjectsReadRepository implements ProjectsReadRepository
 {
     /**
      * @var EntityRepository
@@ -21,19 +21,19 @@ final class DoctrineTextReadRepository implements TextReadRepository
 
     public function __construct(EntityManagerInterface $em)
     {
-        $this->repo = $em->getRepository(Text::class);
+        $this->repo = $em->getRepository(Project::class);
         $this->em = $em;
     }
 
-    public function all(Code $language): array
+    public function allActive(Code $language): array
     {
-        return $this->repo->createQueryBuilder('txt')
-            ->andWhere('txt.status = :status AND txt.language = :language_code')
+        return $this->repo->createQueryBuilder('projects')
+            ->andWhere('projects.status = :status AND projects.language = :language_code')
             ->setParameters([
                 ':status' => Status::ACTIVE,
                 ':language_code' => $language->getCode()
             ])
-            ->orderBy('txt.id', 'desc')
+            ->orderBy('projects.sort', 'asc')
             ->getQuery()->getResult();
     }
 }
