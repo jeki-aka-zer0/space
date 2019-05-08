@@ -1,23 +1,23 @@
 <template>
 
     <div>
-        <div class="nav__hamburger">
-            <span class="nav__hamburger__line"></span>
-            <span class="nav__hamburger__line"></span>
-            <span class="nav__hamburger__line"></span>
+        <div class="btn-menu" @click="showMenu">
+            <span class="btn-menu__strip"></span>
+            <span class="btn-menu__strip"></span>
+            <span class="btn-menu__strip"></span>
         </div>
 
-        <div @click="showModal({head: '', id: 'registerModal'})"
-             class="nav__registration button button__secondary ml-10">
-            Registration
-        </div>
+        <modal v-if="getModal.id === 'menu'">
 
-        <modal>
-            <div class="affiliate-link" style="background: red; outline: 1000px solid darkred">
-                This is test!
+            <div v-if="getMenu.isLoaded" class="menu">
+                <div v-for="menu in getMenu.data" class="menu__item">
+                    {{ menu.name }}
+                </div>
             </div>
-        </modal>
 
+            <Loader v-if="false === getMenu.isLoaded"/>
+
+        </modal>
     </div>
 
 </template>
@@ -25,32 +25,50 @@
 <script>
     import {mapGetters, mapActions} from 'vuex';
     import Modal from '../elements/Modal';
+    import Loader from '../elements/Loader';
 
     export default {
         components: {
-            Modal
+            Loader,
+            Modal,
         },
         computed: {
             ...mapGetters([
+                'getMenu',
                 'getModal',
             ]),
         },
         methods: {
             ...mapActions([
-                'showModal',
+                'loadMenu',
                 'closeModal',
-            ])
-        }
+                'openModal',
+            ]),
+            showMenu() {
+                if (false === this.getMenu.isLoaded) {
+                    this.loadMenu();
+                }
+                this.openModal({id: 'menu'});
+            },
+        },
     };
 </script>
 
 <style>
-    .nav__hamburger__line {
+    .btn-menu {
+        cursor: pointer;
+    }
+
+    .btn-menu__strip {
         background-color: #fff;
         border-radius: 4px;
         display: block;
         height: 4px;
         margin: 0 0 4px;
         width: 40px;
+    }
+
+    .menu__item {
+        cursor: pointer;
     }
 </style>

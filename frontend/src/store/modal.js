@@ -5,7 +5,7 @@ export default {
         },
     },
     actions: {
-        showModal({commit}, payload) {
+        openModal({commit}, payload) {
             commit('OPEN_MODAL', payload);
         },
         closeModal({commit}) {
@@ -13,11 +13,10 @@ export default {
         },
     },
     mutations: {
-        OPEN_MODAL(state, {head, body, id}) {
+        OPEN_MODAL(state, {head, id}) {
             state.modal = {
                 isVisible: true,
                 head,
-                body,
                 id,
             };
         },
@@ -25,7 +24,6 @@ export default {
             state.modal = {
                 isVisible: false,
                 head: '',
-                body: '',
                 id: '',
             };
         },

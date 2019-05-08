@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page page-contacts">
         <div v-if="getTexts.isLoaded" class="content">
             <h1>{{ getContacts.name }}</h1>
             <div v-html="getContacts.content"></div>

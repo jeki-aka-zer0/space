@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page page-jobs">
         <div v-if="getTexts.isLoaded" class="content">
             <h1>{{ getJobs.name }}</h1>
             <div v-html="getJobs.content"></div>

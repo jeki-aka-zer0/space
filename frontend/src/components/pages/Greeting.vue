@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page page-greeting page-home">
         <div v-if="getTexts.isLoaded" class="content">
             <h1>{{ getGreeting.name }}</h1>
             <div v-html="getGreeting.content"></div>

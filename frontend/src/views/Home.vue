@@ -20,6 +20,15 @@
     import Contacts from '@/components/pages/Contacts.vue'
 
     export default {
+        components: {
+            VueCustomScrollbar,
+            Greeting,
+            About,
+            Values,
+            Projects,
+            Jobs,
+            Contacts
+        },
         data() {
             return {
                 scrollBarSettings: {
@@ -37,15 +46,6 @@
                 'loadTexts',
             ]),
         },
-        components: {
-            VueCustomScrollbar,
-            Greeting,
-            About,
-            Values,
-            Projects,
-            Jobs,
-            Contacts
-        }
     }
 </script>
 
