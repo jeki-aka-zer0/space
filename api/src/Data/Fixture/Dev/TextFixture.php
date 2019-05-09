@@ -27,6 +27,8 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
      */
     public function load(ObjectManager $manager): void
     {
+        $manager->clear();
+
         $greetingRu = $this->getGreetingRu();
         $greetingEn = $this->getGreetingEn();
         $sloganRu = $this->getSloganRu();

@@ -7,16 +7,15 @@ namespace Api\Data\Fixture\Base;
 use Api\Infrastructure\Model\Id\Id;
 use Api\Infrastructure\Model\Sort\Sort;
 use Api\Model\Language\Entity\Language\Language;
-use Api\Model\Menu\Entity\Item\Menu;
+use Api\Model\Project\Entity\Project\Project;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-abstract class MenuFixture extends AbstractFixture
+abstract class ProjectFixture extends AbstractFixture
 {
-    private $aboutRu;
-    private $aboutEn;
-    private const SLUG_ABOUT = 'about';
+    private $adamantLabRu;
+    private $adamantLabEn;
 
     /**
      * @param ObjectManager $manager
@@ -26,53 +25,59 @@ abstract class MenuFixture extends AbstractFixture
     {
         $manager->clear();
 
-        $aboutRu = $this->getAboutRu();
-        $aboutEn = $this->getAboutEn();
+        $adamantLabRu = $this->getAdamantLabRu();
+        $adamantLabEn = $this->getAdamantLabEn();
 
-        $manager->persist($aboutRu);
-        $manager->persist($aboutEn);
+        $manager->persist($adamantLabRu);
+        $manager->persist($adamantLabEn);
 
         $manager->flush();
     }
 
     /**
-     * @return Menu
+     * @return Project
      * @throws Exception
      */
-    public function getAboutRu(): Menu
+    public function getAdamantLabRu(): Project
     {
-        if (null === $this->aboutRu) {
-            $this->aboutRu = new Menu(
+        if (null === $this->adamantLabRu) {
+            $this->adamantLabRu = new Project(
                 Id::next(),
                 $this->getLanguageRu(),
-                'О нас',
-                self::SLUG_ABOUT,
+                'Adamant lab',
+                <<<HTML
+<p>Adamant lab - это казино.</p>
+HTML
+                ,
                 new Sort(1)
             );
-            $this->aboutRu->publish();
+            $this->adamantLabRu->publish();
         }
 
-        return $this->aboutRu;
+        return $this->adamantLabRu;
     }
 
     /**
-     * @return Menu
+     * @return Project
      * @throws Exception
      */
-    public function getAboutEn(): Menu
+    public function getAdamantLabEn(): Project
     {
-        if (null === $this->aboutEn) {
-            $this->aboutEn = new Menu(
+        if (null === $this->adamantLabEn) {
+            $this->adamantLabEn = new Project(
                 Id::next(),
                 $this->getLanguageEn(),
-                'About us',
-                self::SLUG_ABOUT,
+                'Adamant lab',
+                <<<HTML
+<p>Adamant lab - it is a casino.</p>
+HTML
+                ,
                 new Sort(2)
             );
-            $this->aboutEn->publish();
+            $this->adamantLabEn->publish();
         }
 
-        return $this->aboutEn;
+        return $this->adamantLabEn;
     }
 
     protected function getLanguageRu(): Language

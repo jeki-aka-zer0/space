@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Api\Model\Project\Service\Project;
 
-use Api\Model\Project\Entity\Entity\Project;
+use Api\Model\Project\Entity\Project\Project;
 use ArrayObject;
 
 final class ProjectsCollection extends ArrayObject

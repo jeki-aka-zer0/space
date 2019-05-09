@@ -23,6 +23,8 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
      */
     public function load(ObjectManager $manager): void
     {
+        $manager->clear();
+
         $aboutRu = $this->getAboutRu();
         $aboutEn = $this->getAboutEn();
         $valuesRu = $this->getValuesRu();

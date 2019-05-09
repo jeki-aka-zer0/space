@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Api\Model\Project\Entity\Entity;
+namespace Api\Model\Project\Entity\Project;
 
 use Api\Infrastructure\Model\Id\Id;
 use Api\Infrastructure\Model\Sort\Sort;

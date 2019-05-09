@@ -23,6 +23,8 @@ abstract class TextFixture extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
+        $manager->clear();
+
         $greetingRu = $this->getGreetingRu();
         $greetingEn = $this->getGreetingEn();
 

@@ -22,6 +22,8 @@ abstract class LanguageFixture extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
+        $manager->clear();
+
         $russian = $this->getRussian();
         $english = $this->getEnglish();
 

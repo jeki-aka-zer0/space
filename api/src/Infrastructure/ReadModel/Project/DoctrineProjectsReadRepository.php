@@ -6,7 +6,7 @@ namespace Api\Infrastructure\ReadModel\Project;
 
 use Api\Infrastructure\Model\Status\Status;
 use Api\Model\Language\Entity\Language\Code;
-use Api\Model\Project\Entity\Entity\Project;
+use Api\Model\Project\Entity\Project\Project;
 use Api\ReadModel\Project\ProjectsReadRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
