@@ -6,7 +6,7 @@
 
             <div>
                 <div v-for="project in getProjects">
-                    <div @click="myOpenModal(project)">
+                    <div @click="showProject(project)">
                         {{ project.name }}
                     </div>
 
@@ -50,7 +50,7 @@
                 'closeModal',
                 'openModal',
             ]),
-            myOpenModal(project) {
+            showProject(project) {
                 this.openModal({id: project.id, head: project.name});
             },
         },
