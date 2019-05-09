@@ -32,9 +32,6 @@
         methods: {
             ...mapActions(['closeModal']),
         },
-        destroyed() {
-            this.closeModal();
-        },
     };
 </script>
 

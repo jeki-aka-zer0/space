@@ -11,14 +11,28 @@
                     </div>
 
                     <modal v-if="getModal.id === job.id">
-                        <div v-html="job.content"></div>
+                        <div>
+                            <div v-html="job.content"></div>
+
+                            <div @click="applyForJob">Откикнуться</div>
+                        </div>
                     </modal>
                 </div>
             </div>
 
+            <modal v-if="getModal.id === 'applyForAJob'">
+                <div>
+                    Form coming soon
+
+                    <div>Отправить</div>
+                </div>
+            </modal>
+
             <hr>
 
-            <div v-html="getApplyForJob.content"></div>
+            <div v-html="getApplyForJobText.content"></div>
+
+            <div @click="write">Написать</div>
         </div>
         <div class="loader-wrapper">
             <Loader v-if="false === getTexts.isLoaded"/>
@@ -48,7 +62,7 @@
             getJobsText() {
                 return this.getTextBySlug(SLUG_JOBS);
             },
-            getApplyForJob() {
+            getApplyForJobText() {
                 return this.getTextBySlug(SLUG_APPLY_FOR_JOB);
             },
         },
@@ -60,6 +74,12 @@
             ]),
             showJob(job) {
                 this.openModal({id: job.id, head: job.name});
+            },
+            write() {
+                this.openModal({id: 'applyForAJob', head: 'Написать'});
+            },
+            applyForJob() {
+                this.openModal({id: 'applyForAJob', head: 'Откликнуться'});
             },
         },
         components: {

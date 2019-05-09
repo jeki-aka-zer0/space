@@ -47,7 +47,6 @@
         methods: {
             ...mapActions([
                 'loadProjects',
-                'closeModal',
                 'openModal',
             ]),
             showProject(project) {
