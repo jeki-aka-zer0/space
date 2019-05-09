@@ -32,6 +32,9 @@ api-migration:
 api-fixtures:
 	docker-compose exec space-bc-api-php-cli composer app fixtures:load
 
+api-jobs:
+	docker-compose exec space-bc-api-php-cli composer app jobs:parse
+
 api-test:
 	docker-compose exec space-bc-api-php-cli composer test
 

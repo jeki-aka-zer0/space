@@ -49,4 +49,3 @@ final class FixtureCommand extends Command
         $output->writeln('<info>Done!</info>');
     }
 }
-
