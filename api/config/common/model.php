@@ -9,11 +9,13 @@ use Api\Infrastructure\ReadModel\Language\DoctrineLanguageReadRepository;
 use Api\Infrastructure\ReadModel\Text\DoctrineTextsReadRepository;
 use Api\Infrastructure\ReadModel\Menu\DoctrineMenuReadRepository;
 use Api\Infrastructure\ReadModel\Project\DoctrineProjectsReadRepository;
+use Api\Infrastructure\ReadModel\Job\DoctrineJobsReadRepository;
 use Api\Model\Text\Entity\Text\TextRepository;
 use Api\Model\Text\UseCase\Edit\Handler as TextEditHandler;
 use Api\Model\Text\UseCase\Read\Handler as TextsReadHandler;
 use Api\Model\Menu\UseCase\Read\Handler as MenuReadHandler;
 use Api\Model\Project\UseCase\Read\Handler as ProjectsReadHandler;
+use Api\Model\Job\UseCase\Read\Handler as JobsReadHandler;
 use Api\Model\Language\UseCase\Read\Handler as LanguagesReadHandler;
 use Api\Model\Support\UseCase\Contact\Handler as SupportContactHandler;
 use Api\Model\Support\Service\Contact\HandlerFactory as SupportHandlerFactory;
@@ -21,6 +23,7 @@ use Api\ReadModel\Language\LanguageReadRepository;
 use Api\ReadModel\Text\TextsReadRepository;
 use Api\ReadModel\Menu\MenuReadRepository;
 use Api\ReadModel\Project\ProjectsReadRepository;
+use Api\ReadModel\Job\JobsReadRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 use Api\Model\Flusher;
@@ -81,6 +84,19 @@ return [
 
     ProjectsReadRepository::class => function (ContainerInterface $container): ProjectsReadRepository {
         return new DoctrineProjectsReadRepository(
+            $container->get(EntityManagerInterface::class)
+        );
+    },
+
+    JobsReadHandler::class => function (ContainerInterface $container): JobsReadHandler {
+        return new JobsReadHandler(
+            $container->get(JobsReadRepository::class),
+            $container->get(Settings::class)
+        );
+    },
+
+    JobsReadRepository::class => function (ContainerInterface $container): JobsReadRepository {
+        return new DoctrineJobsReadRepository(
             $container->get(EntityManagerInterface::class)
         );
     },

@@ -9,10 +9,11 @@ use Api\Infrastructure\Model\Sort\Sort;
 use Api\Model\Language\Entity\Language\Language;
 use Api\Model\Menu\Entity\Item\Menu;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-abstract class MenuFixture extends AbstractFixture
+abstract class MenuFixture extends AbstractFixture implements OrderedFixtureInterface
 {
     private $aboutRu;
     private $aboutEn;
@@ -91,5 +92,10 @@ abstract class MenuFixture extends AbstractFixture
          */
         $languageEn = $this->getReference('language-en');
         return $languageEn;
+    }
+
+    public function getOrder(): int
+    {
+        return 3;
     }
 }

@@ -1,0 +1,7 @@
+OPTIONS {{host}}/job
+
+###
+
+GET {{host}}/job
+
+###

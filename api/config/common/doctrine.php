@@ -47,6 +47,7 @@ return [
             'dev_mode' => false,
             'cache_dir' => ROOT_DIR . '/var/cache/doctrine',
             'metadata_dirs' => [
+                ROOT_DIR . '/src/Model/Job/Entity',
                 ROOT_DIR . '/src/Model/Language/Entity',
                 ROOT_DIR . '/src/Model/Menu/Entity',
                 ROOT_DIR . '/src/Model/Project/Entity',

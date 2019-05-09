@@ -8,10 +8,11 @@ use Api\Infrastructure\Model\Id\Id;
 use Api\Model\Language\Entity\Language\Language;
 use Api\Model\Text\Entity\Text\Text;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-abstract class TextFixture extends AbstractFixture
+abstract class TextFixture extends AbstractFixture implements OrderedFixtureInterface
 {
     private $greetingRu;
     private $greetingEn;
@@ -94,5 +95,10 @@ HTML
          */
         $languageEn = $this->getReference('language-en');
         return $languageEn;
+    }
+
+    public function getOrder(): int
+    {
+        return 5;
     }
 }

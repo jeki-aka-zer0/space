@@ -8,10 +8,11 @@ use Api\Infrastructure\Model\Sort\Sort;
 use Api\Model\Language\Entity\Language\Code;
 use Api\Model\Language\Entity\Language\Language;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
 
-abstract class LanguageFixture extends AbstractFixture
+abstract class LanguageFixture extends AbstractFixture implements OrderedFixtureInterface
 {
     private $english;
     private $russian;
@@ -70,5 +71,10 @@ abstract class LanguageFixture extends AbstractFixture
         }
 
         return $this->english;
+    }
+
+    public function getOrder(): int
+    {
+        return 1;
     }
 }

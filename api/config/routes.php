@@ -30,6 +30,10 @@ return function (App $app, ContainerInterface $container): void {
         $this->get('', Action\Project\ReadAction::class . ':handle');
     });
 
+    $app->group('/job', function (): void {
+        $this->get('', Action\Job\ReadAction::class . ':handle');
+    });
+
     $app->group('/language', function (): void {
         $this->get('', Action\Language\ReadAction::class . ':handle');
     });
