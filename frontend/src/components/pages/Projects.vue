@@ -1,8 +1,20 @@
 <template>
     <div class="page page-projects">
         <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getProjects.name }}</h1>
-            <div v-html="getProjects.content"></div>
+            <h1>{{ getProjectsText.name }}</h1>
+            <div v-html="getProjectsText.content"></div>
+
+            <div>
+                <div v-for="project in getProjects">
+                    <div @click="myOpenModal(project)">
+                        {{ project.name }}
+                    </div>
+
+                    <modal v-if="getModal.id === project.id">
+                        <div v-html="project.content"></div>
+                    </modal>
+                </div>
+            </div>
         </div>
         <div class="loader-wrapper">
             <Loader v-if="false === getTexts.isLoaded"/>
@@ -11,23 +23,40 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
+    import {mapGetters, mapActions} from 'vuex';
+    import Modal from '../elements/Modal';
     import Loader from '../elements/Loader';
 
     const SLUG_PROJECTS = 'projects';
 
     export default {
+        created() {
+            this.loadProjects();
+        },
         computed: {
             ...mapGetters([
                 'getTexts',
+                'getModal',
                 'getTextBySlug',
+                'getProjects',
             ]),
-            getProjects() {
+            getProjectsText() {
                 return this.getTextBySlug(SLUG_PROJECTS);
             },
         },
+        methods: {
+            ...mapActions([
+                'loadProjects',
+                'closeModal',
+                'openModal',
+            ]),
+            myOpenModal(project) {
+                this.openModal({id: project.id, head: project.name});
+            },
+        },
         components: {
-            Loader
+            Loader,
+            Modal,
         }
     }
 </script>
