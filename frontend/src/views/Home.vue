@@ -15,7 +15,7 @@
     import Greeting from '@/components/pages/Greeting.vue'
     import About from '@/components/pages/About.vue'
     import Values from '@/components/pages/Values.vue'
-    import Projects from '@/components/pages/Projects.vue'
+    import Projects from '@/components/pages/projects/Index.vue'
     import Jobs from '@/components/pages/Jobs.vue'
     import Contacts from '@/components/pages/Contacts.vue'
 

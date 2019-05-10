@@ -17,7 +17,7 @@ final class ProjectsCollection extends ArrayObject
     private function serializeOne(Project $project): array
     {
         return [
-            'id' => $project->getId(),
+            'id' => $project->getId()->getId(),
             'name' => $project->getName(),
             'content' => $project->getContent(),
             'sort' => $project->getSort()->getPosition(),

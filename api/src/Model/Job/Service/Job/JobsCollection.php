@@ -17,7 +17,7 @@ final class JobsCollection extends ArrayObject
     private function serializeOne(Job $Job): array
     {
         return [
-            'id' => $Job->getId(),
+            'id' => $Job->getId()->getId(),
             'name' => $Job->getName(),
             'experience' => $Job->getExperience(),
             'content' => $Job->getContent(),
