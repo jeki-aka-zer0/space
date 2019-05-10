@@ -15,9 +15,9 @@
     export default {
         data() {
             return {
-                name: null,
-                email: null,
-                message: null,
+                name: /*null*/'Vasya',
+                email: /*null*/'vasya@gmail.com',
+                message: /*null*/'This is test message.' + (new Date).getTime(),
             }
         },
         methods: {
@@ -25,13 +25,13 @@
                 'contact',
             ]),
             send() {
-                console.log(this.name, this.email, this.message);
-
-                this.contact({
-                    name: this.name,
-                    email: this.email,
-                    message: this.message
-                })
+                this
+                    .$store
+                    .dispatch('contact', {
+                        name: this.name,
+                        email: this.email,
+                        message: this.message
+                    })
                     .then(() => {
                         console.log('success');
                     })
