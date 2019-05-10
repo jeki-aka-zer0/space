@@ -1,29 +1,36 @@
 <template>
-    <div>
-        <project v-for="project in getProjects" :project="project"/>
+    <div class="page page-projects">
+        <div v-if="getTexts.isLoaded" class="content">
+            <h1>{{ getProjectsText.name }}</h1>
+            <div v-html="getProjectsText.content"></div>
+            <list/>
+        </div>
+        <div class="loader-wrapper">
+            <Loader v-if="false === getTexts.isLoaded"/>
+        </div>
     </div>
 </template>
 
 <script>
-    import {mapGetters, mapActions} from 'vuex';
-    import Project from "./Project";
+    import {mapGetters} from 'vuex';
+    import Loader from '../../elements/Loader';
+    import List from './List';
+
+    const SLUG_PROJECTS = 'projects';
 
     export default {
-        created() {
-            this.loadProjects();
-        },
         computed: {
             ...mapGetters([
-                'getProjects',
+                'getTexts',
+                'getTextBySlug',
             ]),
-        },
-        methods: {
-            ...mapActions([
-                'loadProjects',
-            ]),
+            getProjectsText() {
+                return this.getTextBySlug(SLUG_PROJECTS);
+            },
         },
         components: {
-            Project,
+            Loader,
+            List,
         },
     }
 </script>

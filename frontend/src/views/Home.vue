@@ -12,12 +12,12 @@
 <script>
     import {mapActions} from 'vuex';
     import VueCustomScrollbar from 'vue-custom-scrollbar'
-    import Greeting from '@/components/pages/Greeting.vue'
-    import About from '@/components/pages/About.vue'
-    import Values from '@/components/pages/Values.vue'
-    import Projects from '@/components/pages/projects/Index.vue'
-    import Jobs from '@/components/pages/Jobs.vue'
-    import Contacts from '@/components/pages/Contacts.vue'
+    import Greeting from '@/components/pages/greeting/Greeting.vue'
+    import About from '@/components/pages/about/About.vue'
+    import Values from '@/components/pages/values/Values.vue'
+    import Projects from '@/components/pages/projects/Projects.vue'
+    import Jobs from '@/components/pages/jobs/Jobs.vue'
+    import Contacts from '@/components/pages/contacts/Contacts.vue'
 
     export default {
         components: {

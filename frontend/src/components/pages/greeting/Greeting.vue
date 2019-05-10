@@ -1,8 +1,8 @@
 <template>
     <div class="page page-greeting page-home">
         <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getGreeting.name }}</h1>
-            <div v-html="getGreeting.content"></div>
+            <h1>{{ getGreetingText.name }}</h1>
+            <div v-html="getGreetingText.content"></div>
             <div v-html="getNavigation.content"></div>
         </div>
         <div class="loader-wrapper">
@@ -13,7 +13,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import Loader from '../elements/Loader';
+    import Loader from '../../elements/Loader';
 
     const SLUG_GREETING = 'greeting';
     const SLUG_NAVIGATION = 'navigation';
@@ -24,7 +24,7 @@
                 'getTexts',
                 'getTextBySlug',
             ]),
-            getGreeting() {
+            getGreetingText() {
                 return this.getTextBySlug(SLUG_GREETING);
             },
             getNavigation() {
@@ -32,7 +32,7 @@
             },
         },
         components: {
-            Loader
-        }
+            Loader,
+        },
     }
 </script>

@@ -1,8 +1,8 @@
 <template>
-    <div class="page page-contacts">
+    <div class="page page-about">
         <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getContacts.name }}</h1>
-            <div v-html="getContacts.content"></div>
+            <h1>{{ getAboutText.name }}</h1>
+            <div v-html="getAboutText.content"></div>
         </div>
         <div class="loader-wrapper">
             <Loader v-if="false === getTexts.isLoaded"/>
@@ -12,9 +12,9 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import Loader from '../elements/Loader';
+    import Loader from '../../elements/Loader';
 
-    const SLUG_CONTACTS = 'contacts';
+    const SLUG_ABOUT = 'about';
 
     export default {
         computed: {
@@ -22,12 +22,12 @@
                 'getTexts',
                 'getTextBySlug',
             ]),
-            getContacts() {
-                return this.getTextBySlug(SLUG_CONTACTS);
+            getAboutText() {
+                return this.getTextBySlug(SLUG_ABOUT);
             },
         },
         components: {
-            Loader
-        }
+            Loader,
+        },
     }
 </script>

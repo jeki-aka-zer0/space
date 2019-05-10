@@ -1,9 +1,9 @@
 <template>
-    <div class="page page-projects">
+    <div class="page page-values">
         <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getProjectsText.name }}</h1>
-            <div v-html="getProjectsText.content"></div>
-            <projects/>
+            <h1>{{ getValuesText.name }}</h1>
+            <div v-html="getValuesText.content"></div>
+            <div v-html="getValueItems.content"></div>
         </div>
         <div class="loader-wrapper">
             <Loader v-if="false === getTexts.isLoaded"/>
@@ -14,9 +14,9 @@
 <script>
     import {mapGetters} from 'vuex';
     import Loader from '../../elements/Loader';
-    import Projects from '../../pages/projects/Projects';
 
-    const SLUG_PROJECTS = 'projects';
+    const SLUG_VALUES = 'values';
+    const SLUG_VALUE_ITEMS = 'value-items';
 
     export default {
         computed: {
@@ -24,13 +24,15 @@
                 'getTexts',
                 'getTextBySlug',
             ]),
-            getProjectsText() {
-                return this.getTextBySlug(SLUG_PROJECTS);
+            getValuesText() {
+                return this.getTextBySlug(SLUG_VALUES);
+            },
+            getValueItems() {
+                return this.getTextBySlug(SLUG_VALUE_ITEMS);
             },
         },
         components: {
             Loader,
-            Projects,
         },
     }
 </script>
