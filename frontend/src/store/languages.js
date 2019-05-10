@@ -17,7 +17,7 @@ export default {
             if (getters.currentLang.code !== language.code) {
                 commit('CHOOSE_LANG', language);
             }
-        }
+        },
     },
     getters: {
         getLanguages(state) {
@@ -31,7 +31,7 @@ export default {
             }
 
             return state.languages.find(language => language.code === code);
-        }
+        },
     },
     mutations: {
         CHOOSE_LANG: (state, language) => {

@@ -7,11 +7,7 @@
             <list/>
 
             <modal v-if="getModal.id === 'applyForAJob'">
-                <div>
-                    Form coming soon
-
-                    <div>Отправить</div>
-                </div>
+                <apply/>
             </modal>
 
             <hr>
@@ -31,6 +27,7 @@
     import Modal from '../../elements/Modal';
     import Loader from '../../elements/Loader';
     import List from './List';
+    import Apply from './Apply';
 
     const SLUG_JOBS = 'jobs';
     const SLUG_APPLY_FOR_JOB = 'slug-apply-for-job';
@@ -61,6 +58,7 @@
             Loader,
             Modal,
             List,
+            Apply,
         },
     }
 </script>
