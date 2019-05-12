@@ -52,7 +52,7 @@
 
 <style lang="scss">
     header {
-        padding: 30px 0 5px;
+        padding: 30px 10px 5px;
         position: fixed;
         width: 100%;
         z-index: 20;

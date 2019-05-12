@@ -31,3 +31,9 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .page-about {
+        background: url(../../../assets/img/bg.jpg) repeat-x -100% center !important;
+    }
+</style>

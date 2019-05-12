@@ -62,3 +62,9 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .page-jobs {
+        background: url(../../../assets/img/bg.jpg) repeat-x -400% center !important;
+    }
+</style>

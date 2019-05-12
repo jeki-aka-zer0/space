@@ -36,3 +36,9 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .page-values {
+        background: url(../../../assets/img/bg.jpg) repeat-x -200% center !important;
+    }
+</style>

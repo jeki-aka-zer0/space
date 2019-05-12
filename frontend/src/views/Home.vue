@@ -92,7 +92,7 @@
         height: 100%;
         min-width: 100%;
         min-height: 100vh;
-        padding: 65px 0 30px;
+        padding: 65px 10px 30px;
 
         background: url(../assets/img/bg.jpg) repeat-x left center;
     }

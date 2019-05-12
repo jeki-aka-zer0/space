@@ -31,3 +31,9 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .page-contacts {
+        background: url(../../../assets/img/bg.jpg) repeat-x -500% center !important;
+    }
+</style>
