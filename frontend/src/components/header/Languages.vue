@@ -5,9 +5,7 @@
                 :key="language.id"
                 :class="['nav__languages__item', {'nav__languages__item-active': language.code === current.code}]"
                 @click="chooseLang(language)"
-        >
-            {{ language.name }}
-        </span>
+        >{{ language.name }}</span>
     </div>
 </template>
 
@@ -33,12 +31,36 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    @import "../../assets/scss/colors";
+
     .nav__languages {
+        color: $light;
+        margin-right: 30px;
     }
 
     .nav__languages__item {
         cursor: pointer;
+        border-bottom: 1px solid transparent;
+        display: inline-block;
+        margin: 0 0 0 5px;
+        padding: 0 6px 0 0;
+        position: relative;
+
+        &:hover:not(.nav__languages__item-active) {
+            text-decoration: underline;
+        }
+
+        &:not(:last-child):after {
+            background: $light;
+            content: '';
+            display: block;
+            height: 16px;
+            position: absolute;
+            right: 0;
+            top: 1px;
+            width: 1px;
+        }
     }
 
     .nav__languages__item-active {

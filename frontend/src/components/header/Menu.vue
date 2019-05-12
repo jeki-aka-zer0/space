@@ -1,5 +1,4 @@
 <template>
-
     <div>
         <div class="btn-menu" @click="showMenu">
             <span class="btn-menu__strip"></span>
@@ -21,7 +20,6 @@
 
         </modal>
     </div>
-
 </template>
 
 <script>
@@ -60,18 +58,23 @@
     };
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import "../../assets/scss/colors";
+
     .btn-menu {
         cursor: pointer;
     }
 
     .btn-menu__strip {
-        background-color: #fff;
+        background-color: $light;
         border-radius: 4px;
         display: block;
         height: 4px;
-        margin: 0 0 4px;
-        width: 40px;
+        width: 38px;
+
+        &:not(:last-child) {
+            margin: 0 0 4px;
+        }
     }
 
     .menu__item {
