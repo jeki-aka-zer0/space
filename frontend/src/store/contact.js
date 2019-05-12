@@ -5,7 +5,15 @@ export default {
         contact({commit}, data) {
             return new Promise((resolve, reject) => {
                 http
-                    .post(`/support/contact`, data)
+                    .post(
+                        `/support/contact`,
+                        data,
+                        {
+                            headers: {
+                                'Content-Type': 'multipart/form-data'
+                            },
+                        },
+                    )
                     .then(() => {
                         resolve();
                     })
