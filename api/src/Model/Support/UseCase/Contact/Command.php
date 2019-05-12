@@ -10,7 +10,7 @@ final class Command
 {
     /**
      * @Assert\NotBlank()
-     * @Assert\Length(min=5)
+     * @Assert\Length(min=5, max=255)
      */
     public $name;
 
@@ -21,14 +21,13 @@ final class Command
     public $email;
 
     /**
-     * @Assert\Length(min=10)
-     * @Assert\Length(max=30)
+     * @Assert\Length(min=10, max=30)
      */
     public $phone;
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Length(min=10)
+     * @Assert\Length(min=10, max=3000)
      */
     public $message;
 }

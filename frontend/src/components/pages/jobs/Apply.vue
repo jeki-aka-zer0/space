@@ -39,6 +39,6 @@
                         console.log('error', error.message);
                     });
             },
-        }
+        },
     }
 </script>
