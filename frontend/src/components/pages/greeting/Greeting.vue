@@ -36,3 +36,8 @@
         },
     }
 </script>
+
+<style lang="scss">
+    .page-greeting {
+    }
+</style>

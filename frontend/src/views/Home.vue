@@ -58,7 +58,6 @@
         flex-wrap: nowrap;
         overflow-x: scroll;
         overflow-y: hidden;
-        margin: 65px 0 30px;
         z-index: 10;
 
         &:focus {
@@ -93,5 +92,8 @@
         height: 100%;
         min-width: 100%;
         min-height: 100vh;
+        padding: 65px 0 30px;
+
+        background: url(../assets/img/bg.jpg) repeat-x left center;
     }
 </style>
