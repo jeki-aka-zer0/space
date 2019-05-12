@@ -1,22 +1,22 @@
 <template>
     <div class="page page-jobs">
-        <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getJobsText.name }}</h1>
-            <div v-html="getJobsText.content"></div>
+        <div class="max-width-center">
+            <div v-if="getTexts.isLoaded" class="content">
+                <h1>{{ getJobsText.name }}</h1>
+                <div v-html="getJobsText.content"></div>
 
-            <list/>
+                <list/>
 
-            <modal v-if="getModal.id === 'applyForAJob'">
-                <apply/>
-            </modal>
+                <modal v-if="getModal.id === 'applyForAJob'">
+                    <apply/>
+                </modal>
 
-            <hr>
+                <hr>
 
-            <div v-html="getApplyForJobText.content"></div>
+                <div v-html="getApplyForJobText.content"></div>
 
-            <div @click="write">Написать</div>
-        </div>
-        <div class="loader-wrapper">
+                <div @click="write">Написать</div>
+            </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
     </div>

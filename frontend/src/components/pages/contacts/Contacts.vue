@@ -1,10 +1,10 @@
 <template>
     <div class="page page-contacts">
-        <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getContactsText.name }}</h1>
-            <div v-html="getContactsText.content"></div>
-        </div>
-        <div class="loader-wrapper">
+        <div class="max-width-center">
+            <div v-if="getTexts.isLoaded" class="content">
+                <h1>{{ getContactsText.name }}</h1>
+                <div v-html="getContactsText.content"></div>
+            </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
     </div>

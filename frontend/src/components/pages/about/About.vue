@@ -1,10 +1,10 @@
 <template>
     <div class="page page-about">
-        <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getAboutText.name }}</h1>
-            <div v-html="getAboutText.content"></div>
-        </div>
-        <div class="loader-wrapper">
+        <div class="max-width-center">
+            <div v-if="getTexts.isLoaded" class="content">
+                <h1>{{ getAboutText.name }}</h1>
+                <div v-html="getAboutText.content"></div>
+            </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
     </div>

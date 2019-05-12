@@ -87,6 +87,7 @@
         flex-direction: column;
         justify-content: space-around;
         height: 50%;
+        padding-left: 45px;
     }
 
     .menu__item__link {

@@ -34,7 +34,8 @@
                 scrollBarSettings: {
                     useBothWheelAxes: true,
                     minScrollbarLength: 100,
-                    maxScrollbarLength: 100
+                    maxScrollbarLength: 100,
+                    suppressScrollY: true,
                 }
             };
         },
@@ -50,12 +51,14 @@
 </script>
 
 <style lang="scss">
+    @import "../assets/scss/colors";
+
     .pages-wrapper {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: scroll;
         overflow-y: hidden;
-        margin: 40px 0 0;
+        margin: 65px 0 30px;
         z-index: 10;
 
         &:focus {
@@ -71,10 +74,10 @@
 
             &:after {
                 content: '';
-                background: red;
+                background: $danger;
                 display: block;
-                height: 3px;
-                margin-top: 25px;
+                height: 4px;
+                margin-top: 23px;
             }
 
             &:hover .ps__thumb-x, .ps__thumb-x {
@@ -86,11 +89,9 @@
     }
 
     .page {
+        flex: 0 0 auto;
         height: 100%;
         min-width: 100%;
-        min-height: 90vh;
-        outline: 1px solid #67b846;
-
-        flex: 0 0 auto;
+        min-height: 100vh;
     }
 </style>

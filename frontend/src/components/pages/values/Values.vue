@@ -1,11 +1,11 @@
 <template>
     <div class="page page-values">
-        <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getValuesText.name }}</h1>
-            <div v-html="getValuesText.content"></div>
-            <div v-html="getValueItems.content"></div>
-        </div>
-        <div class="loader-wrapper">
+        <div class="max-width-center">
+            <div v-if="getTexts.isLoaded" class="content">
+                <h1>{{ getValuesText.name }}</h1>
+                <div v-html="getValuesText.content"></div>
+                <div v-html="getValueItems.content"></div>
+            </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
     </div>

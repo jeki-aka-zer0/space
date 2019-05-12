@@ -1,11 +1,11 @@
 <template>
     <div class="page page-greeting page-home">
-        <div v-if="getTexts.isLoaded" class="content">
-            <h1>{{ getGreetingText.name }}</h1>
-            <div v-html="getGreetingText.content"></div>
-            <div v-html="getNavigation.content"></div>
-        </div>
-        <div class="loader-wrapper">
+        <div class="max-width-center">
+            <div v-if="getTexts.isLoaded" class="content">
+                <h1>{{ getGreetingText.name }}</h1>
+                <div v-html="getGreetingText.content"></div>
+                <div v-html="getNavigation.content"></div>
+            </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
     </div>

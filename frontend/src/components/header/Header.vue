@@ -12,10 +12,10 @@
 </template>
 
 <script>
-    import Brand from '@/components/header/Brand.vue'
-    import Slogan from '@/components/header/Slogan.vue'
-    import Languages from '@/components/header/Languages.vue'
-    import Menu from '@/components/header/Menu.vue'
+    import Brand from './Brand.vue'
+    import Slogan from './Slogan.vue'
+    import Languages from './Languages.vue'
+    import Menu from './Menu.vue'
 
     export default {
         components: {
@@ -52,14 +52,14 @@
 
 <style lang="scss">
     header {
-        outline: 1px solid #e19037;
+        padding: 30px 0 5px;
         position: fixed;
         width: 100%;
         z-index: 20;
-    }
 
-    .nav {
-        align-items: center;
-        display: flex;
+        .nav {
+            align-items: center;
+            display: flex;
+        }
     }
 </style>
