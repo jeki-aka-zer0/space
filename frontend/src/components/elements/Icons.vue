@@ -13,5 +13,16 @@
             </g>
         </symbol>
 
+        <symbol id="close" viewBox="0 0 20 20">
+            <line x1="1" y1="19"
+                  x2="19" y2="1"
+                  stroke="#efecec"
+                  stroke-width="2"/>
+            <line x1="1" y1="1"
+                  x2="19" y2="19"
+                  stroke="#efecec"
+                  stroke-width="2"/>
+        </symbol>
+
     </svg>
 </template>

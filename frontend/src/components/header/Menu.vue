@@ -9,7 +9,7 @@
         <modal v-if="getModal.id === 'menu'">
 
             <div v-if="getMenu.isLoaded" class="menu">
-                <div v-for="menu in getMenu.data" class="menu__item">
+                <div v-for="menu in getMenu.data" :key="menu.slug" class="menu__item">
                     <span @click="goToAndCloseModal(menu.slug)">
                         {{ menu.name }}
                     </span>
