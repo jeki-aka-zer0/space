@@ -1,15 +1,21 @@
 <template>
     <span @click="$emit('menuChosen', 'home')" class="nav__brand">
-        <span>Logo</span>
-        <!--<img src="../../assets/img/logo.png" alt="Cosmos" height="40">-->
+        <svg class="icon">
+            <use xlink:href="#logo"></use>
+        </svg>
     </span>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .icon {
+        height: 30px;
+        width: 39px;
+    }
+
     .nav__brand {
-        background: #cc4b4b;
         cursor: pointer;
-        height: 40px;
-        width: 100px;
+        height: 30px;
+        margin-right: 30px;
+        width: 39px;
     }
 </style>
