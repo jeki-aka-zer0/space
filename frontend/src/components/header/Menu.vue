@@ -10,7 +10,7 @@
 
             <div v-if="getMenu.isLoaded" class="menu">
                 <div v-for="menu in getMenu.data" :key="menu.slug" class="menu__item">
-                    <span @click="goToAndCloseModal(menu.slug)">
+                    <span @click="goToAndCloseModal(menu.slug)" class="menu__item__link">
                         {{ menu.name }}
                     </span>
                 </div>
@@ -58,26 +58,44 @@
     };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     @import "../../assets/scss/colors";
+    @import "../../assets/scss/variables";
 
     .btn-menu {
         cursor: pointer;
-    }
 
-    .btn-menu__strip {
-        background-color: $light;
-        border-radius: 4px;
-        display: block;
-        height: 4px;
-        width: 38px;
+        &__strip {
+            background: $light;
+            border-radius: 4px;
+            display: block;
+            height: 4px;
+            width: 38px;
 
-        &:not(:last-child) {
-            margin: 0 0 4px;
+            &:not(:last-child) {
+                margin: 0 0 4px;
+            }
+
+            :hover > & {
+                background: $white;
+            }
         }
     }
 
-    .menu__item {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 50%;
+    }
+
+    .menu__item__link {
         cursor: pointer;
+        font-size: $fontBig;
+
+        &:hover {
+            color: $white;
+            text-decoration: underline;
+        }
     }
 </style>

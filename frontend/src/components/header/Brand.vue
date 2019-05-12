@@ -6,16 +6,21 @@
     </span>
 </template>
 
-<style lang="scss" scoped>
-    .icon {
-        height: 30px;
-        width: 39px;
-    }
-
+<style lang="scss">
     .nav__brand {
         cursor: pointer;
         height: 30px;
         margin-right: 30px;
+        transition-duration: 0.2s;
         width: 39px;
+
+        .icon {
+            height: 30px;
+            width: 39px;
+        }
+
+        &:hover {
+            transform: translateX(5px);
+        }
     }
 </style>
