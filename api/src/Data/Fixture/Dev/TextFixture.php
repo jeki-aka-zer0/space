@@ -18,7 +18,7 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
     const SLUG_VALUE_ITEMS = 'value-items';
     const SLUG_PROJECTS = 'projects';
     const SLUG_JOBS = 'jobs';
-    const SLUG_APPLY_FOR_JOB = 'slug-apply-for-job';
+    const SLUG_APPLY_FOR_JOB = 'apply-for-job';
     const SLUG_CONTACTS = 'contacts';
     const SLUG_WHO_WE_NEED = 'who-we-need';
     const SLUG_EXPERIENCE = 'experience';

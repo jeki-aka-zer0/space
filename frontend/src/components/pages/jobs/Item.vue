@@ -7,7 +7,9 @@
         <modal v-if="getModal.id === job.id">
             <div>
                 <div v-html="job.content"></div>
-                <div @click="applyForJob">Откикнуться</div>
+                <div @click="applyForJob" v-if="getApplyText">
+                    {{ getApplyText.name }}
+                </div>
             </div>
         </modal>
     </div>
@@ -16,6 +18,8 @@
 <script>
     import {mapGetters, mapActions} from 'vuex';
     import Modal from '../../elements/Modal';
+
+    const SLUG_APPLY = 'apply';
 
     export default {
         props: {
@@ -27,7 +31,11 @@
         computed: {
             ...mapGetters([
                 'getModal',
+                'getTextBySlug',
             ]),
+            getApplyText() {
+                return this.getTextBySlug(SLUG_APPLY);
+            },
         },
         methods: {
             ...mapActions([
@@ -37,7 +45,7 @@
                 this.openModal({id: job.id, head: job.name});
             },
             applyForJob() {
-                this.openModal({id: 'applyForAJob', head: 'Откликнуться'});
+                this.openModal({id: 'applyForAJob', head: this.getApplyText.name});
             },
         },
         components: {

@@ -15,7 +15,9 @@
 
                 <div v-html="getApplyForJobText.content"></div>
 
-                <div @click="write">Написать</div>
+                <div @click="write" v-if="getWriteText">
+                    {{ getWriteText.name }}
+                </div>
             </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
@@ -30,7 +32,8 @@
     import Apply from './Apply';
 
     const SLUG_JOBS = 'jobs';
-    const SLUG_APPLY_FOR_JOB = 'slug-apply-for-job';
+    const SLUG_APPLY_FOR_JOB = 'apply-for-job';
+    const SLUG_WRITE = 'write';
 
     export default {
         computed: {
@@ -45,13 +48,16 @@
             getApplyForJobText() {
                 return this.getTextBySlug(SLUG_APPLY_FOR_JOB);
             },
+            getWriteText() {
+                return this.getTextBySlug(SLUG_WRITE);
+            },
         },
         methods: {
             ...mapActions([
                 'openModal',
             ]),
             write() {
-                this.openModal({id: 'applyForAJob', head: 'Написать'});
+                this.openModal({id: 'applyForAJob', head: this.getWriteText.name});
             },
         },
         components: {
