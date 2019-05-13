@@ -13,18 +13,24 @@ final class Parser implements ParserInterface
 {
     private $employerPage;
     private $logger;
-    private $language;
+    private $languages;
 
-    public function __construct(Employer $employerPage, Language $language, LoggerInterface $logger)
+    /**
+     * Parser constructor.
+     * @param Employer $employerPage
+     * @param Language[] $languages
+     * @param LoggerInterface $logger
+     */
+    public function __construct(Employer $employerPage, array $languages, LoggerInterface $logger)
     {
         $this->employerPage = $employerPage;
-        $this->language = $language;
+        $this->languages = $languages;
         $this->logger = $logger;
     }
 
     public function parse(): iterable
     {
-        return new JobsCollection($this->getJobs(), $this->language);
+        return new JobsCollection($this->getJobs(), $this->languages);
     }
 
     private function getJobs(): array

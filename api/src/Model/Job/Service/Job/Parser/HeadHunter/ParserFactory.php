@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Api\Model\Job\Service\Job\Parser\HeadHunter;
 
-use Api\Model\Language\Entity\Language\Code;
 use Api\ReadModel\Language\LanguageReadRepository;
 use Exception;
 use Psr\Container\ContainerInterface;
@@ -21,16 +20,15 @@ abstract class ParserFactory
          */
         $languages = $container->get(LanguageReadRepository::class);
         $logger = $container->get(LoggerInterface::class);
-        $code = new Code('ru');
 
         try {
             return new Parser(
                 new Employer(getenv('HH_EMPLOYER_ID')),
-                $languages->getByCode($code),
+                $languages->allActive(),
                 $container->get(LoggerInterface::class)
             );
         } catch (Exception $exception) {
-            $message = "It looks like language with code '{$code->getCode()}' does not exist.";
+            $message = 'Can not build hh.ru parser.';
             $logger->error($message);
             throw new RuntimeException($message);
         }

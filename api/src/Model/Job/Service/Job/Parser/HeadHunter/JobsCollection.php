@@ -13,33 +13,42 @@ use Exception;
 
 final class JobsCollection extends ArrayObject
 {
-    private $language;
+    private $languages;
     private $position = 1;
+    private $jobs = [];
 
-    public function __construct(array $input, Language $language, $flags = 0, $iterator_class = 'ArrayIterator')
+    /**
+     * JobsCollection constructor.
+     * @param array $input
+     * @param Language[] $languages
+     * @param int $flags
+     * @param string $iterator_class
+     */
+    public function __construct(array $input, array $languages, $flags = 0, $iterator_class = 'ArrayIterator')
     {
-        $this->language = $language;
-        $input = array_map([$this, 'createJobs'], $input);
-        parent::__construct($input, $flags, $iterator_class);
+        $this->languages = $languages;
+        array_map([$this, 'createJobs'], $input);
+        parent::__construct($this->jobs, $flags, $iterator_class);
     }
 
     /**
      * @param JobDTO $jobDTO
-     * @return Job
      * @throws Exception
      */
-    private function createJobs(JobDTO $jobDTO): Job
+    private function createJobs(JobDTO $jobDTO): void
     {
-        $job = new Job(
-            Id::next(),
-            $this->language,
-            $jobDTO->name,
-            $jobDTO->experience,
-            $jobDTO->description,
-            $this->getSort()
-        );
-        $job->publish();
-        return $job;
+        array_map(function (Language $language) use ($jobDTO): void {
+            $job = new Job(
+                Id::next(),
+                $language,
+                $jobDTO->name,
+                $jobDTO->experience,
+                $jobDTO->description,
+                $this->getSort()
+            );
+            $job->publish();
+            $this->jobs[] = $job;
+        }, $this->languages);
     }
 
     private function getSort(): Sort
