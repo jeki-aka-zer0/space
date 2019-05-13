@@ -1,4 +1,7 @@
-up: docker-up
+up:
+	docker-up
+	api-migration
+	api-fixtures
 
 init: docker-clear docker-up api-permissions api-env api-composer api-migration api-fixtures frontend-env frontend-install frontend-build
 
