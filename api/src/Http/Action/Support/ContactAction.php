@@ -46,6 +46,7 @@ final class ContactAction implements RequestHandlerInterface
         $command->email = $body['email'] ?? '';
         $command->phone = $body['phone'] ?? '';
         $command->message = $body['message'] ?? '';
+        $command->files = $request->getUploadedFiles()['files'] ?? [];
 
         return $command;
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Api\Model\Support\UseCase\Contact;
 
+use Slim\Http\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class Command
@@ -30,4 +31,9 @@ final class Command
      * @Assert\Length(min=10, max=3000)
      */
     public $message;
+
+    /**
+     * @var UploadedFile[]
+     */
+    public $files = [];
 }
