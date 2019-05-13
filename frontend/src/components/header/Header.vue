@@ -34,7 +34,7 @@
             var t = (time ? time - startTime : 0);
             var factor = easeOutQuad(t, 0, 1, duration);
             w.scrollLeft = start + delta * factor;
-            console.log(start + delta * factor);
+
             if (t < duration) {
                 requestAnimationFrame(tweenLoop);
             } else if (w.scrollLeft !== end) {

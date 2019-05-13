@@ -1,8 +1,24 @@
 <template>
-    <p class="nav__slogan">
-        К будущему — в настроящем
-    </p>
+    <div class="nav__slogan" v-if="getTexts.isLoaded" v-html="getSloganText.content"></div>
 </template>
+
+<script>
+    import {mapGetters} from 'vuex';
+
+    const SLUG_SLOGAN = 'slogan';
+
+    export default {
+        computed: {
+            ...mapGetters([
+                'getTexts',
+                'getTextBySlug',
+            ]),
+            getSloganText() {
+                return this.getTextBySlug(SLUG_SLOGAN);
+            },
+        },
+    }
+</script>
 
 <style lang="scss">
     .nav__slogan {
