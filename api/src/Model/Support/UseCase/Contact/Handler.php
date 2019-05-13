@@ -25,10 +25,20 @@ final class Handler
         $message = (new Swift_Message($this->credentials->subject))
             ->setFrom($this->credentials->from)
             ->setTo($this->credentials->supportEmail)
-            ->setBody($command->message);
+            ->setBody($this->getBody($command));
 
         if (!$this->mailer->send($message)) {
             throw new RuntimeException('Unable to send message.');
         }
+    }
+
+    private function getBody(Command $command): string
+    {
+        return <<<TXT
+Name: {$command->name}
+E-mail: {$command->email}
+Phone: {$command->phone}
+Message: {$command->message}
+TXT;
     }
 }

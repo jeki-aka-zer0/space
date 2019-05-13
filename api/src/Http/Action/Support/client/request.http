@@ -4,8 +4,36 @@ Content-Type: application/json
 ###
 
 POST {{host}}/support/contact
-Content-Type: application/json
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
-< data/message.json
+--WebAppBoundary
+Content-Disposition: form-data; name="files[]"; filename="First-CV.txt"
+
+< ./data/First-CV.txt
+
+--WebAppBoundary
+Content-Disposition: form-data; name="files[]"; filename="Second-CV.txt"
+
+< ./data/Second-CV.txt
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+John Doe
+
+--WebAppBoundary
+Content-Disposition: form-data; name="email"
+
+john@example.org
+
+--WebAppBoundary
+Content-Disposition: form-data; name="phone"
+
++7 (916) 123-45-67
+
+--WebAppBoundary
+Content-Disposition: form-data; name="message"
+
+Hello, i'd like to get in touch with you.
 
 ###
