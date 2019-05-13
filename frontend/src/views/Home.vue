@@ -56,6 +56,7 @@
     .pages-wrapper {
         display: flex;
         flex-wrap: nowrap;
+        /*min-height: 500px;*/
         overflow-x: scroll;
         overflow-y: hidden;
         z-index: 10;
@@ -88,12 +89,31 @@
     }
 
     .page {
+        background: url(../assets/img/bg.jpg) repeat-x left center;
         flex: 0 0 auto;
         height: 100%;
         min-width: 100%;
         min-height: 100vh;
         padding: 65px 10px 30px;
 
-        background: url(../assets/img/bg.jpg) repeat-x left center;
+
+        /*display: flex;
+        flex-direction: column;
+        justify-content: center;*/
+
+        &__content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 7%;
+
+            &__column {
+                flex: 1 0 50%;
+
+                &:first-child {
+                    padding-right: 20px;
+                }
+            }
+        }
     }
 </style>

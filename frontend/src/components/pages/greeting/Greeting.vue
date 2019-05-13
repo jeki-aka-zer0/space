@@ -1,10 +1,17 @@
 <template>
-    <div class="page page-greeting page-home">
+    <div class="page page-home">
         <div class="max-width-center">
-            <div v-if="getTexts.isLoaded" class="content">
-                <h1>{{ getGreetingText.name }}</h1>
-                <div v-html="getGreetingText.content"></div>
-                <div v-html="getNavigation.content"></div>
+            <div v-if="getTexts.isLoaded" class="page__content">
+
+                <div class="page__content__column">
+                    <h1>{{ getGreetingText.name }}</h1>
+                    <div v-html="getGreetingText.content" class="page__content__column__description"></div>
+                    <div v-html="getNavigation.content"></div>
+                    <svg class="icon icon-navigation">
+                        <use xlink:href="#navigation"></use>
+                    </svg>
+                </div>
+
             </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
@@ -38,6 +45,26 @@
 </script>
 
 <style lang="scss">
-    .page-greeting {
+    .page-home {
+
+        .page__content {
+            height: 45vh;
+
+            &__column {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                > div:nth-child(2) {
+                    flex-grow: 3;
+                }
+            }
+        }
+    }
+
+    .icon-navigation {
+        margin-top: 10px;
+        height: 40px;
+        width: 58px;
     }
 </style>
