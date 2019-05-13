@@ -1,29 +1,39 @@
 <template>
     <div>
         <form class="login" v-on:submit.prevent="send" v-if="false === isSentSuccess">
-            <div>
-                <input type="text" v-model="form.name" required>
+            <div v-if="getNameText">
+                <input type="text" v-model="form.name" required :placeholder="getNameText.name">
                 <div class="error">
                     {{ errors.name }}
                 </div>
             </div>
 
-            <div>
-                <input type="email" v-model="form.email" required>
+            <div v-if="getEmailText">
+                <input type="email" v-model="form.email" required :placeholder="getEmailText.name">
                 <div class="error">
                     {{ errors.email }}
                 </div>
             </div>
 
-            <div>
-        <textarea v-model="form.message">
-        </textarea>
+            <div v-if="getPhoneText">
+                <input type="text" v-model="form.phone" required :placeholder="getPhoneText.name">
+                <div class="error">
+                    {{ errors.phone }}
+                </div>
+            </div>
+
+            <div v-if="getDescriptionText">
+                <textarea v-model="form.message" :placeholder="getDescriptionText.name">
+                </textarea>
                 <div class="error">
                     {{ errors.message }}
                 </div>
             </div>
 
-            <div>
+            <div v-if="getAttachCVText">
+
+                <p>{{ getAttachCVText.name }}</p>
+
                 <input type="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
 text/plain, application/pdf" @change="showUploadedFiles" ref="file">
 
@@ -41,25 +51,37 @@ text/plain, application/pdf" @change="showUploadedFiles" ref="file">
                 </div>
             </div>
 
-            <div>
-                <input type="checkbox" v-model="form.agree">
+            <div v-if="getAgreementText">
+                <label for="agree">{{ getAgreementText.name }}</label>
+                <input type="checkbox" v-model="form.agree" id="agree">
             </div>
 
-            <button :disabled="!form.agree" v-if="false === isSending">Отправить</button>
+            <button :disabled="!form.agree" v-if="false === isSending">
+                <span v-if="getSendText">
+                    {{ getSendText.name }}
+                </span>
+            </button>
 
             <loader v-if="true === isSending"/>
 
         </form>
 
-        <div v-if="isSentSuccess" @click="isSentSuccess = false">
-            Success! Send more
-        </div>
+        <div v-if="isSentSuccess" @click="isSentSuccess = false" v-html="getSendSuccessText.content"></div>
     </div>
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
+    import {mapGetters, mapActions} from 'vuex';
     import Loader from '../../elements/Loader';
+
+    const SLUG_NAME = 'name';
+    const SLUG_EMAIL = 'email';
+    const SLUG_PHONE = 'phone';
+    const SLUG_DESCRIPTION = 'description';
+    const SLUG_ATTACH_CV = 'attach-cv';
+    const SLUG_AGREEMENT_PERSONAL_DATA = 'agreement-personal-data';
+    const SLUG_SEND = 'send';
+    const SLUG_SEND_SUCCESS = 'send-success';
 
     export default {
         data() {
@@ -69,11 +91,13 @@ text/plain, application/pdf" @change="showUploadedFiles" ref="file">
                 form: {
                     /*name: null,
                     email: null,
+                    phone: null,
                     message: null,
                     files: [],
                     agree: false,*/
                     name: 'Vasya',
                     email: 'vasya@gmail.com',
+                    phone: '+7 (916) 123-12-23',
                     message: 'This is test message.' + (new Date).getTime(),
                     files: [],
                     agree: true,
@@ -81,10 +105,40 @@ text/plain, application/pdf" @change="showUploadedFiles" ref="file">
                 errors: [],
             };
         },
+        computed: {
+            ...mapGetters([
+                'getTextBySlug',
+            ]),
+            getNameText() {
+                return this.getTextBySlug(SLUG_NAME);
+            },
+            getEmailText() {
+                return this.getTextBySlug(SLUG_EMAIL);
+            },
+            getPhoneText() {
+                return this.getTextBySlug(SLUG_PHONE);
+            },
+            getDescriptionText() {
+                return this.getTextBySlug(SLUG_DESCRIPTION);
+            },
+            getAttachCVText() {
+                return this.getTextBySlug(SLUG_ATTACH_CV);
+            },
+            getAgreementText() {
+                return this.getTextBySlug(SLUG_AGREEMENT_PERSONAL_DATA);
+            },
+            getSendText() {
+                return this.getTextBySlug(SLUG_SEND);
+            },
+            getSendSuccessText() {
+                return this.getTextBySlug(SLUG_SEND_SUCCESS);
+            },
+        },
         created() {
             this.fillFormWithFields = function (form) {
                 form.append('name', this.form.name);
                 form.append('email', this.form.email);
+                form.append('phone', this.form.phone);
                 form.append('message', this.form.message);
             };
             this.fillFormWithFiles = function (form) {
@@ -97,7 +151,7 @@ text/plain, application/pdf" @change="showUploadedFiles" ref="file">
                 this.isSending = false;
                 this.isSentSuccess = true;
 
-                this.form.name = this.form.email = this.form.message = null;
+                this.form.name = this.form.email = this.form.phone = this.form.message = null;
                 this.form.files = this.errors = [];
             };
             this.handleError = function (error) {
@@ -108,7 +162,7 @@ text/plain, application/pdf" @change="showUploadedFiles" ref="file">
                     return;
                 }
 
-                console.log(error.message);
+                window.console.log(error.message);
                 alert('Server error.');
             };
         },

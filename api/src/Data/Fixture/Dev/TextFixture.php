@@ -41,6 +41,9 @@ final class TextFixture extends \Api\Data\Fixture\Base\TextFixture
     {
         $manager->clear();
 
+        $manager->persist($this->getGreetingRu());
+        $manager->persist($this->getGreetingEn());
+
         foreach ($this->getData() as $datum) {
             $text = new Text(...$datum);
             $text->publish();
@@ -372,16 +375,20 @@ HTML
             [
                 Id::next(),
                 $this->getLanguageRu(),
-                'Сообщение успешно отправлено. Отправить ещё.',
+                'Сообщение успешно отправлено',
                 self::SLUG_SEND_SUCCESS,
-                ''
+                <<<HTML
+<p>Сообщение успешно отправлено. Отправить ещё.</p>
+HTML
             ],
             [
                 Id::next(),
                 $this->getLanguageEn(),
-                'Message sent successfully. Send more.',
+                'Message sent successfully',
                 self::SLUG_SEND_SUCCESS,
-                ''
+                <<<HTML
+<p>Message sent successfully. Send more.</p>
+HTML
             ],
         ];
     }

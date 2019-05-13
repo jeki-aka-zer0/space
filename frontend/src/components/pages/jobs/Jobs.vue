@@ -36,8 +36,8 @@
         computed: {
             ...mapGetters([
                 'getTexts',
-                'getModal',
                 'getTextBySlug',
+                'getModal',
             ]),
             getJobsText() {
                 return this.getTextBySlug(SLUG_JOBS);
