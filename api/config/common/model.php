@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Api\Infrastructure\Framework\Settings\Settings;
+use Api\Infrastructure\Model\Job\Entity\DoctrineJobRepository;
 use Api\Infrastructure\Model\Service\DoctrineFlusher;
 use Api\Infrastructure\Model\Text\Entity\DoctrineTextRepository;
 use Api\Infrastructure\ReadModel\Language\DoctrineLanguageReadRepository;
@@ -10,6 +11,7 @@ use Api\Infrastructure\ReadModel\Text\DoctrineTextsReadRepository;
 use Api\Infrastructure\ReadModel\Menu\DoctrineMenuReadRepository;
 use Api\Infrastructure\ReadModel\Project\DoctrineProjectsReadRepository;
 use Api\Infrastructure\ReadModel\Job\DoctrineJobsReadRepository;
+use Api\Model\Job\Entity\Job\JobRepository;
 use Api\Model\Text\Entity\Text\TextRepository;
 use Api\Model\Text\UseCase\Edit\Handler as TextEditHandler;
 use Api\Model\Text\UseCase\Read\Handler as TextsReadHandler;
@@ -97,6 +99,12 @@ return [
 
     JobsReadRepository::class => function (ContainerInterface $container): JobsReadRepository {
         return new DoctrineJobsReadRepository(
+            $container->get(EntityManagerInterface::class)
+        );
+    },
+
+    JobRepository::class => function (ContainerInterface $container): JobRepository {
+        return new DoctrineJobRepository(
             $container->get(EntityManagerInterface::class)
         );
     },

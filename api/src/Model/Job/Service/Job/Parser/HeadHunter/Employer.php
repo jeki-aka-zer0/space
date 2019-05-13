@@ -13,7 +13,7 @@ final class Employer
     private const JOB_ITEM_SELECTOR = '.resume-search-item__name';
     private $employerId;
 
-    public function __construct(int $employerId)
+    public function __construct(string $employerId)
     {
         $this->employerId = $employerId;
     }
