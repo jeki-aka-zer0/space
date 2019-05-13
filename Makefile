@@ -1,7 +1,8 @@
 up:
-	docker-up
-	api-migration
-	api-fixtures
+	docker-compose up --build -d
+	docker-compose exec space-bc-api-php-cli composer app migrations:migrate
+	docker-compose exec space-bc-api-php-cli composer app fixtures:load
+	docker-compose exec space-bc-api-php-cli composer app jobs:parse
 
 init: docker-clear docker-up api-permissions api-env api-composer api-migration api-fixtures frontend-env frontend-install frontend-build
 
