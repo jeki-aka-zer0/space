@@ -34,8 +34,7 @@
 
                 <p>{{ getAttachCVText.name }}</p>
 
-                <input type="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
-text/plain, application/pdf" @change="showUploadedFiles" ref="file">
+                <input type="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, application/x-pdf" @change="showUploadedFiles" ref="file">
 
                 <div v-for="(file, index) in form.files" :key="index" class="uploaded-file">
                     <span>{{ file.name }}</span>

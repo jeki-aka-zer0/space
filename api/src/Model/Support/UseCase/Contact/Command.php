@@ -33,6 +33,13 @@ final class Command
     public $message;
 
     /**
+     * @Assert\All({
+     *     @Assert\File(
+     *          maxSize = "1024k",
+     *          mimeTypes = {"application/msword", "application/vnd.ms-excel", "application/vnd.ms-powerpoint", "text/plain", "application/pdf", "application/x-pdf"},
+     *          mimeTypesMessage = "Please upload a valid text file."
+     *      )
+     * })
      * @var UploadedFile[]
      */
     public $files = [];
