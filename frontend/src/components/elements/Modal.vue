@@ -57,7 +57,7 @@
             left: 50%;
             overflow-x: hidden;
             overflow-y: auto;
-            padding: 25px 10px 10px 100px;
+            padding: 25px 100px 10px;
             position: absolute;
             right: 0;
             top: 0;

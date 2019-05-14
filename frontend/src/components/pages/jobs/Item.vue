@@ -11,7 +11,7 @@
         <modal v-if="getModal.id === job.id">
             <div>
                 <div v-html="job.content"></div>
-                <div @click="applyForJob" v-if="getApplyText">
+                <div @click="applyForJob" v-if="getApplyText" class="btn">
                     {{ getApplyText.name }}
                 </div>
             </div>
