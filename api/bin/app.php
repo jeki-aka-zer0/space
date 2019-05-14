@@ -38,8 +38,10 @@ Doctrine\ORM\Tools\Console\ConsoleRunner::addCommands($cli);
 Doctrine\DBAL\Migrations\Tools\Console\ConsoleRunner::addCommands($cli);
 
 $commands = $container->get('config')['console']['commands'];
-foreach ($commands as $command) {
-    $cli->add($container->get($command));
-}
+array_map(function (? string $class) use ($cli, $container): void {
+    if ($instance = $container->get($class)) {
+        $cli->add($container->get($class));
+    }
+}, $commands);
 
 $cli->run();
