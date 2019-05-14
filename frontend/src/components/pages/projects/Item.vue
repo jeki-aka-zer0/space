@@ -49,27 +49,24 @@
     @import "../../../assets/scss/variables";
 
     .project-item__name {
-        color: $non-active;
+        color: $light;
         cursor: pointer;
         font-size: $fontBig;
         font-weight: bold;
         margin-bottom: 8%;
+        opacity: $opacity;
 
         .icon {
             height: 25px;
             margin-left: 10px;
-            opacity: .3;
+            opacity: 1;
             position: relative;
             top: 2px;
             width: 25px;
         }
 
         &:hover {
-            color: $light;
-
-            .icon {
-                opacity: 1;
-            }
+            opacity: 1;
         }
     }
 </style>

@@ -1,7 +1,11 @@
 <template>
-    <div>
+    <div class="jobs-table__body__item">
         <div @click="showJob(job)">
-            {{ job.name }} {{ job.experience }}
+            <div>{{ job.name }}</div>
+            <div>{{ job.experience }}</div>
+            <svg class="icon">
+                <use xlink:href="#arrow"></use>
+            </svg>
         </div>
 
         <modal v-if="getModal.id === job.id">
@@ -53,3 +57,23 @@
         },
     }
 </script>
+
+<style lang="scss">
+    @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/variables";
+
+    .jobs-table__body__item {
+
+        .icon {
+            height: 25px;
+            margin-left: 10px;
+            position: relative;
+            top: 2px;
+            width: 25px;
+        }
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+</style>

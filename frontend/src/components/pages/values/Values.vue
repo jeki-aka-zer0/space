@@ -65,12 +65,13 @@
     }
 
     .value-item {
-        color: $non-active;
+        color: $light;
         font-size: $fontBig;
         font-weight: bold;
+        opacity: $opacity;
 
         &:hover {
-            color: $light;
+            opacity: 1;
         }
 
         &:nth-child(even) {
