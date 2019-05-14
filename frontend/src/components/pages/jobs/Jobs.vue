@@ -15,11 +15,9 @@
                         <apply/>
                     </modal>
 
-                    <hr>
-
                     <div v-html="getApplyForJobText.content"></div>
 
-                    <div @click="write" v-if="getWriteText">
+                    <div @click="write" v-if="getWriteText" class="btn">
                         {{ getWriteText.name }}
                     </div>
                 </div>
@@ -78,5 +76,9 @@
 <style lang="scss">
     .page-jobs {
         background: url(../../../assets/img/bg.jpg) repeat-x -400% center !important;
+
+        .btn {
+            margin-top: 30px;
+        }
     }
 </style>

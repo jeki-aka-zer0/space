@@ -41,3 +41,19 @@
         },
     }
 </script>
+
+<style lang="scss">
+    @import "../../../assets/scss/colors";
+
+    .jobs-table {
+        &__head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        border-bottom: 2px solid $light;
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+    }
+</style>

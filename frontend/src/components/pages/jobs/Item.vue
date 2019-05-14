@@ -1,9 +1,9 @@
 <template>
-    <div class="jobs-table__body__item">
-        <div @click="showJob(job)">
-            <div>{{ job.name }}</div>
-            <div>{{ job.experience }}</div>
-            <svg class="icon">
+    <div>
+        <div @click="showJob(job)" class="jobs-table__body__item">
+            <div class="jobs-table__body__item__name">{{ job.name }}</div>
+            <div class="jobs-table__body__item__experience">{{ job.experience }}</div>
+            <svg class="icon jobs-table__body__item__arrow">
                 <use xlink:href="#arrow"></use>
             </svg>
         </div>
@@ -63,6 +63,24 @@
     @import "../../../assets/scss/variables";
 
     .jobs-table__body__item {
+        display: flex;
+        cursor: pointer;
+        flex-wrap: wrap;
+        padding: 10px 0;
+        width: 100%;
+
+        &__name {
+            flex-grow: 3;
+        }
+
+        &__experience {
+            width: 105px;
+        }
+
+        &__arrow {
+            text-align: right;
+            width: 25px;
+        }
 
         .icon {
             height: 25px;

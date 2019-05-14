@@ -41,3 +41,17 @@ h1 {
   margin: 0 auto;
   max-width: $screen-lg;
 }
+
+.btn {
+  background: $white;
+  border-radius: 300px;
+  color: $dark;
+  display: inline-block;
+  padding: 14px 36px;
+  transition-duration: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
