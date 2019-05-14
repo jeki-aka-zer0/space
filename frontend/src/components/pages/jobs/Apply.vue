@@ -2,28 +2,28 @@
     <div>
         <form class="login" v-on:submit.prevent="send" v-if="false === isSentSuccess">
             <div v-if="getNameText">
-                <input type="text" v-model="form.name" required :placeholder="getNameText.name">
+                <input type="text" v-model="form.name" required :placeholder="getNameText.name" class="input">
                 <div class="error">
                     {{ errors.name }}
                 </div>
             </div>
 
             <div v-if="getEmailText">
-                <input type="email" v-model="form.email" required :placeholder="getEmailText.name">
+                <input type="email" v-model="form.email" required :placeholder="getEmailText.name" class="input">
                 <div class="error">
                     {{ errors.email }}
                 </div>
             </div>
 
             <div v-if="getPhoneText">
-                <input type="text" v-model="form.phone" required :placeholder="getPhoneText.name">
+                <input type="text" v-model="form.phone" required :placeholder="getPhoneText.name" class="input">
                 <div class="error">
                     {{ errors.phone }}
                 </div>
             </div>
 
             <div v-if="getDescriptionText">
-                <textarea v-model="form.message" :placeholder="getDescriptionText.name">
+                <textarea v-model="form.message" :placeholder="getDescriptionText.name" class="textarea">
                 </textarea>
                 <div class="error">
                     {{ errors.message }}
@@ -34,7 +34,9 @@
 
                 <p>{{ getAttachCVText.name }}</p>
 
-                <input type="file" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, application/x-pdf" @change="showUploadedFiles" ref="file">
+                <input type="file"
+                       accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, application/x-pdf"
+                       @change="showUploadedFiles" ref="file">
 
                 <div v-for="(file, index) in form.files" :key="index" class="uploaded-file">
                     <span>{{ file.name }}</span>
@@ -51,11 +53,14 @@
             </div>
 
             <div v-if="getAgreementText">
-                <label for="agree">{{ getAgreementText.name }}</label>
-                <input type="checkbox" v-model="form.agree" id="agree">
+                <label for="agree" class="container">
+                    <input type="checkbox" v-model="form.agree" id="agree">
+                    <span class="checkmark"></span>
+                    {{ getAgreementText.name }}
+                </label>
             </div>
 
-            <button :disabled="!form.agree" v-if="false === isSending">
+            <button :disabled="!form.agree" v-if="false === isSending" class="btn">
                 <span v-if="getSendText">
                     {{ getSendText.name }}
                 </span>
@@ -203,7 +208,34 @@
 </script>
 
 <style lang="scss">
+    @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/variables";
+
+    .input, .textarea {
+        background: transparent;
+        border: 0;
+        border-bottom: 2px solid $light;
+        color: $light;
+        font-size: $fontNormal;
+        max-width: 400px;
+        margin-bottom: 20px;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .input {
+        height: 30px;
+    }
+
+    .textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
     .error {
-        color: red
+        color: $danger
     }
 </style>

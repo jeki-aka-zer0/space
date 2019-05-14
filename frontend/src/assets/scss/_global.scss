@@ -1,5 +1,6 @@
 @import "colors";
 @import "variables";
+@import "checbox";
 
 * {
   box-sizing: border-box;
@@ -44,6 +45,7 @@ h1 {
 
 .btn {
   background: $white;
+  border: none;
   border-radius: 300px;
   color: $dark;
   display: inline-block;
@@ -53,5 +55,17 @@ h1 {
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+  }
+
+  &:active {
+    left: 1px;
+    outline: none;
+    position: relative;
+    top: 1px;
+  }
+
+  &:disabled {
+    background: $gray;
+    cursor: default;
   }
 }
