@@ -57,7 +57,6 @@
                 let containerOffset = container.offsetLeft;
                 let page = this._getPage(slug);
                 let pageOffset = page.offsetLeft;
-                // let diff = pageOffset - containerOffset;
 
                 tween(containerOffset, pageOffset, 200, container);
             },

@@ -35,7 +35,6 @@
                     useBothWheelAxes: true,
                     minScrollbarLength: 100,
                     maxScrollbarLength: 100,
-                    suppressScrollY: true,
                 }
             };
         },

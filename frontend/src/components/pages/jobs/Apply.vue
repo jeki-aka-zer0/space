@@ -32,11 +32,16 @@
 
             <div v-if="getAttachCVText">
 
-                <p>{{ getAttachCVText.name }}</p>
+                <div class="file">
+                    <p>{{ getAttachCVText.name }}</p>
 
-                <input type="file"
-                       accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, application/x-pdf"
-                       @change="showUploadedFiles" ref="file">
+                    <input type="file"
+                           accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, application/x-pdf"
+                           @change="showUploadedFiles"
+                           ref="file"
+                           class="file-input"
+                    >
+                </div>
 
                 <div v-for="(file, index) in form.files" :key="index" class="uploaded-file">
                     <span>{{ file.name }}</span>
@@ -237,5 +242,29 @@
 
     .error {
         color: $danger
+    }
+
+    .file {
+        margin: 30px 0 20px;
+        color: $gray;
+
+        p {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        &:hover {
+            color: $light;
+        }
+
+        &-input {
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+        }
     }
 </style>

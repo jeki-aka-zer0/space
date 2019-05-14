@@ -51,13 +51,10 @@
         &__content {
             background-color: $dark;
             bottom: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             left: 50%;
             overflow-x: hidden;
             overflow-y: auto;
-            padding: 25px 100px 10px;
+            padding: 55px 100px 55px;
             position: absolute;
             right: 0;
             top: 0;

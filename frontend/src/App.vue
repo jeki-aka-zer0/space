@@ -1,14 +1,8 @@
 <template>
     <div id="app">
         <Header/>
-
-<!--        <div class="app-content">-->
-<!--            <main class="container">-->
-                <router-view/>
-<!--            </main>-->
-<!--        </div>-->
-
-<!--        <Footer/>-->
+        <router-view/>
+        <!--<Footer/>-->
         <icons/>
     </div>
 </template>
