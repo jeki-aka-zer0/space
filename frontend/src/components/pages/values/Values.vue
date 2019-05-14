@@ -1,10 +1,17 @@
 <template>
     <div class="page page-values">
         <div class="max-width-center">
-            <div v-if="getTexts.isLoaded" class="content">
-                <h1>{{ getValuesText.name }}</h1>
-                <div v-html="getValuesText.content"></div>
-                <div v-html="getValueItems.content"></div>
+            <div v-if="getTexts.isLoaded" class="page__content">
+
+                <div class="page__content__column">
+                    <h1>{{ getValuesText.name }}</h1>
+                    <div v-html="getValuesText.content"></div>
+                </div>
+
+                <div class="page__content__column">
+                    <div v-for="(value, index) in getValueItems" :key="index" class="value-item" v-html="value"></div>
+                </div>
+
             </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
@@ -28,7 +35,19 @@
                 return this.getTextBySlug(SLUG_VALUES);
             },
             getValueItems() {
-                return this.getTextBySlug(SLUG_VALUE_ITEMS);
+                let values = this.getTextBySlug(SLUG_VALUE_ITEMS);
+
+                if (typeof values === 'undefined') {
+                    return [];
+                }
+
+                return values.content
+                    .split(',')
+                    .map(function (item) {
+                        return item
+                            .trim()
+                            .replace(/<\/?[^>]+(>|$)/g, '');
+                    });
             },
         },
         components: {
@@ -38,7 +57,24 @@
 </script>
 
 <style lang="scss">
+    @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/variables";
+
     .page-values {
         background: url(../../../assets/img/bg.jpg) repeat-x -200% center !important;
+    }
+
+    .value-item {
+        color: $non-active;
+        font-size: $fontBig;
+        font-weight: bold;
+
+        &:hover {
+            color: $light;
+        }
+
+        &:nth-child(even) {
+            padding-left: 90px;
+        }
     }
 </style>

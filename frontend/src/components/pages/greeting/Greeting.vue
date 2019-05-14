@@ -12,6 +12,8 @@
                     </svg>
                 </div>
 
+                <div class="page__content__column"></div>
+
             </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>

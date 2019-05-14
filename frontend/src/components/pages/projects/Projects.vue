@@ -1,10 +1,17 @@
 <template>
     <div class="page page-projects">
         <div class="max-width-center">
-            <div v-if="getTexts.isLoaded" class="content">
-                <h1>{{ getProjectsText.name }}</h1>
-                <div v-html="getProjectsText.content"></div>
-                <list/>
+            <div v-if="getTexts.isLoaded" class="page__content">
+
+                <div class="page__content__column">
+                    <h1>{{ getProjectsText.name }}</h1>
+                    <div v-html="getProjectsText.content"></div>
+                </div>
+
+                <div class="page__content__column">
+                    <list/>
+                </div>
+
             </div>
             <Loader v-if="false === getTexts.isLoaded"/>
         </div>
