@@ -1,6 +1,6 @@
 <template>
     <div class="project-item">
-        <div @click="showProject(project)">
+        <div @click="showProject(project)" class="project-item__name">
             {{ project.name }}
 
             <svg class="icon">
@@ -48,20 +48,12 @@
     @import "../../../assets/scss/colors";
     @import "../../../assets/scss/variables";
 
-    .project-item {
+    .project-item__name {
         color: $non-active;
         cursor: pointer;
         font-size: $fontBig;
         font-weight: bold;
         margin-bottom: 8%;
-
-        &:hover {
-            color: $light;
-
-            .icon {
-                opacity: 1;
-            }
-        }
 
         .icon {
             height: 25px;
@@ -70,6 +62,14 @@
             position: relative;
             top: 2px;
             width: 25px;
+        }
+
+        &:hover {
+            color: $light;
+
+            .icon {
+                opacity: 1;
+            }
         }
     }
 </style>

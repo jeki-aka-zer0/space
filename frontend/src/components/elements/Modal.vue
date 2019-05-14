@@ -32,8 +32,11 @@
 
 <style lang="scss" scoped>
     @import "../../assets/scss/colors";
+    @import "../../assets/scss/variables";
 
     h3 {
+        font-size: $fontBig;
+        margin-bottom: 25px;
     }
 
     .modal {
