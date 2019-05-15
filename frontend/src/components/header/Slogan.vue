@@ -21,7 +21,15 @@
 </script>
 
 <style lang="scss">
+    @import "../../assets/scss/media";
+
     .nav__slogan {
-        flex-grow: 3;
+        @include before-xs {
+            display: none;
+        }
+
+        @include from-xs {
+            flex-grow: 3;
+        }
     }
 </style>

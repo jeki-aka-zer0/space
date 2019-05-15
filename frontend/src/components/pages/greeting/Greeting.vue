@@ -4,7 +4,7 @@
             <div v-if="getTexts.isLoaded" class="page__content">
 
                 <div class="page__content__column">
-                    <h1>{{ getGreetingText.name }}</h1>
+                    <h1 v-html="getGreetingText.name"></h1>
                     <div v-html="getGreetingText.content" class="page__content__column__description"></div>
                     <div v-html="getNavigation.content"></div>
                     <svg class="icon icon-navigation">

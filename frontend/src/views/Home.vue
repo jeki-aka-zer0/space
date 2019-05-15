@@ -12,12 +12,12 @@
 <script>
     import {mapActions} from 'vuex';
     import VueCustomScrollbar from 'vue-custom-scrollbar'
-    import Greeting from '@/components/pages/greeting/Greeting.vue'
-    import About from '@/components/pages/about/About.vue'
-    import Values from '@/components/pages/values/Values.vue'
-    import Projects from '@/components/pages/projects/Projects.vue'
-    import Jobs from '@/components/pages/jobs/Jobs.vue'
-    import Contacts from '@/components/pages/contacts/Contacts.vue'
+    import Greeting from '../components/pages/greeting/Greeting.vue'
+    import About from '../components/pages/about/About.vue'
+    import Values from '../components/pages/values/Values.vue'
+    import Projects from '../components/pages/projects/Projects.vue'
+    import Jobs from '../components/pages/jobs/Jobs.vue'
+    import Contacts from '../components/pages/contacts/Contacts.vue'
 
     export default {
         components: {
@@ -51,6 +51,7 @@
 
 <style lang="scss">
     @import "../assets/scss/colors";
+    @import "../assets/scss/media";
 
     .pages-wrapper {
         display: flex;
@@ -104,7 +105,26 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 7%;
+
+            @include from-xs {
+                margin-top: 1%;
+            }
+
+            @include from-sm {
+                margin-top: 3%;
+            }
+
+            @include from-md {
+                margin-top: 5%;
+            }
+
+            @include from-lg {
+                margin-top: 7%;
+            }
+
+            @include from-xl {
+                margin-top: 12%;
+            }
 
             &__column {
                 flex: 1 0 50%;

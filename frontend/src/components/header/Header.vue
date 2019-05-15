@@ -17,11 +17,7 @@
     import Languages from './Languages.vue'
     import Menu from './Menu.vue'
 
-
     // https://codepen.io/matths/pen/yjbis
-    var easeInQuad = function (t, b, c, d) {
-        return c*(t/=d)*t + b;
-    };
     var easeOutQuad = function (t, b, c, d) {
         return -c *(t/=d)*(t-2) + b;
     };
@@ -83,11 +79,17 @@
 </script>
 
 <style lang="scss">
+    @import "../../assets/scss/media";
+
     header {
         padding: 30px 10px 5px;
         position: fixed;
         width: 100%;
         z-index: 20;
+
+        @include before-xs {
+            padding: 5px 8px;
+        }
 
         .nav {
             align-items: center;

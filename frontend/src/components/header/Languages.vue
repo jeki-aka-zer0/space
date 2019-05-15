@@ -33,10 +33,16 @@
 
 <style lang="scss">
     @import "../../assets/scss/colors";
+    @import "../../assets/scss/media";
 
     .nav__languages {
         color: $light;
         margin-right: 30px;
+        text-align: right;
+
+        @include before-xs {
+            flex-grow: 3;
+        }
 
         &__item {
             cursor: pointer;

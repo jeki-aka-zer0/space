@@ -4,7 +4,7 @@
             <div v-if="getTexts.isLoaded" class="page__content">
 
                 <div class="page__content__column">
-                    <h1>{{ getContactsText.name }}</h1>
+                    <h2 v-html="getContactsText.name"></h2>
                     <div v-html="getContactsText.content"></div>
                 </div>
 
