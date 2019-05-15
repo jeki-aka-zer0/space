@@ -56,8 +56,6 @@
     .pages-wrapper {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: scroll;
-        overflow-y: hidden;
         z-index: 10;
 
         &:focus {

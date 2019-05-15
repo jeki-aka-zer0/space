@@ -105,7 +105,7 @@
             }
 
             @include for-size('tablet-up') {
-                display: none;
+                font-weight: bold;
             }
         }
     }
