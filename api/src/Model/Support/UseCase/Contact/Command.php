@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 final class Command
 {
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="name.not_blank")
      * @Assert\Length(min=5, max=255)
      */
     public $name;

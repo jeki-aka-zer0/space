@@ -9,10 +9,10 @@ use Api\Http\Middleware\DomainExceptionMiddleware;
 use Api\Http\Middleware\LanguageMiddleware;
 use Api\Http\Middleware\ValidationExceptionMiddleware;
 use Api\Http\Validator\Validator;
+use Api\Infrastructure\Validator\TranslatorFactory;
+use Api\Infrastructure\Validator\ValidatorFactory;
 use Api\ReadModel\Language\LanguageReadRepository;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Api\Infrastructure\Framework\Settings\Settings;
 use Api\Http\Action\Text\UpdateAction as TextUpdateAction;
@@ -30,11 +30,16 @@ use Api\Model\Language\UseCase\Read\Handler as LanguagesReadHandler;
 use Api\Model\Support\UseCase\Contact\Handler as SupportContactHandler;
 
 return [
-    ValidatorInterface::class => function (): ValidatorInterface {
-        AnnotationRegistry::registerLoader('class_exists');
-        return Validation::createValidatorBuilder()
-            ->enableAnnotationMapping()
-            ->getValidator();
+    TranslatorFactory::class => function (ContainerInterface $container): TranslatorFactory {
+        return new TranslatorFactory(
+            $container->get(Settings::class),
+            $container->get('config')['validator']['path']
+        );
+    },
+
+    ValidatorInterface::class => function (ContainerInterface $container): ValidatorInterface {
+        return (new ValidatorFactory($container->get(TranslatorFactory::class)))
+            ->build();
     },
 
     Validator::class => function (ContainerInterface $container): Validator {
@@ -111,4 +116,10 @@ return [
             $container->get(Validator::class)
         );
     },
+
+    'config' => [
+        'validator' => [
+            'path' => ROOT_DIR . '/src/Infrastructure/translations',
+        ],
+    ],
 ];

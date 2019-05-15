@@ -5,6 +5,7 @@ Content-Type: application/json
 
 POST {{host}}/support/contact
 Content-Type: multipart/form-data; boundary=WebAppBoundary
+Accept-Language: ru
 
 --WebAppBoundary
 Content-Disposition: form-data; name="files[]"; filename="First-CV.txt"
@@ -15,11 +16,6 @@ Content-Disposition: form-data; name="files[]"; filename="First-CV.txt"
 Content-Disposition: form-data; name="files[]"; filename="Second-CV.txt"
 
 < ./data/Second-CV.txt
-
---WebAppBoundary
-Content-Disposition: form-data; name="name"
-
-John Doe
 
 --WebAppBoundary
 Content-Disposition: form-data; name="email"
