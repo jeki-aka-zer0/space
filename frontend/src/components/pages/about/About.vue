@@ -39,7 +39,20 @@
 </script>
 
 <style lang="scss">
+    @import "../../../assets/scss/media";
+
     .page-about {
         background: url(../../../assets/img/bg.jpg) repeat-x -100% center !important;
+
+        .page__content__column {
+            @include for-size('tablet-down') {
+                &:nth-child(1) {
+                    padding-right: 0;
+                }
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+        }
     }
 </style>
