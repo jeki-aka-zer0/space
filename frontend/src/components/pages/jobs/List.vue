@@ -44,16 +44,23 @@
 
 <style lang="scss">
     @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/media";
 
     .jobs-table {
         &__head {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+
+            @include for-size('tablet-down') {
+                margin-bottom: 5px;
+            }
         }
 
-        border-bottom: 2px solid $light;
-        padding-bottom: 30px;
-        margin-bottom: 40px;
+        @include for-size('tablet-up') {
+            border-bottom: 2px solid $light;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
     }
 </style>

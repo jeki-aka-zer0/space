@@ -60,6 +60,7 @@
 
 <style lang="scss">
     @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/media";
     @import "../../../assets/scss/variables";
 
     .jobs-table__body__item {
@@ -68,6 +69,10 @@
         flex-wrap: wrap;
         padding: 10px 0;
         width: 100%;
+
+        @include for-size('tablet-down') {
+            padding: 3px 0;
+        }
 
         &__name {
             flex-grow: 3;
@@ -88,10 +93,20 @@
             position: relative;
             top: 2px;
             width: 25px;
+
+            @include for-size('tablet-down') {
+                display: none;
+            }
         }
 
         &:hover {
-            font-weight: bold;
+            @include for-size('tablet-down') {
+                opacity: $opacity;
+            }
+
+            @include for-size('tablet-up') {
+                display: none;
+            }
         }
     }
 </style>
