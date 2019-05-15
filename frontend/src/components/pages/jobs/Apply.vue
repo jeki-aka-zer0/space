@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form class="login" v-on:submit.prevent="send" v-if="false === isSentSuccess">
+        <form :class="['login', {'login-process': isSending}]" v-on:submit.prevent="send" v-if="false === isSentSuccess">
             <div v-if="getNameText">
                 <input type="text" v-model="form.name" required :placeholder="getNameText.name" class="input">
                 <div class="error">
@@ -72,7 +72,7 @@
 
         </form>
 
-        <div v-if="isSentSuccess" @click="isSentSuccess = false" v-html="getSendSuccessText.content"></div>
+        <div class="sent-success" v-if="isSentSuccess" @click="isSentSuccess = false" v-html="getSendSuccessText.content"></div>
     </div>
 </template>
 
@@ -212,6 +212,19 @@
 <style lang="scss">
     @import "../../../assets/scss/colors";
     @import "../../../assets/scss/variables";
+
+    .login-process {
+        opacity: $opacity;
+    }
+
+    .sent-success {
+        cursor: pointer;
+        text-decoration: dotted;
+
+        &:hover {
+            opacity: $opacity;
+        }
+    }
 
     .input, .textarea {
         background: transparent;
