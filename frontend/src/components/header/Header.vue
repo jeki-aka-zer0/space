@@ -86,29 +86,19 @@
         width: 100%;
         z-index: 20;
 
-&:after {position: absolute}
-
         @include for-size('phone-only') {
-background: #e19037;
-&:after { content: 'phone-only'; }
             padding: 5px 8px;
         }
 
         @include for-size('phone-up') {
-background: yellow;
-&:after { content: 'phone-up'; }
             padding: 10px 10px 5px;
         }
 
         @include for-size('tablet-up') {
-background: palevioletred;
-&:after { content: 'tablet-up'; }
             padding: 20px 10px 5px;
         }
 
         @include for-size('desktop-up') {
-background: aqua;
-&:after { content: 'desktop-up'; }
             padding: 30px 10px 5px;
         }
 

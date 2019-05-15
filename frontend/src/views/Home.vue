@@ -88,8 +88,6 @@
     }
 
     .page {
-outline: 1px solid red;
-
         background: url(../assets/img/bg.jpg) repeat-x left center;
         flex: 0 0 auto;
         height: 100%;
