@@ -46,15 +46,17 @@
 
 <style lang="scss">
     @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/media";
     @import "../../../assets/scss/variables";
 
     .project-item__name {
         color: $light;
         cursor: pointer;
-        font-size: $fontBig;
         font-weight: bold;
         margin-bottom: 8%;
         opacity: $opacity;
+
+        @include big-adaptive-font();
 
         .icon {
             height: 25px;

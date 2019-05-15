@@ -32,12 +32,8 @@
 
 <style lang="scss" scoped>
     @import "../../assets/scss/colors";
+    @import "../../assets/scss/media";
     @import "../../assets/scss/variables";
-
-    h3 {
-        font-size: $fontBig;
-        margin-bottom: 25px;
-    }
 
     .modal {
         background-color: rgba(0, 0, 0, 0.4);
@@ -59,23 +55,34 @@
             right: 0;
             top: 0;
             z-index: 101;
+
+            @include for-size('desktop-down') {
+                left: 0;
+                padding: 25px 20px;
+            }
         }
 
         &__close {
             background: $dark;
-            box-shadow: 0 0 14px $black;
-            position: absolute;
-            top: 50%;
-            left: 50%;
             border-radius: 50%;
+            box-shadow: 0 0 14px $black;
             cursor: pointer;
             font-size: 0;
-            padding: 12px;
-            margin: -25px 0 0 -25px;
-            z-index: 102;
             height: 50px;
-            width: 50px;
+            margin: -25px -25px 0 0;
+            padding: 12px;
+            position: absolute;
+            right: 50%;
+            top: 50%;
             transition-duration: 0.2s;
+            z-index: 102;
+            width: 50px;
+
+            @include for-size('desktop-down') {
+                margin: 0;
+                right: 20px;
+                top: 20px;
+            }
 
             &:hover {
                 transform: rotate(90deg);

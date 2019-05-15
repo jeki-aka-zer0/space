@@ -60,6 +60,7 @@
 
 <style lang="scss">
     @import "../../assets/scss/colors";
+    @import "../../assets/scss/media";
     @import "../../assets/scss/variables";
 
     .btn-menu {
@@ -92,7 +93,8 @@
 
     .menu__item__link {
         cursor: pointer;
-        font-size: $fontBig;
+
+        @include big-adaptive-font();
 
         &:hover {
             color: $white;

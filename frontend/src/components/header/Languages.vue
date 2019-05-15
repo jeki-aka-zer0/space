@@ -40,7 +40,7 @@
         margin-right: 30px;
         text-align: right;
 
-        @include before-xs {
+        @include for-size('phone-only') {
             flex-grow: 3;
         }
 

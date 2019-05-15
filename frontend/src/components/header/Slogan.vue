@@ -24,11 +24,11 @@
     @import "../../assets/scss/media";
 
     .nav__slogan {
-        @include before-xs {
+        @include for-size('phone-only') {
             display: none;
         }
 
-        @include from-xs {
+        @include for-size('phone-up') {
             flex-grow: 3;
         }
     }

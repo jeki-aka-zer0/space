@@ -58,6 +58,7 @@
 
 <style lang="scss">
     @import "../../../assets/scss/colors";
+    @import "../../../assets/scss/media";
     @import "../../../assets/scss/variables";
 
     .page-values {
@@ -66,9 +67,10 @@
 
     .value-item {
         color: $light;
-        font-size: $fontBig;
         font-weight: bold;
         opacity: $opacity;
+
+        @include big-adaptive-font();
 
         &:hover {
             opacity: 1;

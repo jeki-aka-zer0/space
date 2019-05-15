@@ -96,35 +96,30 @@
         min-height: 100vh;
         padding: 65px 10px 30px;
 
-
-        /*display: flex;
-        flex-direction: column;
-        justify-content: center;*/
-
         &__content {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
 
-            @include from-xs {
-                margin-top: 1%;
+            @include for-size('phone-only') {
+                margin-top: 0
             }
 
-            @include from-sm {
-                margin-top: 3%;
+            @include for-size('phone-up') {
+                margin-top: 3vh
             }
 
-            @include from-md {
-                margin-top: 5%;
+            @include for-size('tablet-up') {
+                margin-top: 5vh
             }
 
-            @include from-lg {
-                margin-top: 7%;
+            @include for-size('desktop-up') {
+                margin-top: 7vh
             }
 
-            @include from-xl {
-                margin-top: 12%;
-            }
+            @include for-size('big-desktop-up') {
+                margin-top: 10vh
+            };
 
             &__column {
                 flex: 1 0 50%;

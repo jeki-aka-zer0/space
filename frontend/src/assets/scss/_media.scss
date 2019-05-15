@@ -1,37 +1,47 @@
 @import "variables";
 
-@mixin before-xs {
-  @media (max-width: $screen-xs) {
-    @content;
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: $screen-xs) {
+      @content;
+    }
+  } @else if $size == phone-up {
+    @media (min-width: $screen-xs) {
+      @content;
+    }
+  } @else if $size == tablet-down {
+    @media (max-width: $screen-sm) {
+      @content;
+    }
+  } @else if $size == tablet-up {
+    @media (min-width: $screen-sm) {
+      @content;
+    }
+  } @else if $size == desktop-down {
+    @media (max-width: $screen-md) {
+      @content;
+    }
+  } @else if $size == desktop-up {
+    @media (min-width: $screen-md) {
+      @content;
+    }
+  } @else if $size == big-desktop-up {
+    @media (min-width: $screen-lg) {
+      @content;
+    }
   }
 }
 
-@mixin from-xs {
-  @media (min-width: $screen-xs) {
-    @content;
+@mixin big-adaptive-font() {
+  @include for-size('phone-only') {
+    font-size: $fontBig - 10px;
   }
-}
 
-@mixin from-sm {
-  @media (min-width: $screen-sm) {
-    @content;
+  @include for-size('phone-up') {
+    font-size: $fontBig - 5px;
   }
-}
 
-@mixin from-md {
-  @media (min-width: $screen-md) {
-    @content;
-  }
-}
-
-@mixin from-lg {
-  @media (min-width: $screen-lg) {
-    @content;
-  }
-}
-
-@mixin from-xl {
-  @media (min-width: $screen-xl) {
-    @content;
+  @include for-size('tablet-up') {
+    font-size: $fontBig;
   }
 }

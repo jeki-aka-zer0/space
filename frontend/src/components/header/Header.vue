@@ -82,13 +82,24 @@
     @import "../../assets/scss/media";
 
     header {
-        padding: 30px 10px 5px;
         position: fixed;
         width: 100%;
         z-index: 20;
 
-        @include before-xs {
+        @include for-size('phone-only') {
             padding: 5px 8px;
+        }
+
+        @include for-size('phone-up') {
+            padding: 10px 10px 5px;
+        }
+
+        @include for-size('tablet-up') {
+            padding: 20px 10px 5px;
+        }
+
+        @include for-size('descktop-up') {
+            padding: 30px 10px 5px;
         }
 
         .nav {
