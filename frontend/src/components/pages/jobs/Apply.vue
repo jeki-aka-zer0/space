@@ -43,22 +43,19 @@
                     >
                 </div>
 
-                <div v-for="(file, index) in form.files" :key="index" class="uploaded-file">
-                    <span>{{ file.name }}</span>
-                    <svg @click="removeFile(index)" fill="#adadad" width="10" height="10" viewBox="0 0 10 10">
-                        <path id="х" class="cls-1"
-                              d="M1246.02,191.653l3.98-3.847a1.126,1.126,0,0,0,
-              0-1.632l-3.98-3.848a1.22,1.22,0,0,0-1.68,0,1.108,1.108,0,0,0,0,1.621l3.15,
-              3.043-3.15,3.043a1.107,1.107,0,0,0,0,1.62,1.218,1.218,0,0,0,1.68,0m5.94,
-              0a1.218,1.218,0,0,0,1.68,0,1.123,1.123,0,0,0,0-1.62l-3.15-3.043,
-              3.15-3.043a1.125,1.125,0,0,0,0-1.621,1.22,1.22,0,0,0-1.68,0l-3.98,
-              3.848a1.126,1.126,0,0,0,0,1.632l3.98,3.847" transform="translate(-1244 -182)"/>
-                    </svg>
+                <div class="uploaded-files">
+                    <span v-for="(file, index) in form.files" :key="index" class="uploaded-file">
+                        <span>{{ file.name }}</span>
+
+                        <svg class="icon" @click="removeFile(index)">
+                            <use xlink:href="#close"></use>
+                        </svg>
+                    </span>
                 </div>
             </div>
 
             <div v-if="getAgreementText">
-                <label for="agree" class="container">
+                <label for="agree" class="label">
                     <input type="checkbox" v-model="form.agree" id="agree">
                     <span class="checkmark"></span>
                     {{ getAgreementText.name }}
@@ -237,7 +234,7 @@
 
     .textarea {
         height: 120px;
-        resize: vertical;
+        resize: none;
     }
 
     .error {
@@ -245,8 +242,9 @@
     }
 
     .file {
-        margin: 30px 0 20px;
         color: $gray;
+        margin: 20px 0 0;
+        position: relative;
 
         p {
             cursor: pointer;
@@ -259,12 +257,35 @@
 
         &-input {
             bottom: 0;
+            cursor: pointer;
             left: 0;
             opacity: 0;
             position: absolute;
             right: 0;
             top: 0;
             width: 100%;
+        }
+    }
+
+    .uploaded-files {
+        margin: 0 0 20px;
+    }
+
+    .uploaded-file {
+        display: inline-block;
+        margin-right: 15px;
+
+        .icon {
+            cursor: pointer;
+            height: 12px;
+            margin: 0 0 0 5px;
+            position: relative;
+            top: 1px;
+            width: 12px;
+
+            &:hover {
+                opacity: $opacity;
+            }
         }
     }
 </style>

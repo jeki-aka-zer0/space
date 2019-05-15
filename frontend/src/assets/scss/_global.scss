@@ -68,4 +68,14 @@ h1 {
     background: $gray;
     cursor: default;
   }
+
+  &:disabled:hover {
+    cursor: default;
+    transform: none;
+  }
+
+  &:disabled:active {
+    left: 0;
+    top: 0;
+  }
 }
