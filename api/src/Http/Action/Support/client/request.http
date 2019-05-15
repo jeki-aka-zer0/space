@@ -18,6 +18,11 @@ Content-Disposition: form-data; name="files[]"; filename="Second-CV.txt"
 < ./data/Second-CV.txt
 
 --WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+John Doe
+
+--WebAppBoundary
 Content-Disposition: form-data; name="email"
 
 john@example.org

@@ -10,7 +10,7 @@ final class Command
 {
     /**
      * @Assert\NotBlank(message="name.not_blank")
-     * @Assert\Length(min=5, max=255)
+     * @Assert\Length(min=5, max=255, minMessage="name.length_min", maxMessage="name.length_max")
      */
     public $name;
 
