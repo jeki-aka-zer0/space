@@ -59,8 +59,8 @@
 
         @include for-size('tablet-up') {
             border-bottom: 2px solid $light;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
     }
 </style>

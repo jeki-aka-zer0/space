@@ -67,7 +67,7 @@
         display: flex;
         cursor: pointer;
         flex-wrap: wrap;
-        padding: 10px 0;
+        padding: 5px 0;
         width: 100%;
 
         @include for-size('tablet-down') {

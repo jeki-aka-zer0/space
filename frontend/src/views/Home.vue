@@ -107,9 +107,8 @@
     .page {
         background: url(../assets/img/bg.jpg) repeat-x left center;
         flex: 0 0 auto;
-        height: 100%;
         width: 100vw;
-        min-height: 100vh;
+        height: calc(100vh - 70px); /* height of footer */
         padding: 65px 10px 30px;
 
         &__content {
