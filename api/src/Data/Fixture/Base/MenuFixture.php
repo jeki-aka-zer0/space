@@ -15,9 +15,9 @@ use Exception;
 
 abstract class MenuFixture extends AbstractFixture implements OrderedFixtureInterface
 {
-    private $aboutRu;
-    private $aboutEn;
-    private const SLUG_ABOUT = 'about';
+    private $homeRu;
+    private $homeEn;
+    private const SLUG_HOME = 'home';
 
     /**
      * @param ObjectManager $manager
@@ -27,11 +27,11 @@ abstract class MenuFixture extends AbstractFixture implements OrderedFixtureInte
     {
         $manager->clear();
 
-        $aboutRu = $this->getAboutRu();
-        $aboutEn = $this->getAboutEn();
+        $homeRu = $this->getHomeRu();
+        $homeEn = $this->getHomeEn();
 
-        $manager->persist($aboutRu);
-        $manager->persist($aboutEn);
+        $manager->persist($homeRu);
+        $manager->persist($homeEn);
 
         $manager->flush();
     }
@@ -40,40 +40,40 @@ abstract class MenuFixture extends AbstractFixture implements OrderedFixtureInte
      * @return Menu
      * @throws Exception
      */
-    public function getAboutRu(): Menu
+    public function getHomeRu(): Menu
     {
-        if (null === $this->aboutRu) {
-            $this->aboutRu = new Menu(
+        if (null === $this->homeRu) {
+            $this->homeRu = new Menu(
                 Id::next(),
                 $this->getLanguageRu(),
-                'О нас',
-                self::SLUG_ABOUT,
+                'Главная',
+                self::SLUG_HOME,
                 new Sort(1)
             );
-            $this->aboutRu->publish();
+            $this->homeRu->publish();
         }
 
-        return $this->aboutRu;
+        return $this->homeRu;
     }
 
     /**
      * @return Menu
      * @throws Exception
      */
-    public function getAboutEn(): Menu
+    public function getHomeEn(): Menu
     {
-        if (null === $this->aboutEn) {
-            $this->aboutEn = new Menu(
+        if (null === $this->homeEn) {
+            $this->homeEn = new Menu(
                 Id::next(),
                 $this->getLanguageEn(),
-                'About us',
-                self::SLUG_ABOUT,
+                'Home',
+                self::SLUG_HOME,
                 new Sort(2)
             );
-            $this->aboutEn->publish();
+            $this->homeEn->publish();
         }
 
-        return $this->aboutEn;
+        return $this->homeEn;
     }
 
     protected function getLanguageRu(): Language

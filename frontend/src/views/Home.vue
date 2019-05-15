@@ -1,5 +1,10 @@
 <template>
-    <VueCustomScrollbar class="pages-wrapper" :settings="scrollBarSettings" tabindex="0">
+    <VueCustomScrollbar
+            class="pages-wrapper"
+            :settings="scrollBarSettings"
+            @ps-scroll-left="scroll"
+            @ps-scroll-right="scroll"
+    >
         <Greeting/>
         <About/>
         <Values/>
@@ -45,6 +50,20 @@
             ...mapActions([
                 'loadTexts',
             ]),
+            scroll(e) {
+                let pageWidth = this._getPageLength();
+                let page = Math.floor(e.target.scrollLeft / pageWidth);
+
+                this.$root.$emit('send', page);
+            },
+            _getPageLength() {
+                /**
+                 * The coefficient of small fix
+                 * @type {number}
+                 */
+                let coefficient = 10;
+                return document.getElementsByClassName('page')[0].clientWidth - coefficient;
+            },
         },
     }
 </script>
@@ -127,7 +146,7 @@
 
             @include for-size('big-desktop-up') {
                 margin-top: 10vh
-            };
+            }
 
             &__description {
                 p {

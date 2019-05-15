@@ -7,17 +7,13 @@
         </div>
 
         <modal v-if="getModal.id === 'menu'">
-
-            <div v-if="getMenu.isLoaded" class="menu">
+            <div class="menu">
                 <div v-for="menu in getMenu.data" :key="menu.slug" class="menu__item">
                     <span @click="goToAndCloseModal(menu.slug)" class="menu__item__link">
                         {{ menu.name }}
                     </span>
                 </div>
             </div>
-
-            <Loader v-if="false === getMenu.isLoaded"/>
-
         </modal>
     </div>
 </template>
@@ -28,10 +24,6 @@
     import Loader from '../elements/Loader';
 
     export default {
-        components: {
-            Loader,
-            Modal,
-        },
         computed: {
             ...mapGetters([
                 'getMenu',
@@ -45,15 +37,16 @@
                 'openModal',
             ]),
             showMenu() {
-                if (false === this.getMenu.isLoaded) {
-                    this.loadMenu();
-                }
                 this.openModal({id: 'menu'});
             },
             goToAndCloseModal(slug) {
                 this.closeModal();
                 this.$emit('menuChosen', slug);
             },
+        },
+        components: {
+            Loader,
+            Modal,
         },
     };
 </script>

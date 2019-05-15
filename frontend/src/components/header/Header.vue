@@ -41,12 +41,6 @@
     };
 
     export default {
-        components: {
-            Brand,
-            Slogan,
-            Languages,
-            Menu
-        },
         methods: {
             goTo(slug) {
                 let container = this._getContainer();
@@ -74,6 +68,12 @@
 
                 return elements[0];
             },
+        },
+        components: {
+            Brand,
+            Slogan,
+            Languages,
+            Menu
         },
     }
 </script>

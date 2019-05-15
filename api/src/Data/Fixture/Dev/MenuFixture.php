@@ -12,10 +12,11 @@ use Exception;
 
 final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
 {
-    const SLUG_VALUES = 'values';
-    const SLUG_PROJECTS = 'projects';
-    const SLUG_JOBS = 'jobs';
-    const SLUG_CONTACTS = 'contacts';
+    private const SLUG_ABOUT = 'about';
+    private const SLUG_VALUES = 'values';
+    private const SLUG_PROJECTS = 'projects';
+    private const SLUG_JOBS = 'jobs';
+    private const SLUG_CONTACTS = 'contacts';
 
     /**
      * @param ObjectManager $manager
@@ -25,6 +26,8 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
     {
         $manager->clear();
 
+        $homeRu = $this->getHomeRu();
+        $homeEn = $this->getHomeEn();
         $aboutRu = $this->getAboutRu();
         $aboutEn = $this->getAboutEn();
         $valuesRu = $this->getValuesRu();
@@ -36,6 +39,8 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
         $contactsRu = $this->getContactsRu();
         $contactsEn = $this->getContactsEn();
 
+        $manager->persist($homeRu);
+        $manager->persist($homeEn);
         $manager->persist($aboutRu);
         $manager->persist($aboutEn);
         $manager->persist($valuesRu);
@@ -54,6 +59,42 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
      * @return Menu
      * @throws Exception
      */
+    public function getAboutRu(): Menu
+    {
+        $aboutRu = new Menu(
+            Id::next(),
+            $this->getLanguageRu(),
+            'О нас',
+            self::SLUG_ABOUT,
+            new Sort(3)
+        );
+        $aboutRu->publish();
+
+        return $aboutRu;
+    }
+
+    /**
+     * @return Menu
+     * @throws Exception
+     */
+    public function getAboutEn(): Menu
+    {
+        $aboutEn = new Menu(
+            Id::next(),
+            $this->getLanguageEn(),
+            'About us',
+            self::SLUG_ABOUT,
+            new Sort(4)
+        );
+        $aboutEn->publish();
+
+        return $aboutEn;
+    }
+
+    /**
+     * @return Menu
+     * @throws Exception
+     */
     private function getValuesRu(): Menu
     {
         $valuesRu = new Menu(
@@ -61,7 +102,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageRu(),
             'Наши ценности',
             self::SLUG_VALUES,
-            new Sort(3)
+            new Sort(5)
         );
         $valuesRu->publish();
 
@@ -79,7 +120,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageEn(),
             'Our values',
             self::SLUG_VALUES,
-            new Sort(4)
+            new Sort(6)
         );
         $valuesEn->publish();
 
@@ -97,7 +138,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageRu(),
             'Наши проекты',
             self::SLUG_PROJECTS,
-            new Sort(5)
+            new Sort(7)
         );
         $projectsRu->publish();
 
@@ -115,7 +156,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageEn(),
             'Our projects',
             self::SLUG_PROJECTS,
-            new Sort(6)
+            new Sort(8)
         );
         $projectsEn->publish();
 
@@ -133,7 +174,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageRu(),
             'Вакансии',
             self::SLUG_JOBS,
-            new Sort(7)
+            new Sort(9)
         );
         $jobsRu->publish();
 
@@ -151,7 +192,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageEn(),
             'Jobs',
             self::SLUG_JOBS,
-            new Sort(8)
+            new Sort(10)
         );
         $jobsEn->publish();
 
@@ -169,7 +210,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageRu(),
             'Контакты',
             self::SLUG_CONTACTS,
-            new Sort(9)
+            new Sort(11)
         );
         $contactsRu->publish();
 
@@ -187,7 +228,7 @@ final class MenuFixture extends \Api\Data\Fixture\Base\MenuFixture
             $this->getLanguageEn(),
             'Contacts',
             self::SLUG_CONTACTS,
-            new Sort(10)
+            new Sort(12)
         );
         $contactsEn->publish();
 

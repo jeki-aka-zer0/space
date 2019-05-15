@@ -2,7 +2,7 @@
     <div id="app">
         <Header/>
         <router-view/>
-        <!--<Footer/>-->
+        <Footer :page="this.page"/>
         <icons/>
     </div>
 </template>
@@ -13,6 +13,16 @@
     import Icons from '@/components/elements/Icons.vue'
 
     export default {
+        data() {
+            return {
+                page: 0,
+            };
+        },
+        created() {
+            this.$root.$on('send', (page) => {
+                this.page = page;
+            });
+        },
         components: {
             Header,
             Footer,
