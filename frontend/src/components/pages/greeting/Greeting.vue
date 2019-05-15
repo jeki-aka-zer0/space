@@ -5,7 +5,7 @@
 
                 <div class="page__content__column">
                     <h1 v-html="getGreetingText.name"></h1>
-                    <div v-html="getGreetingText.content" class="page__content__column__description"></div>
+                    <div class="page__content__description" v-html="getGreetingText.content"></div>
                     <div v-html="getNavigation.content"></div>
                     <svg class="icon icon-navigation">
                         <use xlink:href="#navigation"></use>

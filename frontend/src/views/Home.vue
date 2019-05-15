@@ -56,7 +56,6 @@
     .pages-wrapper {
         display: flex;
         flex-wrap: nowrap;
-        /*min-height: 500px;*/
         overflow-x: scroll;
         overflow-y: hidden;
         z-index: 10;
@@ -89,17 +88,19 @@
     }
 
     .page {
+outline: 1px solid red;
+
         background: url(../assets/img/bg.jpg) repeat-x left center;
         flex: 0 0 auto;
         height: 100%;
-        min-width: 100%;
+        width: 100vw;
         min-height: 100vh;
         padding: 65px 10px 30px;
 
         &__content {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-around;
 
             @include for-size('phone-only') {
                 margin-top: 0
@@ -110,7 +111,18 @@
             }
 
             @include for-size('tablet-up') {
-                margin-top: 5vh
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 5vh;
+
+                &__column {
+                    flex: 1 0 50%;
+
+                    &:first-child {
+                        padding-right: 20px;
+                    }
+                }
             }
 
             @include for-size('desktop-up') {
@@ -121,11 +133,9 @@
                 margin-top: 10vh
             };
 
-            &__column {
-                flex: 1 0 50%;
-
-                &:first-child {
-                    padding-right: 20px;
+            &__description {
+                p {
+                    margin-bottom: 15px;
                 }
             }
         }

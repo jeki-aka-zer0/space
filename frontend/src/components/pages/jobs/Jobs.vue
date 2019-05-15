@@ -5,7 +5,7 @@
 
                 <div class="page__content__column">
                     <h2 v-html="getJobsText.name"></h2>
-                    <div v-html="getJobsText.content"></div>
+                    <div class="page__content__description" v-html="getJobsText.content"></div>
                 </div>
 
                 <div class="page__content__column">

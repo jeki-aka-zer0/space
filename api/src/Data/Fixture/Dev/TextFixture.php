@@ -102,7 +102,8 @@ HTML
                 'О нас',
                 self::SLUG_ABOUT,
                 <<<HTML
-<p>Мы - самые классные.</p>
+<p>В человеке живёт мечта покорения космоса. Представления о нём меняются с ходом эпох, космос остаётся неизученным и едва достижимым, но веками наш взгяд устремлён в небеса. Космос - метафора неутолимой жажды познания.</p>
+<p>Мы создали свой COSMOS. Стремление превзойти самих себя; готовность выйти за рамки обычных атмосфер; и уменя, чтобы выжить за их пределами - практическое проявление этой жажды, которое нас объединяет.</p>
 HTML
             ],
             [
@@ -111,7 +112,8 @@ HTML
                 'About',
                 self::SLUG_ABOUT,
                 <<<HTML
-<p>We are the best.</p>
+<p>The dream of conquering space lives in a person. Ideas about it change with the course of epochs, the cosmos remains unexplored and barely achievable, but for centuries our glance has been directed to heaven. Cosmos - a metaphor of an insatiable thirst for knowledge</p>
+<p>We created our own COSMOS. The desire to transcend themselves; willingness to go beyond ordinary atmospheres; and the ability to survive beyond them is a practical manifestation of this thirst that unites us.</p>
 HTML
             ],
             [
@@ -120,7 +122,8 @@ HTML
                 'Наши ценности',
                 self::SLUG_VALUES,
                 <<<HTML
-<p>Это конечно же деньги!</p>
+<p>COSMOS - это пространство, в которое выходят подготовленными. Мы создаём среду роста для компетентных IT-специалистов, готовых превосходить себя.</p>
+<p>В COSMOS нет микроменеджмента и жестких бюрократических структур. Мы создаём порядок, культивируя ответственность и мастерство.</p>
 HTML
             ],
             [
@@ -129,7 +132,8 @@ HTML
                 'Our values',
                 self::SLUG_VALUES,
                 <<<HTML
-<p>This is of course money!</p>
+<p>COSMOS - it's a space in which go out prepared. We create a growth environment for competent IT-specialists who are ready to transcend themselves.</p>
+<p>There is no micromanagement and rigid bureaucratic structures in COSMOS. We create order by cultivating responsibility and skill.</p>
 HTML
             ],
             [
@@ -170,7 +174,9 @@ HTML
                 'Хочешь в команду?',
                 self::SLUG_JOBS,
                 <<<HTML
-<p>Присылай резюме!</p>
+<p>COSMOS - это среда совершений.</p>
+<p>Мы собираем под своей крышей замечательных представителей своих профессий, объединённых одной целью: созавать лучшие коммерческие решения сегодня, сейчас. И бросаем все силы на создание условий работы, отвечающих их стандартам.</p>
+<p>Посмотри наши вакансии и если ты считаешь, что подходишь - смело присылай своё резюме!</p>
 HTML
             ],
             [
@@ -179,7 +185,9 @@ HTML
                 'Do you want a team?',
                 self::SLUG_JOBS,
                 <<<HTML
-<p>Send CV!</p>
+<p>COSMOS is an accomplishment environment.</p>
+<p>We gather under our roof wonderful representatives of our professions, united by one goal: to convene the best commercial decisions today, now. And we throw all the strength to create working conditions that meet their standards.</p>
+<p>Look at our vacancies and if you think that you are suitable - feel free to send your resume!</p>
 HTML
             ],
             [
@@ -206,7 +214,10 @@ HTML
                 'Что-то ещё?',
                 self::SLUG_CONTACTS,
                 <<<HTML
-<p>Пиши, звони.</p>
+<p>Свяжись с нами! Или приезжай в гости!</p>
+<p>129110, Москва, Олимпийский проспект, 16с5</p>
+<p>+7 (929) 646 94 74</p>
+<p>info@mercury-holding.com</p>
 HTML
             ],
             [
@@ -215,7 +226,10 @@ HTML
                 'Something else?',
                 self::SLUG_CONTACTS,
                 <<<HTML
-<p>Write, call.<p>
+<p>Contact us! Or come to visit!</p>
+<p>129110, Moscow, Olympic Avenue, 16b5</p>
+<p>+7 (929) 646 94 74</p>
+<p>info@mercury-holding.com</p>
 HTML
             ],
             [

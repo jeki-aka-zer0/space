@@ -45,10 +45,13 @@ abstract class TextFixture extends AbstractFixture implements OrderedFixtureInte
             $this->greetingRu = new Text(
                 Id::next(),
                 $this->getLanguageRu(),
-                'Здравствуйте',
+                <<<HTML
+<p>Привет!<br>Добро пожаловать в Cosmos</p>
+HTML
+                ,
                 self::SLUG_GREETING,
                 <<<HTML
-<p>Добро пожаловать в Космос</p>
+<p>Мы делаем IT-бизнесы, масштабируемые на международный рынок</p>
 HTML
             );
             $this->greetingRu->publish();
@@ -67,10 +70,13 @@ HTML
             $this->greetingEn = new Text(
                 Id::next(),
                 $this->getLanguageEn(),
-                'Hello',
+                <<<HTML
+<p>Hello!<br>Welcome to Cosmos</p>
+HTML
+                ,
                 self::SLUG_GREETING,
                 <<<HTML
-<p>Welcome to Cosmos</p>
+<p>We do IT-businesses that are scalable to the international market.</p>
 HTML
             );
             $this->greetingEn->publish();
