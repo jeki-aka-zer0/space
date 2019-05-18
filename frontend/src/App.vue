@@ -8,9 +8,9 @@
 </template>
 
 <script>
-    import Header from '@/components/header/Header.vue'
-    import Footer from '@/components/Footer.vue'
-    import Icons from '@/components/elements/Icons.vue'
+    import Header from './components/header/Header.vue'
+    import Footer from './components/Footer.vue'
+    import Icons from './components/elements/Icons.vue'
 
     export default {
         data() {
