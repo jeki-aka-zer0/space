@@ -10,10 +10,7 @@ docker-up:
 	docker-compose up --build -d
 
 api-permissions:
-	sudo chown 777 api/var
-	sudo chown 777 api/var/cache
-	sudo chown 777 api/var/log
-	sudo chown 777 api/var/mail
+	sudo chmod -R 777 api/var
 
 api-env:
 	docker-compose exec space-bc-api-php-cli rm -f .env
