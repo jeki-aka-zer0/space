@@ -54,7 +54,7 @@
                 let pageWidth = this._getPageLength();
                 let page = Math.floor(e.target.scrollLeft / pageWidth);
 
-                this.$root.$emit('send', page);
+                this.$emit('scroll', page);
             },
             _getPageLength() {
                 /**

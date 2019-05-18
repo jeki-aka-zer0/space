@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <Header/>
-        <router-view/>
-        <Footer :page="this.page"/>
+        <router-view v-on:scroll="page = $event"/>
+        <Footer :page="page"/>
         <icons/>
     </div>
 </template>
@@ -17,11 +17,6 @@
             return {
                 page: 0,
             };
-        },
-        created() {
-            this.$root.$on('send', (page) => {
-                this.page = page;
-            });
         },
         components: {
             Header,
