@@ -2,7 +2,7 @@
     <div id="app">
         <Header @menu-chosen="goTo"/>
         <router-view @scroll="page = $event"/>
-        <Footer :page="page" @menu-chosen="goTo"/>
+        <Footer @menu-chosen="goTo" :page="page" />
         <icons/>
     </div>
 </template>
@@ -11,6 +11,7 @@
     import Header from './components/header/Header.vue'
     import Footer from './components/Footer.vue'
     import Icons from './components/elements/Icons.vue'
+    import Utils from './utils/index'
 
     export default {
         data() {
@@ -18,7 +19,49 @@
                 page: 0,
             };
         },
+        created() {
+            const component = this;
+            this.handler = function (event) {
+                switch (Utils.getKeyCode(event)) {
+                    case 'ArrowLeft':
+                    case 37:
+                        component.$emit('key-left', event);
+                        break;
+                    case 'ArrowUp':
+                    case 38:
+                        component.showFooter();
+                        component.$emit('key-up', event);
+                        break;
+                    case 'ArrowRight':
+                    case 39:
+                        component.$emit('key-right', event);
+                        break;
+                    case 'ArrowDown':
+                    case 40:
+                        component.hideFooter();
+                        component.$emit('key-down', event);
+                        break;
+                }
+            };
+
+            window.addEventListener('keyup', this.handler);
+        },
+        beforeDestroy() {
+            window.removeEventListener('keyup', this.handler);
+        },
         methods: {
+            showFooter() {
+                document.getElementsByTagName('footer')[0].style = 'bottom: 0px';
+                document.querySelectorAll('.page').forEach(function (el) {
+                    el.style = 'height: calc(100vh - 70px)';
+                });
+            },
+            hideFooter() {
+                document.getElementsByTagName('footer')[0].style = 'bottom: -70px';
+                document.querySelectorAll('.page').forEach(function (el) {
+                    el.style = 'height: 100vh';
+                });
+            },
             goTo(slug) {
                 let container = this._getContainer();
                 let containerOffset = container.offsetLeft;
