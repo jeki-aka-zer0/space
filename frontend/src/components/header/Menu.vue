@@ -41,7 +41,7 @@
             },
             goToAndCloseModal(slug) {
                 this.closeModal();
-                this.$emit('menuChosen', slug);
+                this.$emit('menu-chosen', slug);
             },
         },
         components: {

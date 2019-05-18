@@ -11,6 +11,7 @@
                         v-for="(menu, index) in getMenu.data"
                         :key="menu.slug"
                         :class="['menu-bottom__item', {'menu-bottom__item-active': index === page}]"
+                        @click="$emit('menu-chosen', menu.slug)"
                 >
                     <span class="menu-bottom__item__link">
                         {{ menu.name }}

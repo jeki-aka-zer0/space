@@ -1,5 +1,5 @@
 <template>
-    <span @click="$emit('menuChosen', 'home')" class="nav__brand">
+    <span @click="$emit('menu-chosen', 'home')" class="nav__brand">
         <svg class="icon">
             <use xlink:href="#logo"></use>
         </svg>
