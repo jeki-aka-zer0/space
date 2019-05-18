@@ -60,7 +60,7 @@
     footer {
         background: $dark;
         bottom: 0;
-        height: 70px;
+        height: $footer-height;
         padding: 20px 0;
         position: fixed;
         width: 100%;

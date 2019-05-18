@@ -231,7 +231,7 @@
         border: 0;
         border-bottom: 2px solid $light;
         color: $light;
-        font-size: $fontNormal;
+        font-size: $font-normal;
         max-width: 400px;
         margin-bottom: 20px;
         width: 100%;

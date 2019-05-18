@@ -34,14 +34,14 @@
 
 @mixin big-adaptive-font() {
   @include for-size('phone-only') {
-    font-size: $fontBig - 10px;
+    font-size: $font-big - 10px;
   }
 
   @include for-size('phone-up') {
-    font-size: $fontBig - 5px;
+    font-size: $font-big - 5px;
   }
 
   @include for-size('tablet-up') {
-    font-size: $fontBig;
+    font-size: $font-big;
   }
 }

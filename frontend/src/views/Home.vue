@@ -71,6 +71,7 @@
 <style lang="scss">
     @import "../assets/scss/colors";
     @import "../assets/scss/media";
+    @import "../assets/scss/variables";
 
     .pages-wrapper {
         display: flex;
@@ -107,9 +108,9 @@
     .page {
         background: url(../assets/img/bg.jpg) repeat-x left center;
         flex: 0 0 auto;
-        width: 100vw;
-        height: calc(100vh - 70px); /* height of footer */
+        height: calc(100vh - #{$footer-height});
         padding: 65px 10px 30px;
+        width: 100vw;
 
         &__content {
             display: flex;
