@@ -5,12 +5,12 @@
             @ps-scroll-left="scroll"
             @ps-scroll-right="scroll"
     >
-        <Greeting/>
-        <About/>
-        <Values/>
-        <Projects/>
-        <Jobs/>
-        <Contacts/>
+        <Greeting :isWide="isWide"/>
+        <About :isWide="isWide"/>
+        <Values :isWide="isWide"/>
+        <Projects :isWide="isWide"/>
+        <Jobs :isWide="isWide"/>
+        <Contacts :isWide="isWide"/>
     </VueCustomScrollbar>
 </template>
 
@@ -36,6 +36,7 @@
         },
         data() {
             return {
+                isWide: false,
                 scrollBarSettings: {
                     useBothWheelAxes: true,
                     minScrollbarLength: 100,
@@ -111,6 +112,10 @@
         height: calc(100vh - #{$footer-height});
         padding: 65px 10px 30px;
         width: 100vw;
+
+        &.wide {
+            height: 100vh;
+        }
 
         &__content {
             display: flex;

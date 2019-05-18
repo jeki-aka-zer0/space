@@ -1,5 +1,5 @@
 <template>
-    <div class="page page-values">
+    <div :class="['page page-values', {wide: isWide}]">
         <div class="max-width-center">
             <div v-if="getTexts.isLoaded" class="page__content">
 
@@ -48,6 +48,12 @@
                             .trim()
                             .replace(/<\/?[^>]+(>|$)/g, '');
                     });
+            },
+        },
+        props: {
+            isWide: {
+                type: Boolean,
+                required: true,
             },
         },
         components: {

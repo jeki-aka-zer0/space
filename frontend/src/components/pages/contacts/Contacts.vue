@@ -1,5 +1,5 @@
 <template>
-    <div class="page page-contacts">
+    <div :class="['page page-contacts', {wide: isWide}]">
         <div class="max-width-center">
             <div v-if="getTexts.isLoaded" class="page__content">
 
@@ -30,6 +30,12 @@
             ]),
             getContactsText() {
                 return this.getTextBySlug(SLUG_CONTACTS);
+            },
+        },
+        props: {
+            isWide: {
+                type: Boolean,
+                required: true,
             },
         },
         components: {

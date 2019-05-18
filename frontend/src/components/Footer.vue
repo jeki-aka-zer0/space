@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer :class="{ hidden: isHidden}">
         <div class="max-width-center">
 
             <svg class="icon">
@@ -35,6 +35,11 @@
                 required: true,
             },
         },
+        data() {
+            return {
+                isHidden: false,
+            };
+        },
         computed: {
             ...mapGetters([
                 'getMenu',
@@ -66,6 +71,10 @@
         position: fixed;
         width: 100%;
         z-index: 10;
+
+        &.hidden {
+            bottom: -$footer-height;
+        }
 
         .icon {
             float: left;

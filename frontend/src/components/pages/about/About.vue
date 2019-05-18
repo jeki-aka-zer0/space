@@ -1,5 +1,5 @@
 <template>
-    <div class="page page-about">
+    <div :class="['page page-about', {wide: isWide}]">
         <div class="max-width-center">
             <div v-if="getTexts.isLoaded" class="page__content">
 
@@ -30,6 +30,12 @@
             ]),
             getAboutText() {
                 return this.getTextBySlug(SLUG_ABOUT);
+            },
+        },
+        props: {
+            isWide: {
+                type: Boolean,
+                required: true,
             },
         },
         components: {

@@ -1,5 +1,5 @@
 <template>
-    <div class="page page-home">
+    <div :class="['page page-home', {wide: isWide}]">
         <div class="max-width-center">
             <div v-if="getTexts.isLoaded" class="page__content">
 
@@ -38,6 +38,12 @@
             },
             getNavigation() {
                 return this.getTextBySlug(SLUG_NAVIGATION);
+            },
+        },
+        props: {
+            isWide: {
+                type: Boolean,
+                required: true,
             },
         },
         components: {

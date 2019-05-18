@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <Header @menu-chosen="goTo"/>
-        <router-view @scroll="page = $event"/>
-        <Footer @menu-chosen="goTo" :page="page" />
+        <router-view @scroll="page = $event" ref="content"/>
+        <Footer @menu-chosen="goTo" :page="page" ref="footer"/>
         <icons/>
     </div>
 </template>
@@ -51,16 +51,10 @@
         },
         methods: {
             showFooter() {
-                document.getElementsByTagName('footer')[0].style = 'bottom: 0px';
-                document.querySelectorAll('.page').forEach(function (el) {
-                    el.style = 'height: calc(100vh - 70px)';
-                });
+                this.$refs.footer.isHidden = this.$refs.content.isWide = false;
             },
             hideFooter() {
-                document.getElementsByTagName('footer')[0].style = 'bottom: -70px';
-                document.querySelectorAll('.page').forEach(function (el) {
-                    el.style = 'height: 100vh';
-                });
+                this.$refs.footer.isHidden = this.$refs.content.isWide = true;
             },
             goTo(slug) {
                 let container = this._getContainer();
