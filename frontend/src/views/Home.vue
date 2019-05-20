@@ -107,7 +107,7 @@
     }
 
     .page {
-        background: url(../assets/img/bg.jpg) repeat-x left center;
+        background: url(../assets/img/animation/animation-6.gif) no-repeat -1% 20%, url(../assets/img/animation/animation-1.gif) no-repeat 80% 60%, url(../assets/img/bg.jpg) repeat-x left center;
         flex: 0 0 auto;
         height: calc(100vh - #{$footer-height});
         padding: 65px 10px 30px;

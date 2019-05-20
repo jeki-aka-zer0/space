@@ -55,14 +55,14 @@
         },
         methods: {
             showFooter() {
-                if (this.getModal().isVisible) {
+                if (this.getModal.isVisible) {
                     return;
                 }
 
                 this.$refs.footer.isHidden = this.$refs.content.isWide = false;
             },
             hideFooter() {
-                if (this.getModal().isVisible) {
+                if (this.getModal.isVisible) {
                     return;
                 }
 

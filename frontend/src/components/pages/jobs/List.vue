@@ -4,7 +4,7 @@
             <div class="jobs-table__head__item">{{ getWhoWeNeedText.name }}</div>
             <div class="jobs-table__head__item">{{ getExperienceText.name }}</div>
         </div>
-        <item v-for="job in getJobs" :job="job"/>
+        <item v-for="(job, index) in getJobs" :key="index" :job="job"/>
     </div>
 </template>
 

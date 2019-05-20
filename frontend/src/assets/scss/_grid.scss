@@ -6,7 +6,7 @@
   -webkit-box-direction: normal;
   flex-flow: row wrap;
   flex-wrap: wrap;
-  align-content: start;
+  align-content: flex-start;
 }
 
 @for $i from 0 through $num-of-cols {

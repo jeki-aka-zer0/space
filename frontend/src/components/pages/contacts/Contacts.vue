@@ -46,6 +46,6 @@
 
 <style lang="scss">
     .page-contacts {
-        background: url(../../../assets/img/bg.jpg) repeat-x -500% center !important;
+        background: url(../../../assets/img/animation/animation-6.gif) no-repeat 25% 5%, url(../../../assets/img/animation/animation-6.gif) no-repeat 5% 115%, url(../../../assets/img/animation/animation-4.gif) no-repeat 75% 80%, url(../../../assets/img/bg.jpg) repeat-x -500% center !important;
     }
 </style>
