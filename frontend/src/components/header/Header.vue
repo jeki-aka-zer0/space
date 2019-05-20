@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header :class="{hidden: getModal.isVisible}">
         <div class="max-width-center">
             <div class="nav">
                 <Brand @menu-chosen="$emit('menu-chosen', $event)"/>
@@ -12,12 +12,16 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import Brand from './Brand.vue'
     import Slogan from './Slogan.vue'
     import Languages from './Languages.vue'
     import Menu from './Menu.vue'
 
     export default {
+        computed: {
+            ...mapGetters(['getModal']),
+        },
         components: {
             Brand,
             Slogan,
@@ -34,6 +38,10 @@
         position: fixed;
         width: 100%;
         z-index: 20;
+
+        &.hidden {
+            top: -100px;
+        }
 
         @include for-size('phone-only') {
             padding: 5px 8px;

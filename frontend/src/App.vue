@@ -8,6 +8,7 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
     import Header from './components/header/Header.vue'
     import Footer from './components/Footer.vue'
     import Icons from './components/elements/Icons.vue'
@@ -49,11 +50,22 @@
         beforeDestroy() {
             window.removeEventListener('keyup', this.handler);
         },
+        computed: {
+            ...mapGetters(['getModal']),
+        },
         methods: {
             showFooter() {
+                if (this.getModal().isVisible) {
+                    return;
+                }
+
                 this.$refs.footer.isHidden = this.$refs.content.isWide = false;
             },
             hideFooter() {
+                if (this.getModal().isVisible) {
+                    return;
+                }
+
                 this.$refs.footer.isHidden = this.$refs.content.isWide = true;
             },
             goTo(slug) {

@@ -36,7 +36,7 @@
     @import "../../assets/scss/variables";
 
     .modal {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.7);
         height: 100%;
         left: 0;
         position: fixed;
@@ -74,7 +74,7 @@
             position: absolute;
             right: 50%;
             top: 50%;
-            transition-duration: 0.2s;
+            transition-duration: .2s;
             z-index: 102;
             width: 50px;
 

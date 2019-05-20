@@ -1,5 +1,5 @@
 <template>
-    <footer :class="{ hidden: isHidden}">
+    <footer :class="{ hidden: isHidden || getModal.isVisible}">
         <div class="max-width-center">
 
             <svg class="icon">
@@ -43,6 +43,7 @@
         computed: {
             ...mapGetters([
                 'getMenu',
+                'getModal',
             ]),
         },
         created() {
