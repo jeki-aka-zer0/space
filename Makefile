@@ -53,3 +53,6 @@ frontend-watch:
 
 bash-node:
 	docker exec -it `docker ps | grep space-bc-frontend-nodejs | awk {'print $1'}` /bin/bash
+
+backend-composer:
+	docker-compose exec space-bc-backend-php-cli composer install

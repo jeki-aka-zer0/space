@@ -91,3 +91,14 @@ services:
             - ./backend:/var/www/backend
         depends_on:
             - space-bc-api-postgres
+
+    space-bc-backend-php-cli:
+        build:
+            context: ./backend/docker
+            dockerfile: php-cli.docker
+        volumes:
+            - ./backend:/var/www/backend
+        depends_on:
+            - space-bc-api-postgres
+        working_dir: /var/www/backend
+        tty: true
