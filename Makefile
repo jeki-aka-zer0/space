@@ -56,3 +56,7 @@ bash-node:
 
 backend-composer:
 	docker-compose exec space-bc-backend-php-cli composer install
+
+backend-permissions:
+	sudo chown -R www-data:www-data backend/web
+	sudo chmod -R 777 backend/web
