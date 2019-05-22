@@ -70,3 +70,24 @@ services:
         ports:
             - "1025:1025"
             - "8082:8025"
+
+    space-bc-back-nginx:
+        build:
+            context: ./backend/docker
+            dockerfile: nginx.docker
+        volumes:
+            - ./backend:/var/www/backend
+        ports:
+            - "8083:80"
+        depends_on:
+            - space-bc-backend-php-fpm
+            - space-bc-api-postgres
+
+    space-bc-backend-php-fpm:
+        build:
+            context: ./backend/docker
+            dockerfile: php-fpm.docker
+        volumes:
+            - ./backend:/var/www/backend
+        depends_on:
+            - space-bc-api-postgres
