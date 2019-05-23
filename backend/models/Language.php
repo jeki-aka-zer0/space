@@ -32,7 +32,14 @@ final class Language extends ActiveRecord
     public function rules(): array
     {
         return [
+            [['name', 'status', 'sort'], 'required'],
+
+            [['sort'], 'integer'],
+            [['sort'], 'unique'],
+
             [['status'], 'in', 'range' => ['draft', 'active']],
+
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -81,5 +88,11 @@ final class Language extends ActiveRecord
     public function getTxtTexts()
     {
         return $this->hasMany(Text::class, ['language_code' => 'code']);
+    }
+
+    public function afterFind()
+    {
+        parent::afterFind();
+        $this->status = trim($this->status);
     }
 }

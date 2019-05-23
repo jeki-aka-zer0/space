@@ -19,16 +19,9 @@ $menu = [
     'options' => ['class' => 'sidebar-menu tree', 'data' => ['widget' => 'tree', 'animation-speed' => '200']],
     'items' => [
         [
-            'label' => 'Test 1',
-            'icon' => 'file-text-o',
-            'url' => '#',
-            'items' => [
-                [
-                    'label' => 'Test 2',
-                    'url' => ['/catalog/order/default/index'],
-                    'active' => strpos($context->id, 'catalog/order') === 0,
-                ],
-            ],
+            'label' => 'Языки',
+            'icon' => 'fa-language',
+            'url' => ['/languages/index'],
         ],
     ],
 ];
