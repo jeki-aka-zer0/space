@@ -19,14 +19,19 @@ $menu = [
     'options' => ['class' => 'sidebar-menu tree', 'data' => ['widget' => 'tree', 'animation-speed' => '200']],
     'items' => [
         [
-            'label' => 'Языки',
-            'icon' => 'fa-language',
-            'url' => ['/languages/index'],
+            'label' => 'Тексты',
+            'icon' => 'file-text-o',
+            'url' => ['/texts/index'],
         ],
         [
             'label' => 'Вакансии',
-            'icon' => 'fa-wrench',
+            'icon' => 'wrench',
             'url' => ['/jobs/index'],
+        ],
+        [
+            'label' => 'Языки',
+            'icon' => 'language',
+            'url' => ['/languages/index'],
         ],
     ],
 ];

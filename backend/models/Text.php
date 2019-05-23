@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "txt_texts".
@@ -19,7 +18,7 @@ use yii\db\ActiveRecord;
  *
  * @property Language $languageCode
  */
-final class Text extends ActiveRecord
+final class Text extends Base
 {
     public static function tableName():string
     {
@@ -30,8 +29,11 @@ final class Text extends ActiveRecord
     {
         return [
             [['name', 'content', 'status'], 'required'],
+
             [['content'], 'string'],
+
             [['name'], 'string', 'max' => 255],
+
             [['status'], 'in', 'range' => ['draft', 'active']],
         ];
     }
