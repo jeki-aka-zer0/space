@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use Yii;
@@ -11,7 +13,7 @@ use yii\base\Model;
  * @property User|null $user This property is read-only.
  *
  */
-class LoginForm extends Model
+final class LoginForm extends Model
 {
     public $username;
     public $password;
@@ -19,18 +21,11 @@ class LoginForm extends Model
 
     private $_user = false;
 
-
-    /**
-     * @return array the validation rules.
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
-            // username and password are both required
             [['username', 'password'], 'required'],
-            // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
-            // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
     }
@@ -60,7 +55,7 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         return false;
     }
@@ -77,5 +72,14 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+
+    public function attributeLabels(): array
+    {
+        return [
+            'username' => 'Имя',
+            'password' => 'Пароль',
+            'rememberMe' => 'Запомнить меня',
+        ];
     }
 }

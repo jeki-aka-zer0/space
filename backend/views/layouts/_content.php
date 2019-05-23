@@ -15,6 +15,10 @@ use \yii\helpers\Html;
 
             <div class="col-sm-<?= isset($this->params['buttons']) ? '8' : '12' ?>">
                 <?= Breadcrumbs::widget([
+                    'homeLink' => [
+                        'label' => 'Главная',
+                        'url' => Yii::$app->homeUrl,
+                    ],
                     'encodeLabels' => false,
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>

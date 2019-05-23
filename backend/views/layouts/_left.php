@@ -40,7 +40,7 @@ if (YII_ENV === 'dev') {
             ['label' => 'Dev tools', 'options' => ['class' => 'header']],
             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'], 'visible' => YII_ENV === 'dev'],
             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'], 'visible' => YII_ENV === 'dev'],
-            ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+            ['label' => 'Login', 'url' => ['site/login'], 'visible' => $isGuest],
         ]
     );
 }
@@ -48,7 +48,7 @@ if (YII_ENV === 'dev') {
 ?>
 <aside class="main-sidebar">
     <section class="sidebar">
-        <?php if ($isGuest) {
+        <?php if (false === $isGuest) {
             echo Menu::widget($menu);
         } ?>
     </section>
