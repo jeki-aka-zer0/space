@@ -12,7 +12,7 @@ use yii\db\StaleObjectException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class TextsController extends BaseController
+final class TextsController extends BaseController
 {
     public function behaviors(): array
     {

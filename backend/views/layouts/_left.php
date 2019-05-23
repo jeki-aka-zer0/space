@@ -38,6 +38,11 @@ $menu = [
             'icon' => 'list',
             'url' => ['/menu/index'],
         ],
+        [
+            'label' => 'Проекты',
+            'icon' => 'archive',
+            'url' => ['/projects/index'],
+        ],
     ],
 ];
 

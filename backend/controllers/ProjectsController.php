@@ -6,13 +6,13 @@ namespace app\controllers;
 
 use Throwable;
 use Yii;
-use app\models\Language;
+use app\models\Project;
 use yii\data\ActiveDataProvider;
 use yii\db\StaleObjectException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-final class LanguagesController extends BaseController
+final class ProjectsController extends BaseController
 {
     public function behaviors(): array
     {
@@ -27,13 +27,13 @@ final class LanguagesController extends BaseController
     }
 
     /**
-     * Lists all Language models.
+     * Lists all Project models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Language::find(),
+            'query' => Project::find(),
         ]);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ final class LanguagesController extends BaseController
     }
 
     /**
-     * Updates an existing Language model.
+     * Updates an existing Project model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -62,7 +62,7 @@ final class LanguagesController extends BaseController
     }
 
     /**
-     * Deletes an existing Language model.
+     * Deletes an existing Project model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -78,15 +78,15 @@ final class LanguagesController extends BaseController
     }
 
     /**
-     * Finds the Language model based on its primary key value.
+     * Finds the Project model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Language the loaded model
+     * @return Project the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Language::findOne($id)) !== null) {
+        if (($model = Project::findOne($id)) !== null) {
             return $model;
         }
 

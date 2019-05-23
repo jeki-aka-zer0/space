@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "project_projects".
@@ -19,7 +18,7 @@ use yii\db\ActiveRecord;
  *
  * @property Language $languageCode
  */
-final class Project extends ActiveRecord
+final class Project extends Base
 {
     public static function tableName(): string
     {
@@ -30,11 +29,15 @@ final class Project extends ActiveRecord
     {
         return [
             [['name', 'content', 'status', 'sort'], 'required'],
+
             [['content'], 'string'],
+
             [['sort'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-            [['status'], 'in', 'range' => ['draft', 'active']],
             [['sort'], 'unique'],
+
+            [['name'], 'string', 'max' => 255],
+
+            [['status'], 'in', 'range' => ['draft', 'active']],
         ];
     }
 
