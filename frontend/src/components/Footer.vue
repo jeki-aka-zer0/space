@@ -62,6 +62,7 @@
 
 <style lang="scss">
     @import "../assets/scss/colors";
+    @import "../assets/scss/media";
     @import "../assets/scss/variables";
 
     footer {
@@ -72,6 +73,10 @@
         position: fixed;
         width: 100%;
         z-index: 10;
+
+        @include for-size('phone-only') {
+            display: none;
+        }
 
         &.hidden {
             bottom: -$footer-height;

@@ -79,6 +79,15 @@
         flex-wrap: nowrap;
         z-index: 10;
 
+        @include for-size('phone-only') {
+            background: url(../assets/img/bg.jpg) center;
+            background-size: cover;
+        }
+
+        @include for-size('phone-only') {
+            display: block;
+        }
+
         &:focus {
             outline: none;
         }
@@ -112,6 +121,10 @@
         height: calc(100vh - #{$footer-height});
         padding: 65px 10px 30px;
         width: 100vw;
+
+        @include for-size('phone-only') {
+            background: none !important;
+        }
 
         &.wide {
             height: 100vh;
