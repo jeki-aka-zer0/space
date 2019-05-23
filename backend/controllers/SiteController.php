@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\auth\HttpBasicAuth;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -35,7 +36,26 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            'authenticator' =>  [
+                'class' => HttpBasicAuth::class,
+                'auth' => [$this, 'auth']
+            ],
         ];
+    }
+
+    public function auth($username, $password)
+    {
+        /*$user = User::findOne(['username' => $username]);
+        return $user->validatePassword($password) ? $user : null;*/
+
+        var_dump($password); exit;
+
+        /*return \app\models\User::findOne(
+            [
+                'username' => $username,
+                'password_hash' => Что писать здесь?????????????
+            ]
+        );*/
     }
 
     /**
