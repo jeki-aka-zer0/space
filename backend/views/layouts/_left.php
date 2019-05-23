@@ -33,6 +33,11 @@ $menu = [
             'icon' => 'language',
             'url' => ['/languages/index'],
         ],
+        [
+            'label' => 'Меню',
+            'icon' => 'list',
+            'url' => ['/menu/index'],
+        ],
     ],
 ];
 

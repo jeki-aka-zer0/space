@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "nav_menu".
@@ -19,7 +18,7 @@ use yii\db\ActiveRecord;
  *
  * @property Language $languageCode
  */
-class Menu extends ActiveRecord
+class Menu extends Base
 {
     public static function tableName():string
     {
@@ -30,10 +29,13 @@ class Menu extends ActiveRecord
     {
         return [
             [['name', 'status', 'sort'], 'required'],
+
             [['sort'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-            [['status'], 'in', 'range' => ['draft', 'active']],
             [['sort'], 'unique'],
+
+            [['name'], 'string', 'max' => 255],
+
+            [['status'], 'in', 'range' => ['draft', 'active']],
         ];
     }
 
