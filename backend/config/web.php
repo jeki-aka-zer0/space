@@ -1,5 +1,7 @@
 <?php
 
+use yii\web\UrlManager;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -43,6 +45,11 @@ $config = [
             ],
         ],
         'db' => $db,
+        'urlManager' => [
+            'class' => UrlManager::class,
+            'baseUrl' => '',
+            'showScriptName' => false,
+        ]
     ],
     'params' => $params,
 ];
