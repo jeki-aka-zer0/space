@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "job_jobs".
@@ -20,7 +19,7 @@ use yii\db\ActiveRecord;
  *
  * @property Language $languageCode
  */
-final class Job extends ActiveRecord
+final class Job extends Base
 {
     public static function tableName(): string
     {
@@ -31,11 +30,15 @@ final class Job extends ActiveRecord
     {
         return [
             [['name', 'experience', 'content', 'status', 'sort'], 'required'],
+
             [['content'], 'string'],
-            [['sort'], 'integer'],
+
             [['name', 'experience'], 'string', 'max' => 255],
-            [['status'], 'in', 'range' => ['draft', 'active']],
+
+            [['sort'], 'integer'],
             [['sort'], 'unique'],
+
+            [['status'], 'in', 'range' => ['draft', 'active']],
         ];
     }
 

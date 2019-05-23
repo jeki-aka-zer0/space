@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "lng_languages".
@@ -22,7 +21,7 @@ use yii\db\ActiveRecord;
  * @property Project[] $projectProjects
  * @property Text[] $txtTexts
  */
-final class Language extends ActiveRecord
+final class Language extends Base
 {
     public static function tableName(): string
     {
@@ -88,11 +87,5 @@ final class Language extends ActiveRecord
     public function getTxtTexts()
     {
         return $this->hasMany(Text::class, ['language_code' => 'code']);
-    }
-
-    public function afterFind()
-    {
-        parent::afterFind();
-        $this->status = trim($this->status);
     }
 }

@@ -23,6 +23,11 @@ $menu = [
             'icon' => 'fa-language',
             'url' => ['/languages/index'],
         ],
+        [
+            'label' => 'Вакансии',
+            'icon' => 'fa-wrench',
+            'url' => ['/jobs/index'],
+        ],
     ],
 ];
 
