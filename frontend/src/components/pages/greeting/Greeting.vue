@@ -53,6 +53,8 @@
 </script>
 
 <style lang="scss">
+    @import "../../../assets/scss/media";
+
     .page-home {
 
         .page__content {
@@ -74,5 +76,9 @@
         margin-top: 10px;
         height: 40px;
         width: 58px;
+
+        @include for-size('phone-only') {
+            display: none;
+        }
     }
 </style>

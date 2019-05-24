@@ -52,15 +52,18 @@
             justify-content: space-between;
             margin-bottom: 20px;
 
+            @include for-size('phone-only') {
+                display: none;
+            }
+
             @include for-size('tablet-down') {
                 margin-bottom: 5px;
             }
         }
 
-        @include for-size('tablet-up') {
-            border-bottom: 2px solid $light;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
+        border-bottom: 2px solid $light;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+
     }
 </style>

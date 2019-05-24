@@ -48,7 +48,14 @@
     @import "../../../assets/scss/media";
 
     .page-about {
-        background: url(../../../assets/img/animation/animation-6.gif) no-repeat 10% 105%, url(../../../assets/img/animation/animation-2.gif) no-repeat 80% 60%, url(../../../assets/img/bg.jpg) repeat-x -100% center !important;
+
+        @include for-size('phone-only') {
+            background: none;
+        }
+
+        @include for-size('phone-up') {
+            background: url(../../../assets/img/animation/animation-6.gif) no-repeat 10% 105%, url(../../../assets/img/animation/animation-2.gif) no-repeat 80% 60%, url(../../../assets/img/bg.jpg) repeat-x -100% center !important;
+        }
 
         .page__content__column {
             @include for-size('tablet-down') {

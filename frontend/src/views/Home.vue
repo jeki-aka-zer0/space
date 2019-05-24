@@ -75,17 +75,17 @@
     @import "../assets/scss/variables";
 
     .pages-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
         z-index: 10;
 
         @include for-size('phone-only') {
             background: url(../assets/img/bg.jpg) center;
             background-size: cover;
+            display: block;
         }
 
-        @include for-size('phone-only') {
-            display: block;
+        @include for-size('phone-up') {
+            display: flex;
+            flex-wrap: nowrap;
         }
 
         &:focus {
@@ -93,37 +93,43 @@
         }
     }
 
-    .ps {
-        & > .ps__rail-x, &:hover > .ps__rail-x {
-            height: 60px;
-            opacity: 1;
-            background: transparent !important;
-
-            &:after {
-                content: '';
-                background: $danger;
-                display: block;
-                height: 4px;
-                margin-top: 23px;
-            }
-
-            &:hover .ps__thumb-x, .ps__thumb-x {
-                background: transparent url(../assets/img/rocket.gif) no-repeat center center;
-                width: 100px;
+    @include for-size('phone-up') {
+        .ps {
+            & > .ps__rail-x, &:hover > .ps__rail-x {
                 height: 60px;
+                opacity: 1;
+                background: transparent !important;
+
+                &:after {
+                    content: '';
+                    background: $danger;
+                    display: block;
+                    height: 4px;
+                    margin-top: 23px;
+                }
+
+                &:hover .ps__thumb-x, .ps__thumb-x {
+                    background: transparent url(../assets/img/rocket.gif) no-repeat center center;
+                    width: 100px;
+                    height: 60px;
+                }
             }
         }
     }
 
     .page {
-        background: url(../assets/img/animation/animation-6.gif) no-repeat -1% 20%, url(../assets/img/animation/animation-1.gif) no-repeat 80% 60%, url(../assets/img/bg.jpg) repeat-x left center;
-        flex: 0 0 auto;
         height: calc(100vh - #{$footer-height});
-        padding: 65px 10px 30px;
         width: 100vw;
 
         @include for-size('phone-only') {
-            background: none !important;
+            background: none;
+            padding: 65px 30px 30px;
+        }
+
+        @include for-size('phone-up') {
+            background: url(../assets/img/animation/animation-6.gif) no-repeat -1% 20%, url(../assets/img/animation/animation-1.gif) no-repeat 80% 60%, url(../assets/img/bg.jpg) repeat-x left center;
+            flex: 0 0 auto;
+            padding: 45px 10px 30px;
         }
 
         &.wide {
@@ -136,7 +142,11 @@
             justify-content: space-around;
 
             @include for-size('phone-only') {
-                margin-top: 0
+                margin-top: 0;
+
+                &__column {
+                    margin-top: 30px;
+                }
             }
 
             @include for-size('phone-up') {

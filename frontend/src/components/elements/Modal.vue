@@ -84,6 +84,12 @@
                 top: 20px;
             }
 
+            @include for-size('phone-only') {
+                opacity: .7;
+                top: 3px;
+                right: 3px;
+            }
+
             &:hover {
                 transform: rotate(90deg);
             }

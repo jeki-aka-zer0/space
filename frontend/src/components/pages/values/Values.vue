@@ -68,7 +68,13 @@
     @import "../../../assets/scss/variables";
 
     .page-values {
-        background: url(../../../assets/img/animation/animation-7.gif) no-repeat 80% 100%, url(../../../assets/img/animation/animation-3.gif) no-repeat 20% 10%, url(../../../assets/img/bg.jpg) repeat-x -200% center !important;
+        @include for-size('phone-only') {
+            background: none;
+        }
+
+        @include for-size('phone-up') {
+            background: url(../../../assets/img/animation/animation-7.gif) no-repeat 80% 100%, url(../../../assets/img/animation/animation-3.gif) no-repeat 20% 10%, url(../../../assets/img/bg.jpg) repeat-x -200% center !important;
+        }
     }
 
     .value-item {

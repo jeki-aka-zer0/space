@@ -49,7 +49,17 @@
 </script>
 
 <style lang="scss">
+    @import "../../../assets/scss/media";
+
     .page-projects {
-        background: url(../../../assets/img/animation/animation-3.gif) no-repeat 90% 120%, url(../../../assets/img/animation/animation-1.gif) no-repeat 7% 50%, url(../../../assets/img/bg.jpg) repeat-x -300% center !important;
+
+        @include for-size('phone-only') {
+            background: none;
+        }
+
+        @include for-size('phone-up') {
+            background: url(../../../assets/img/animation/animation-3.gif) no-repeat 90% 120%, url(../../../assets/img/animation/animation-1.gif) no-repeat 7% 50%, url(../../../assets/img/bg.jpg) repeat-x -300% center !important;
+        }
+
     }
 </style>

@@ -64,38 +64,65 @@
     @import "../../../assets/scss/variables";
 
     .jobs-table__body__item {
-        display: flex;
         cursor: pointer;
-        flex-wrap: wrap;
         padding: 5px 0;
         width: 100%;
 
-        @include for-size('tablet-down') {
-            padding: 3px 0;
+        @include for-size('phone-only') {
+            padding: 7px 0;
+        }
+
+        @include for-size('phone-up') {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5px 0;
+        }
+
+        > div, > svg {
+            @include for-size('phone-only') {
+                display: inline-block;
+                margin-right: 5px;
+            }
         }
 
         &__name {
-            flex-grow: 3;
+            @include for-size('phone-up') {
+                flex-grow: 3;
+            }
+
+            @include for-size('phone-only') {
+                &:after {
+                    content: ', ';
+                }
+            }
         }
 
         &__experience {
-            width: 105px;
+            @include for-size('phone-up') {
+                width: 105px;
+            }
         }
 
         &__arrow {
-            text-align: right;
-            width: 25px;
+            @include for-size('phone-up') {
+                text-align: right;
+                width: 25px;
+            }
         }
 
         .icon {
-            height: 25px;
-            margin-left: 10px;
             position: relative;
             top: 2px;
-            width: 25px;
 
-            @include for-size('tablet-down') {
-                display: none;
+            @include for-size('phone-only') {
+                height: 15px;
+                width: 15px;
+            }
+
+            @include for-size('phone-up') {
+                height: 25px;
+                margin-left: 10px;
+                width: 25px;
             }
         }
 

@@ -80,8 +80,17 @@
 </script>
 
 <style lang="scss">
+    @import "../../../assets/scss/media";
+
     .page-jobs {
-        background: url(../../../assets/img/animation/animation-6.gif) no-repeat 95% -10%, url(../../../assets/img/animation/animation-5.gif) no-repeat 5% 70%, url(../../../assets/img/bg.jpg) repeat-x -400% center !important;
+
+        @include for-size('phone-only') {
+            background: none;
+        }
+
+        @include for-size('phone-up') {
+            background: url(../../../assets/img/animation/animation-6.gif) no-repeat 95% -10%, url(../../../assets/img/animation/animation-5.gif) no-repeat 5% 70%, url(../../../assets/img/bg.jpg) repeat-x -400% center !important;
+        }
 
         .btn {
             margin-top: 30px;

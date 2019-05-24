@@ -32,12 +32,17 @@
 </script>
 
 <style lang="scss">
+    @import "../../assets/scss/colors";
     @import "../../assets/scss/media";
 
     header {
         position: fixed;
         width: 100%;
         z-index: 20;
+
+        @include for-size('phone-only') {
+            background: $dark;
+        }
 
         &.hidden {
             top: -100px;
