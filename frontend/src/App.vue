@@ -70,8 +70,23 @@
             },
             goTo(slug) {
                 let container = this._getContainer();
-                let containerOffset = container.offsetLeft;
                 let page = this._getPage(slug);
+
+                if (this._isMobile()) {
+                    this._scrollMobile(container, page);
+                } else {
+                    this._scrollFull(container, page);
+                }
+            },
+            _isMobile() {
+                let container = this._getContainer();
+                return container.clientWidth < container.clientHeight;
+            },
+            _scrollMobile(container, page) {
+                container.scrollTop = page.offsetTop;
+            },
+            _scrollFull(container, page) {
+                let containerOffset = container.offsetLeft;
                 let pageOffset = page.offsetLeft;
 
                 this._tween(containerOffset, pageOffset, 200, container);
