@@ -118,11 +118,12 @@
     }
 
     .page {
-        height: calc(100vh - #{$footer-height});
+        min-height: calc(100vh - #{$footer-height});
         width: 100vw;
 
         @include for-size('phone-only') {
             background: none;
+            min-height: 100vh;
             padding: 65px 30px 30px;
         }
 
@@ -133,7 +134,7 @@
         }
 
         &.wide {
-            height: 100vh;
+            min-height: 100vh;
         }
 
         &__content {
